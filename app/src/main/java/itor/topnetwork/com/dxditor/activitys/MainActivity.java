@@ -32,6 +32,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
         gj = (TextView) findViewById(R.id.gj);
         zc = (TextView) findViewById(R.id.zc);
         lx = (TextView) findViewById(R.id.lx);
+
     }
 
     @Override
