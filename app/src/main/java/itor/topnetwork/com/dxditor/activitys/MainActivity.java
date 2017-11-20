@@ -13,7 +13,7 @@ import itor.topnetwork.com.dxditor.view.IMainpageView;
  * 物联网Android
  */
 public class MainActivity extends BaseActivity<MainpagePresenter> implements IMainpageView<List<SbxxBean>> {
-
+//这是来自Mac的提交
 
     private TextView gj, zc, lx;
 
