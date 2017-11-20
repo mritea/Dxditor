@@ -3,6 +3,7 @@ package itor.topnetwork.com.dxditor.presenter;
 import java.util.List;
 
 import itor.topnetwork.com.dxditor.activitys.MainActivity;
+import itor.topnetwork.com.dxditor.bean.GjxxBean;
 import itor.topnetwork.com.dxditor.bean.SbxxBean;
 import itor.topnetwork.com.dxditor.model.MainpageModel;
 import itor.topnetwork.com.dxditor.utils.ValueCallBack;
@@ -33,6 +34,17 @@ public class MainpagePresenter extends BasePresenter<MainActivity> implements IM
             @Override
             public void onSuccess(List<SbxxBean> sbxxBeans) {
                 iMainpageView.setBaseData(sbxxBeans);
+            }
+
+            @Override
+            public void onFail(String code) {
+
+            }
+        });
+        mainpageModel.getGjxxData(new ValueCallBack<List<GjxxBean>>() {
+            @Override
+            public void onSuccess(List<GjxxBean> gjxxBeans) {
+                iMainpageView.setGjxxData(gjxxBeans);
             }
 
             @Override
