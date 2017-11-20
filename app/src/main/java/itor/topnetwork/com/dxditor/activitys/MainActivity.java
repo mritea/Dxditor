@@ -9,6 +9,9 @@ import itor.topnetwork.com.dxditor.bean.SbxxBean;
 import itor.topnetwork.com.dxditor.presenter.MainpagePresenter;
 import itor.topnetwork.com.dxditor.view.IMainpageView;
 
+/**
+ * 物联网Android
+ */
 public class MainActivity extends BaseActivity<MainpagePresenter> implements IMainpageView<List<SbxxBean>> {
 
 
