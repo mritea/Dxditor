@@ -14,7 +14,6 @@ import itor.topnetwork.com.dxditor.view.IMainpageView;
  */
 public class MainActivity extends BaseActivity<MainpagePresenter> implements IMainpageView<List<SbxxBean>> {
 //这是来自Mac的提交
-
     private TextView gj, zc, lx;
 
     @Override
