@@ -44,60 +44,12 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
         gj = (TextView) findViewById(R.id.gj);
         zc = (TextView) findViewById(R.id.zc);
         lx = (TextView) findViewById(R.id.lx);
-//告警信息
+        //告警信息
         gjpiechart = (PieChart) findViewById(R.id.gjxx);
         initGjxxView();
     }
 
-    private void initGjxxView() {
 
-        gjpiechart.setUsePercentValues(true);
-        gjpiechart.getDescription().setEnabled(false);
-        gjpiechart.setExtraOffsets(5, 10, 5, 5);
-
-        gjpiechart.setDragDecelerationFrictionCoef(0.95f);
-
-        gjpiechart.setCenterText("告警信息");
-
-        gjpiechart.setDrawHoleEnabled(true);
-        gjpiechart.setHoleColor(Color.WHITE);
-
-        gjpiechart.setTransparentCircleColor(Color.WHITE);
-        gjpiechart.setTransparentCircleAlpha(110);
-
-        gjpiechart.setHoleRadius(58f);
-        gjpiechart.setTransparentCircleRadius(61f);
-
-        gjpiechart.setDrawCenterText(true);
-
-        gjpiechart.setRotationAngle(0);
-        // enable rotation of the chart by touch
-        gjpiechart.setRotationEnabled(true);
-        gjpiechart.setHighlightPerTapEnabled(true);
-
-        // gjpiechart.setUnit(" €");
-        // gjpiechart.setDrawUnitsInChart(true);
-
-        // add a selection listener点击事件
-        //gjpiechart.setOnChartValueSelectedListener(this);
-
-
-
-        gjpiechart.animateY(1400, Easing.EasingOption.EaseInOutQuad);
-
-        Legend l = gjpiechart.getLegend();
-        l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
-        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
-        l.setOrientation(Legend.LegendOrientation.VERTICAL);
-        l.setDrawInside(false);
-        l.setXEntrySpace(7f);
-        l.setYEntrySpace(0f);
-        l.setYOffset(0f);
-
-        // entry label styling
-        gjpiechart.setEntryLabelColor(Color.WHITE);
-        gjpiechart.setEntryLabelTextSize(12f);
-    }
 
     /**
      * 设置告警信息的数据
@@ -105,8 +57,6 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
      */
     @Override
     public void setGjxxData(List<GjxxBean> gjxxlist) {
-
-
         ArrayList<PieEntry> entries = new ArrayList<PieEntry>();
 
         // NOTE: The order of the entries when being added to the entries array determines their position around the center of
@@ -166,7 +116,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
     }
 
     /**
-     * 设置基础数据
+     * 设置顶部三个圆的基础数据
      */
     @Override
     public void setBaseData(List<SbxxBean> sbxxBeans) {
@@ -196,5 +146,54 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
     @Override
     public void onEmpty() {
 
+    }
+    private void initGjxxView() {
+
+        gjpiechart.setUsePercentValues(true);
+        gjpiechart.getDescription().setEnabled(false);
+        gjpiechart.setExtraOffsets(5, 10, 5, 5);
+
+        gjpiechart.setDragDecelerationFrictionCoef(0.95f);
+
+        gjpiechart.setCenterText("告警信息");
+
+        gjpiechart.setDrawHoleEnabled(true);
+        gjpiechart.setHoleColor(Color.WHITE);
+
+        gjpiechart.setTransparentCircleColor(Color.WHITE);
+        gjpiechart.setTransparentCircleAlpha(110);
+
+        gjpiechart.setHoleRadius(58f);
+        gjpiechart.setTransparentCircleRadius(61f);
+
+        gjpiechart.setDrawCenterText(true);
+
+        gjpiechart.setRotationAngle(0);
+        // enable rotation of the chart by touch
+        gjpiechart.setRotationEnabled(true);
+        gjpiechart.setHighlightPerTapEnabled(true);
+
+        // gjpiechart.setUnit(" €");
+        // gjpiechart.setDrawUnitsInChart(true);
+
+        // add a selection listener点击事件
+        //gjpiechart.setOnChartValueSelectedListener(this);
+
+
+
+        gjpiechart.animateY(1400, Easing.EasingOption.EaseInOutQuad);
+
+        Legend l = gjpiechart.getLegend();
+        l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
+        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
+        l.setOrientation(Legend.LegendOrientation.VERTICAL);
+        l.setDrawInside(false);
+        l.setXEntrySpace(7f);
+        l.setYEntrySpace(0f);
+        l.setYOffset(0f);
+
+        // entry label styling
+        gjpiechart.setEntryLabelColor(Color.WHITE);
+        gjpiechart.setEntryLabelTextSize(12f);
     }
 }
