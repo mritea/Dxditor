@@ -11,6 +11,10 @@ import itor.topnetwork.com.dxditor.utils.ValueCallBack;
  */
 
 public interface IMainpageModel {
+    //设备信息
     void getTestData(ValueCallBack<List<SbxxBean>> callBack);
+    //告警信息
     void getGjxxData(ValueCallBack<List<GjxxBean>> callBack);
+    //系统评分
+    void getXtpfData(ValueCallBack<List<GjxxBean>> callBack);
 }

@@ -26,10 +26,20 @@ public class MainpageModel implements IMainpageModel{
     @Override
     public void getGjxxData(ValueCallBack<List<GjxxBean>> callBack) {
         List<GjxxBean> list = new ArrayList<>();
-        list.add(new GjxxBean("张三",10));
-        list.add(new GjxxBean("李四",20));
-        list.add(new GjxxBean("王五",30));
-        list.add(new GjxxBean("赵六",40));
+        list.add(new GjxxBean("未处理",10));
+        list.add(new GjxxBean("已处理",20));
+        list.add(new GjxxBean("处理中",30));
+
+        callBack.onSuccess(list);
+    }
+
+    @Override
+    public void getXtpfData(ValueCallBack<List<GjxxBean>> callBack) {
+        List<GjxxBean> list = new ArrayList<>();
+        list.add(new GjxxBean("在线率占比",10));
+        list.add(new GjxxBean("告警率占比",20));
+        list.add(new GjxxBean("预警率占比",30));
+        list.add(new GjxxBean("突增率占比",40));
 
         callBack.onSuccess(list);
     }
