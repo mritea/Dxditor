@@ -34,7 +34,7 @@ import itor.topnetwork.com.dxditor.view.IMainpageView;
 /**
  * 物联网Android
  */
-public class MainActivity extends BaseActivity<MainpagePresenter> implements IMainpageView{
+public class MainActivity extends BaseActivity<MainpagePresenter> implements IMainpageView {
     private TextView gj, zc, lx;
     private PieChart gjpiechart;
 
@@ -57,18 +57,21 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
         gjpiechart = (PieChart) findViewById(R.id.gjxx);
         initGjxxView();
 
-final DrawerLayout main_drawerlayout=findViewById(R.id.main_drawerlayout);
+        final DrawerLayout main_drawerlayout = findViewById(R.id.main_drawerlayout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
         navigationView.setItemIconTintList(null);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.mainpage:
                         main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
+                    case R.id.mine:
+                       startActivity( new Intent(MainActivity.this,LoginPageActivity.class));
+                        main_drawerlayout.closeDrawer(GravityCompat.START);
+                        break;
                 }
-
 
 
                 return true;
@@ -87,9 +90,9 @@ final DrawerLayout main_drawerlayout=findViewById(R.id.main_drawerlayout);
     }
 
 
-
     /**
      * 设置告警信息的数据
+     *
      * @param gjxxlist
      */
     @Override
@@ -103,7 +106,7 @@ final DrawerLayout main_drawerlayout=findViewById(R.id.main_drawerlayout);
                     gjxxlist.get(i).getName()));
         }
 
-        PieDataSet dataSet = new PieDataSet(entries,"");
+        PieDataSet dataSet = new PieDataSet(entries, "");
 
         dataSet.setDrawIcons(false);
 
@@ -184,6 +187,7 @@ final DrawerLayout main_drawerlayout=findViewById(R.id.main_drawerlayout);
     public void onEmpty() {
 
     }
+
     private void initGjxxView() {
 
         gjpiechart.setUsePercentValues(true);
@@ -215,7 +219,6 @@ final DrawerLayout main_drawerlayout=findViewById(R.id.main_drawerlayout);
 
         // add a selection listener点击事件
         //gjpiechart.setOnChartValueSelectedListener(this);
-
 
 
         gjpiechart.animateY(1400, Easing.EasingOption.EaseInOutQuad);
