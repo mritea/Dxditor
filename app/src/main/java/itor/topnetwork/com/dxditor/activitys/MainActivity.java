@@ -1,6 +1,15 @@
 package itor.topnetwork.com.dxditor.activitys;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.animation.Easing;
@@ -47,6 +56,34 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
         //告警信息
         gjpiechart = (PieChart) findViewById(R.id.gjxx);
         initGjxxView();
+
+final DrawerLayout main_drawerlayout=findViewById(R.id.main_drawerlayout);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        navigationView.setItemIconTintList(null);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.mainpage:
+                        main_drawerlayout.closeDrawer(GravityCompat.START);
+                        break;
+                }
+
+
+
+                return true;
+            }
+        });
+
+        View drawerView = navigationView.getHeaderView(0);
+        ImageView iv_header = (ImageView) drawerView.findViewById(R.id.iv_header);
+        iv_header.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "点击头像", Snackbar.LENGTH_LONG).show();
+            }
+        });
+
     }
 
 
