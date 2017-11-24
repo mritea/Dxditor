@@ -1,8 +1,10 @@
 package itor.topnetwork.com.dxditor.presenter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import itor.topnetwork.com.dxditor.activitys.MainActivity;
+import itor.topnetwork.com.dxditor.bean.Gjlb;
 import itor.topnetwork.com.dxditor.bean.GjxxBean;
 import itor.topnetwork.com.dxditor.bean.SbxxBean;
 import itor.topnetwork.com.dxditor.model.MainpageModel;
@@ -21,6 +23,9 @@ public class MainpagePresenter extends BasePresenter<MainActivity> implements IM
         this.iMainpageView = iMainpageView;
         this.mainpageModel = new MainpageModel();
 
+    } @Override
+    public ArrayList<Gjlb> getGjadapterData() {
+        return mainpageModel.getgjlblist();
     }
 
     @Override
@@ -55,6 +60,17 @@ public class MainpagePresenter extends BasePresenter<MainActivity> implements IM
         mainpageModel.getXtpfData(new ValueCallBack<List<GjxxBean>>() {
             @Override
             public void onSuccess(List<GjxxBean> gjxxBeans) {
+            }
+
+            @Override
+            public void onFail(String code) {
+
+            }
+        });
+        mainpageModel.getgjlbData(new ValueCallBack<ArrayList<Gjlb>>() {
+            @Override
+            public void onSuccess(ArrayList<Gjlb> gjxxBeans) {
+                iMainpageView.getgjAdapter().updateData(gjxxBeans);
             }
 
             @Override

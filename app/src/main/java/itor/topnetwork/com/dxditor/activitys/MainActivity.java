@@ -7,6 +7,8 @@ import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -26,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import itor.topnetwork.com.dxditor.R;
+import itor.topnetwork.com.dxditor.adapter.GjAdapter;
 import itor.topnetwork.com.dxditor.bean.GjxxBean;
 import itor.topnetwork.com.dxditor.bean.SbxxBean;
 import itor.topnetwork.com.dxditor.presenter.MainpagePresenter;
@@ -37,6 +40,11 @@ import itor.topnetwork.com.dxditor.view.IMainpageView;
 public class MainActivity extends BaseActivity<MainpagePresenter> implements IMainpageView {
     private TextView gj, zc, lx;
     private PieChart gjpiechart;
+    private NavigationView navigationView;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private DrawerLayout main_drawerlayout;
+    private GjAdapter gjAdapter;
 
     @Override
     MainpagePresenter initPresent() {
@@ -57,8 +65,16 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
         gjpiechart = (PieChart) findViewById(R.id.gjxx);
         initGjxxView();
 
-        final DrawerLayout main_drawerlayout = findViewById(R.id.main_drawerlayout);
-        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        main_drawerlayout = findViewById(R.id.main_drawerlayout);
+        navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        initnavigation();
+
+        mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+
+
+    }
+
+    private void initnavigation() {
         navigationView.setItemIconTintList(null);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -68,7 +84,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
                         main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.mine:
-                       startActivity( new Intent(MainActivity.this,LoginPageActivity.class));
+                        startActivity(new Intent(MainActivity.this, LoginPageActivity.class));
                         main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
                 }
@@ -86,7 +102,6 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
                 Snackbar.make(v, "点击头像", Snackbar.LENGTH_LONG).show();
             }
         });
-
     }
 
 
@@ -152,7 +167,19 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
 
     @Override
     void onPrepare() {
+        mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+
+        // 设置布局管理器
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        gjAdapter = new GjAdapter(this, basepresenter.getGjadapterData());
+        mRecyclerView.setAdapter(gjAdapter);
+
         basepresenter.initData();
+    }
+
+    @Override
+    public GjAdapter getgjAdapter() {
+        return gjAdapter;
     }
 
     /**

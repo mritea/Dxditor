@@ -1,7 +1,9 @@
 package itor.topnetwork.com.dxditor.presenter;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import itor.topnetwork.com.dxditor.bean.Gjlb;
 import itor.topnetwork.com.dxditor.bean.SbxxBean;
 
 /**
@@ -10,4 +12,5 @@ import itor.topnetwork.com.dxditor.bean.SbxxBean;
 
 public interface IMainpagePresenter {
         List<SbxxBean> getData();
+        ArrayList<Gjlb> getGjadapterData();
 }

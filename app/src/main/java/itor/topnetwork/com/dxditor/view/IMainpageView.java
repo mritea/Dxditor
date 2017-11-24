@@ -2,6 +2,7 @@ package itor.topnetwork.com.dxditor.view;
 
 import java.util.List;
 
+import itor.topnetwork.com.dxditor.adapter.GjAdapter;
 import itor.topnetwork.com.dxditor.bean.GjxxBean;
 import itor.topnetwork.com.dxditor.bean.SbxxBean;
 
@@ -29,4 +30,8 @@ public interface IMainpageView {
     void setGjxxData(List<GjxxBean> t);
 
     void onEmpty();
+    /**
+     * 获取告警列表adapter
+     */
+    GjAdapter getgjAdapter();
 }
