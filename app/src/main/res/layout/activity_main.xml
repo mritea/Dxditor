@@ -12,22 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#091885"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:text="中国铁路物联网智慧平台"
-            android:textColor="@android:color/white"
-            android:textSize="15sp" />
-    </LinearLayout>
+    <include
+        layout="@layout/main_title"
+        />
     <LinearLayout
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
@@ -144,7 +131,65 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         />
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
+            <TextView
+                android:id="@+id/xl_tv"
+                android:text="线路"
+                android:textColor="@color/mainpage_itemname"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8" />
+
+            <TextView
+                android:id="@+id/glb_tv"
+                android:layout_width="0dp"
+                android:text="公里标"
+                android:textColor="@color/mainpage_itemname"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.8" />
+
+            <TextView
+                android:id="@+id/yw_tv"
+                android:layout_width="0dp"
+                android:text="设备"
+                android:textColor="@color/mainpage_itemname"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8" />
+
+            <TextView
+                android:id="@+id/sb_tv"
+                android:layout_width="0dp"
+                android:text="设备编号"
+                android:textColor="@color/mainpage_itemname"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_weight="3.5" />
+
+            <TextView
+                android:id="@+id/dqz_tv"
+                android:text="温度(℃)"
+                android:textColor="@color/mainpage_itemname"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/sj_tv"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:text="告警时间"
+                android:textColor="@color/mainpage_itemname"
+                android:layout_height="wrap_content"
+                android:layout_weight="2" />
+        </LinearLayout>
         <android.support.v7.widget.RecyclerView
             android:id="@+id/my_recycler_view"
             android:scrollbars="vertical"
