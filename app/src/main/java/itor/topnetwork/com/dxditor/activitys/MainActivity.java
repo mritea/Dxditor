@@ -87,6 +87,10 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
                         startActivity(new Intent(MainActivity.this, LoginPageActivity.class));
                         main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
+                    case R.id.gdmap:
+                        startActivity(new Intent(MainActivity.this, MapPageActivity.class));
+                        main_drawerlayout.closeDrawer(GravityCompat.START);
+                        break;
                 }
 
 
