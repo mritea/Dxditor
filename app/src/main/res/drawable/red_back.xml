@@ -2,10 +2,13 @@
     android:shape="rectangle">
 
     <!-- 实心 -->
-    <solid android:color="#FF2C00" />
+    <solid android:color="#FF6A00" />
     <!-- 圆角 -->
-    <corners android:radius="360dp" />
+    <corners android:radius="460dp" />
     <!-- 边距 -->
+    <stroke
+        android:width="10dp"
+        android:color="#F34F00" />
     <padding
         android:bottom="1dp"
         android:left="1dp"
@@ -13,6 +16,6 @@
         android:top="1dp" />
 
     <!-- 大小 -->
-    <size android:width="75dp"
-        android:height="75dp" />
+    <size android:width="95dp"
+        android:height="95dp" />
 </shape>

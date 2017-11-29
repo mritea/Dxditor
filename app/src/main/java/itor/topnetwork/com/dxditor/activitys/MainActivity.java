@@ -1,8 +1,13 @@
 package itor.topnetwork.com.dxditor.activitys;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.graphics.Color;
+import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
+import android.support.design.internal.NavigationMenuPresenter;
+import android.support.design.internal.NavigationMenuView;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
@@ -11,7 +16,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.animation.Easing;
@@ -24,6 +30,7 @@ import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.utils.MPPointF;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,6 +74,12 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
 
         main_drawerlayout = findViewById(R.id.main_drawerlayout);
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        setNavigationMenuLineStyle(navigationView,Color.parseColor("#5D6891"),2);
+        Resources resource=(Resources)getBaseContext().getResources();
+        ColorStateList csl=(ColorStateList)resource.getColorStateList(R.color.navigation_menu_item_color);
+        navigationView.setItemTextColor(csl);
+//**设置MenuItem默认选中项**//*
+       // navigationView.getMenu().getItem(0).setChecked(false);
         initnavigation();
 
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
@@ -79,16 +92,18 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                System.out.println(item.getItemId());
                 switch (item.getItemId()) {
                     case R.id.mainpage:
                         main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
-                    case R.id.mine:
-                        startActivity(new Intent(MainActivity.this, LoginPageActivity.class));
-                        main_drawerlayout.closeDrawer(GravityCompat.START);
-                        break;
+
                     case R.id.gdmap:
                         startActivity(new Intent(MainActivity.this, MapPageActivity.class));
+                        main_drawerlayout.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.mine:
+                        startActivity(new Intent(MainActivity.this, LoginPageActivity.class));
                         main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
                 }
@@ -99,11 +114,11 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
         });
 
         View drawerView = navigationView.getHeaderView(0);
-        ImageView iv_header = (ImageView) drawerView.findViewById(R.id.iv_header);
-        iv_header.setOnClickListener(new View.OnClickListener() {
+        LinearLayout help_ll = (LinearLayout) drawerView.findViewById(R.id.help_ll);
+        help_ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "点击头像", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(v, "帮助", Snackbar.LENGTH_LONG).show();
             }
         });
     }
@@ -266,5 +281,44 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
         // entry label styling
         gjpiechart.setEntryLabelColor(Color.WHITE);
         gjpiechart.setEntryLabelTextSize(12f);
+    }
+
+    /**
+     * 给 NavigationView 的Menu的分割线 设置高度和颜色
+     * @param navigationView
+     * @param color
+     * @param height
+     */
+    public static void setNavigationMenuLineStyle(NavigationView navigationView, @ColorInt final int color, final int height) {
+        try {
+            Field fieldByPressenter = navigationView.getClass().getDeclaredField("mPresenter");
+            fieldByPressenter.setAccessible(true);
+            NavigationMenuPresenter menuPresenter = (NavigationMenuPresenter) fieldByPressenter.get(navigationView);
+            Field fieldByMenuView = menuPresenter.getClass().getDeclaredField("mMenuView");
+            fieldByMenuView.setAccessible(true);
+            final NavigationMenuView mMenuView = (NavigationMenuView) fieldByMenuView.get(menuPresenter);
+            mMenuView.addOnChildAttachStateChangeListener(new RecyclerView.OnChildAttachStateChangeListener() {
+                @Override
+                public void onChildViewAttachedToWindow(View view) {
+                    RecyclerView.ViewHolder viewHolder = mMenuView.getChildViewHolder(view);
+                    if (viewHolder != null && "SeparatorViewHolder".equals(viewHolder.getClass().getSimpleName()) && viewHolder.itemView != null) {
+                        if (viewHolder.itemView instanceof FrameLayout) {
+                            FrameLayout frameLayout = (FrameLayout) viewHolder.itemView;
+                            View line = frameLayout.getChildAt(0);
+                            line.setBackgroundColor(color);
+                            line.getLayoutParams().height = height;
+                            line.setLayoutParams(line.getLayoutParams());
+                        }
+                    }
+                }
+
+                @Override
+                public void onChildViewDetachedFromWindow(View view) {
+
+                }
+            });
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
     }
 }

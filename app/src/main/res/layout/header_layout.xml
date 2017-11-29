@@ -3,24 +3,87 @@
     android:layout_width="match_parent"
     android:layout_height="150dp"
     android:gravity="center"
-    android:orientation="vertical">
-
+    android:orientation="horizontal">
+<LinearLayout
+    android:id="@+id/help_ll"
+    android:layout_width="0dp"
+    android:gravity="center"
+    android:layout_weight="1"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
     <ImageView
-        android:id="@+id/iv_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/iv_help"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:scaleType="centerCrop"
         android:layout_gravity="center"
-        android:src="@mipmap/ic_launcher"/>
+        android:src="@drawable/help"/>
     <TextView
-        android:id="@+id/qianming"
+        android:id="@+id/help"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
-        android:textSize="16sp"
-        android:text="铁路物联网"
+        android:textSize="15sp"
+        android:textColor="@android:color/white"
+        android:text="帮助"
         />
+</LinearLayout>
+<LinearLayout
+    android:id="@+id/share_ll"
+    android:layout_width="0dp"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/iv_share"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center"
+        android:src="@drawable/enjoy"/>
+    <TextView
+        android:id="@+id/share"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:textSize="15sp"
+        android:textColor="@android:color/white"
+        android:text="分享"
+        />
+</LinearLayout>
+<LinearLayout
+    android:id="@+id/regist_ll"
+    android:layout_width="0dp"
+    android:gravity="center"
+    android:layout_weight="1"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/iv_registe"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center"
+        android:src="@drawable/login"/>
+    <TextView
+        android:id="@+id/regist"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:textSize="15sp"
+        android:textColor="@android:color/white"
+        android:text="注册"
+        />
+</LinearLayout>
+
 </LinearLayout>

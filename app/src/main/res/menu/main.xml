@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/one"
+        android:checkableBehavior="single">
     <item
         android:id="@+id/mainpage"
-        android:icon="@mipmap/ic_launcher"
-        android:title="主页"/>
+        android:icon="@drawable/home_1"
+        android:title="主页"/></group>
+    <group
+        android:id="@+id/two"
+        android:checkableBehavior="single">
     <item
         android:id="@+id/wallet"
-        android:icon="@mipmap/ic_launcher"
-        android:title="功能"/>
+        android:icon="@drawable/zhgz_1"
+        android:title="综合感知"/></group>
+    <group
+        android:id="@+id/three"
+        android:checkableBehavior="single">
     <item
         android:id="@+id/gdmap"
-        android:icon="@mipmap/ic_launcher"
-        android:title="高德地图"/>
+        android:icon="@drawable/tsfx_1"
+        android:title="态势分析"/></group>
+    <group
+        android:id="@+id/foue"
+        android:checkableBehavior="single">
     <item
         android:id="@+id/mine"
-        android:icon="@mipmap/ic_launcher"
-        android:title="我的信息"/>
+        android:icon="@drawable/me_1"
+        android:title="我的"/></group>
 </menu>
