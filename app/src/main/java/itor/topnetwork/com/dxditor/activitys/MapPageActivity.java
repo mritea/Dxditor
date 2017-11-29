@@ -53,7 +53,7 @@ public class MapPageActivity extends BaseActivity implements AMap.OnMarkerClickL
         if (aMap == null) {
             aMap = mapView.getMap();
         }
-        /*setMapCustomStyleFile(this);
+       /* setMapCustomStyleFile(this);
         //该方法在AMap类中提供
         aMap.setMapCustomEnable(true);//true 开启; false 关闭*/
 
@@ -159,7 +159,6 @@ public class MapPageActivity extends BaseActivity implements AMap.OnMarkerClickL
             // CoordType.GPS 待转换坐标类型
             converter.from(CoordType.GPS);
             // sourceLatLng待转换坐标点
-            System.out.println("lat:"+lat+";lon:"+lon);
             converter.coord(new LatLng(lat, lon));
             // 执行转换操作
             LatLng desLatLng = converter.convert();
@@ -223,14 +222,11 @@ public class MapPageActivity extends BaseActivity implements AMap.OnMarkerClickL
 
     @Override
     int getLayout() {
-        System.out.println("子类getLayout");
         return R.layout.mapview_activity;
-
     }
 
     @Override
     void initView() {
-        System.out.println("子类initView");
         mapView = (MapView) findViewById(R.id.map);
 
     }
