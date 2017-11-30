@@ -1,12 +1,10 @@
 package itor.topnetwork.com.dxditor.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -19,11 +17,13 @@ import itor.topnetwork.com.dxditor.bean.Gjlb;
  * Created by D.Han on 2017/11/24.
  */
 
-public class GjAdapter extends RecyclerView.Adapter<GjAdapter.ViewHolder>{
+public class GjAdapter extends RecyclerView.Adapter<GjAdapter.ViewHolder> {
     private ArrayList<Gjlb> mData;
+    Context context;
 
-    public GjAdapter(Context context,ArrayList<Gjlb> data) {
+    public GjAdapter(Context context, ArrayList<Gjlb> data) {
         this.mData = data;
+        this.context = context;
     }
 
     public void updateData(ArrayList<Gjlb> data) {
@@ -41,7 +41,7 @@ public class GjAdapter extends RecyclerView.Adapter<GjAdapter.ViewHolder>{
         return viewHolder;
     }
 
-    
+
     @Override
     public void onBindViewHolder(GjAdapter.ViewHolder holder, int position) {
         // 绑定数据
@@ -51,18 +51,24 @@ public class GjAdapter extends RecyclerView.Adapter<GjAdapter.ViewHolder>{
         holder.sb_tv.setText(mData.get(position).getSb());
         holder.dqz_tv.setText(mData.get(position).getDqz());
         holder.sj_tv.setText(mData.get(position).getSj());
-        if(Integer.parseInt(mData.get(position).getDqz())>30){
-            holder.wd_rl.setBackground(Color.);
-        }else if (Integer.parseInt(mData.get(position).getDqz())>30){
-
-        }else if (Integer.parseInt(mData.get(position).getDqz())>30){}
+        float t = Float.parseFloat(mData.get(position).getDqz());
+        if (t <= 30) {
+            holder.wd_rl.setBackgroundColor(context.getResources().getColor(R.color.tem_ll));
+        } else if (t > 30 && t <= 35) {
+            holder.wd_rl.setBackgroundColor(context.getResources().getColor(R.color.tem_l));
+        } else if (t > 35 && t <= 40) {
+            holder.wd_rl.setBackgroundColor(context.getResources().getColor(R.color.tem_m));
+        } else if (t > 40) {
+            holder.wd_rl.setBackgroundColor(context.getResources().getColor(R.color.tem_h));
+        }
     }
 
-   
+
     @Override
     public int getItemCount() {
         return mData == null ? 0 : mData.size();
     }
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView xl_tv;
@@ -75,13 +81,13 @@ public class GjAdapter extends RecyclerView.Adapter<GjAdapter.ViewHolder>{
 
         public ViewHolder(View itemView) {
             super(itemView);
-            xl_tv= (TextView) itemView.findViewById(R.id.xl_value);
-            glb_tv= (TextView) itemView.findViewById(R.id.glb_value);
-           yw_tv= (TextView) itemView.findViewById(R.id.sb_value);
-            sb_tv= (TextView) itemView.findViewById(R.id.sbbh_value);
-            dqz_tv= (TextView) itemView.findViewById(R.id.wd_value_tv);
-            sj_tv= (TextView) itemView.findViewById(R.id.sj_value);
-            wd_rl= (RelativeLayout) itemView.findViewById(R.id.wd_rl);
+            xl_tv = (TextView) itemView.findViewById(R.id.xl_value);
+            glb_tv = (TextView) itemView.findViewById(R.id.glb_value);
+            yw_tv = (TextView) itemView.findViewById(R.id.sb_value);
+            sb_tv = (TextView) itemView.findViewById(R.id.sbbh_value);
+            dqz_tv = (TextView) itemView.findViewById(R.id.wd_value_tv);
+            sj_tv = (TextView) itemView.findViewById(R.id.sj_value);
+            wd_rl = (RelativeLayout) itemView.findViewById(R.id.wd_rl);
         }
     }
 

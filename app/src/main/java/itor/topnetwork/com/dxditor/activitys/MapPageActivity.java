@@ -11,12 +11,15 @@ import android.view.animation.Interpolator;
 import android.widget.Toast;
 
 import com.amap.api.maps.AMap;
+import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.CoordinateConverter;
 import com.amap.api.maps.CoordinateConverter.CoordType;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.Projection;
+import com.amap.api.maps.UiSettings;
 import com.amap.api.maps.model.BitmapDescriptorFactory;
 import com.amap.api.maps.model.LatLng;
+import com.amap.api.maps.model.LatLngBounds;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
 import com.google.gson.Gson;
@@ -53,6 +56,9 @@ public class MapPageActivity extends BaseActivity implements AMap.OnMarkerClickL
         if (aMap == null) {
             aMap = mapView.getMap();
         }
+        aMap.moveCamera(CameraUpdateFactory.newLatLngBoundsRect(new LatLngBounds(new LatLng(34,120),new LatLng(31,118)),0,0,0,0));
+        UiSettings aMapsetter  =aMap.getUiSettings();
+        aMapsetter.setCompassEnabled(true);
        /* setMapCustomStyleFile(this);
         //该方法在AMap类中提供
         aMap.setMapCustomEnable(true);//true 开启; false 关闭*/
@@ -242,6 +248,10 @@ public class MapPageActivity extends BaseActivity implements AMap.OnMarkerClickL
     @Override
     protected void onResume() {
         super.onResume();
+        LatLng llC = new LatLng(35, 115);
+        LatLng llD = new LatLng(30, 120);
+        LatLngBounds bounds = new LatLngBounds.Builder().include(llC).include(llD).build();
+        aMap.moveCamera(CameraUpdateFactory.newLatLngBoundsRect(bounds,10,10,10,10));
         mapView.onResume();
     }
 

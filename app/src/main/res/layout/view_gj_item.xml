@@ -8,20 +8,23 @@
 
     <RelativeLayout
         android:id="@+id/wd_rl"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="fill_parent"
         android:background="#D24002"
-        android:gravity="center"
-        android:padding="10dp">
+
+        >
 
         <ImageView
             android:id="@+id/wdj_iv"
             android:layout_width="20dp"
             android:layout_height="40dp"
+            android:layout_marginLeft="6dp"
+            android:layout_centerVertical="true"
             android:background="@drawable/wdj" />
 
         <TextView
             android:id="@+id/wd_tv"
+            android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -32,11 +35,11 @@
 
         <TextView
             android:id="@+id/wd_value_tv"
+            android:layout_marginRight="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_below="@id/wd_tv"
-            android:layout_marginRight="2dp"
             android:text="20.7"
             android:textColor="@android:color/white"
             android:textSize="15sp"
@@ -45,9 +48,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
             android:layout_alignParentRight="true"
             android:layout_below="@id/wd_value_tv"
-            android:layout_marginRight="2dp"
             android:text="℃"
             android:textColor="@android:color/white"
             android:textSize="15sp" />
@@ -136,10 +139,20 @@
             android:textColor="@color/main_item_value"
             android:layout_height="wrap_content" />
         <TextView
+            android:id="@+id/rq_name"
+            android:layout_width="wrap_content"
+            android:text="时间:"
+            android:layout_below="@id/sbbh_value"
+            android:layout_marginTop="@dimen/main_item_margin_top"
+            android:textSize="@dimen/main_item_textsize"
+            android:textColor="@color/main_item_text"
+            android:layout_height="wrap_content" />
+        <TextView
             android:id="@+id/sj_value"
             android:layout_width="wrap_content"
             android:text="2017-12-12 20:22:22"
             android:layout_below="@id/sbbh_value"
+            android:layout_toRightOf="@id/rq_name"
             android:layout_marginTop="@dimen/main_item_margin_top"
             android:textSize="@dimen/main_item_textsize"
             android:textColor="@color/main_item_value"

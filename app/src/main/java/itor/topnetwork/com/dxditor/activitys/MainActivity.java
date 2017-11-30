@@ -171,11 +171,15 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
         //26个颜色
         dataSet.setColors(colors);
         //dataSet.setSelectionShift(0f);
-
+        dataSet.setValueLinePart1OffsetPercentage(80.f);
+        dataSet.setValueLinePart1Length(0.2f);
+        dataSet.setValueLinePart2Length(0.4f);
+        //dataSet.setXValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
+        dataSet.setYValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
         PieData data = new PieData(dataSet);
         data.setValueFormatter(new PercentFormatter());
         data.setValueTextSize(11f);
-        data.setValueTextColor(Color.WHITE);
+        data.setValueTextColor(Color.BLACK);
         gjpiechart.setData(data);
 
         // undo all highlights
@@ -243,7 +247,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
         gjpiechart.setDragDecelerationFrictionCoef(0.95f);
 
         gjpiechart.setCenterText("告警信息");
-
+        gjpiechart.setExtraOffsets(20.f, 0.f, 20.f, 0.f);
         gjpiechart.setDrawHoleEnabled(true);
         gjpiechart.setHoleColor(Color.WHITE);
 
@@ -279,7 +283,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
         l.setYOffset(0f);
 
         // entry label styling
-        gjpiechart.setEntryLabelColor(Color.WHITE);
+        gjpiechart.setEntryLabelColor(Color.BLUE);
         gjpiechart.setEntryLabelTextSize(12f);
     }
 
