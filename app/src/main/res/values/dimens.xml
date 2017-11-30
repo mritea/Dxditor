@@ -2,6 +2,6 @@
 <resources>
 
     <dimen name="main_item_textsize">14sp</dimen>
-    <dimen name="main_item_margin_top">8dp</dimen>
+    <dimen name="main_item_margin_top">4dp</dimen>
 
 </resources>

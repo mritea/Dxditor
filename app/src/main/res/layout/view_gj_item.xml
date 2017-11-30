@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:layout_margin="1dp"
     android:layout_height="wrap_content"
+    android:background="@android:color/white"
     android:orientation="horizontal">
 
     <RelativeLayout
@@ -15,7 +17,7 @@
         <ImageView
             android:id="@+id/wdj_iv"
             android:layout_width="20dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:background="@drawable/wdj" />
 
         <TextView
@@ -137,10 +139,8 @@
             android:id="@+id/sj_value"
             android:layout_width="wrap_content"
             android:text="2017-12-12 20:22:22"
-            android:layout_below="@id/xl_name"
+            android:layout_below="@id/sbbh_value"
             android:layout_marginTop="@dimen/main_item_margin_top"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/sbbh_value"
             android:textSize="@dimen/main_item_textsize"
             android:textColor="@color/main_item_value"
             android:layout_height="wrap_content" />

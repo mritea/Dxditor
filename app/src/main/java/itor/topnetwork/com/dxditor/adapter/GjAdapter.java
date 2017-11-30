@@ -1,10 +1,13 @@
 package itor.topnetwork.com.dxditor.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -48,6 +51,11 @@ public class GjAdapter extends RecyclerView.Adapter<GjAdapter.ViewHolder>{
         holder.sb_tv.setText(mData.get(position).getSb());
         holder.dqz_tv.setText(mData.get(position).getDqz());
         holder.sj_tv.setText(mData.get(position).getSj());
+        if(Integer.parseInt(mData.get(position).getDqz())>30){
+            holder.wd_rl.setBackground(Color.);
+        }else if (Integer.parseInt(mData.get(position).getDqz())>30){
+
+        }else if (Integer.parseInt(mData.get(position).getDqz())>30){}
     }
 
    
@@ -63,15 +71,17 @@ public class GjAdapter extends RecyclerView.Adapter<GjAdapter.ViewHolder>{
         TextView sb_tv;
         TextView dqz_tv;
         TextView sj_tv;
+        RelativeLayout wd_rl;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            xl_tv= (TextView) itemView.findViewById(R.id.xl_tv);
-            glb_tv= (TextView) itemView.findViewById(R.id.glb_tv);
-            yw_tv= (TextView) itemView.findViewById(R.id.yw_tv);
-            sb_tv= (TextView) itemView.findViewById(R.id.sb_tv);
-            dqz_tv= (TextView) itemView.findViewById(R.id.dqz_tv);
-            sj_tv= (TextView) itemView.findViewById(R.id.sj_tv);
+            xl_tv= (TextView) itemView.findViewById(R.id.xl_value);
+            glb_tv= (TextView) itemView.findViewById(R.id.glb_value);
+           yw_tv= (TextView) itemView.findViewById(R.id.sb_value);
+            sb_tv= (TextView) itemView.findViewById(R.id.sbbh_value);
+            dqz_tv= (TextView) itemView.findViewById(R.id.wd_value_tv);
+            sj_tv= (TextView) itemView.findViewById(R.id.sj_value);
+            wd_rl= (RelativeLayout) itemView.findViewById(R.id.wd_rl);
         }
     }
 
