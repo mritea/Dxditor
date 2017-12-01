@@ -16,7 +16,6 @@ import com.amap.api.maps.CoordinateConverter;
 import com.amap.api.maps.CoordinateConverter.CoordType;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.Projection;
-import com.amap.api.maps.UiSettings;
 import com.amap.api.maps.model.BitmapDescriptorFactory;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.LatLngBounds;
@@ -56,9 +55,9 @@ public class MapPageActivity extends BaseActivity implements AMap.OnMarkerClickL
         if (aMap == null) {
             aMap = mapView.getMap();
         }
-        aMap.moveCamera(CameraUpdateFactory.newLatLngBoundsRect(new LatLngBounds(new LatLng(34,120),new LatLng(31,118)),0,0,0,0));
+        /*aMap.moveCamera(CameraUpdateFactory.newLatLngBoundsRect(new LatLngBounds(new LatLng(34,120),new LatLng(31,118)),0,0,0,0));
         UiSettings aMapsetter  =aMap.getUiSettings();
-        aMapsetter.setCompassEnabled(true);
+        aMapsetter.setCompassEnabled(true);*/
        /* setMapCustomStyleFile(this);
         //该方法在AMap类中提供
         aMap.setMapCustomEnable(true);//true 开启; false 关闭*/

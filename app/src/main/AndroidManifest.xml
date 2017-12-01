@@ -33,6 +33,7 @@
         </activity>
         <activity android:name=".activitys.LoginPageActivity"/>
         <activity android:name=".activitys.MapPageActivity"/>
+        <activity android:name=".activitys.ComprehensiveperceptionAvtivity"/>
     </application>
 
 </manifest>

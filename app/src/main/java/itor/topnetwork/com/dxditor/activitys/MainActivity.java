@@ -74,12 +74,12 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
 
         main_drawerlayout = findViewById(R.id.main_drawerlayout);
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
-        setNavigationMenuLineStyle(navigationView,Color.parseColor("#5D6891"),2);
-        Resources resource=(Resources)getBaseContext().getResources();
-        ColorStateList csl=(ColorStateList)resource.getColorStateList(R.color.navigation_menu_item_color);
+        setNavigationMenuLineStyle(navigationView, Color.parseColor("#5D6891"), 2);
+        Resources resource = (Resources) getBaseContext().getResources();
+        ColorStateList csl = (ColorStateList) resource.getColorStateList(R.color.navigation_menu_item_color);
         navigationView.setItemTextColor(csl);
 //**设置MenuItem默认选中项**//*
-       // navigationView.getMenu().getItem(0).setChecked(false);
+        // navigationView.getMenu().getItem(0).setChecked(false);
         initnavigation();
 
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
@@ -97,7 +97,6 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
                     case R.id.mainpage:
                         main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
-
                     case R.id.gdmap:
                         startActivity(new Intent(MainActivity.this, MapPageActivity.class));
                         main_drawerlayout.closeDrawer(GravityCompat.START);
@@ -289,6 +288,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
 
     /**
      * 给 NavigationView 的Menu的分割线 设置高度和颜色
+     *
      * @param navigationView
      * @param color
      * @param height
