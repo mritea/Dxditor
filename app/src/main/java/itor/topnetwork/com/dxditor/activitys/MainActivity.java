@@ -97,8 +97,12 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
                     case R.id.mainpage:
                         main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
-                    case R.id.gdmap:
-                        startActivity(new Intent(MainActivity.this, MapPageActivity.class));
+                    case R.id.xjmanager://线夹管理
+                        startActivity(new Intent(MainActivity.this, XJManageActivity.class));
+                        main_drawerlayout.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.ztmanager://坠坨管理
+                        startActivity(new Intent(MainActivity.this, ZTManagerActivity.class));
                         main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.mine:

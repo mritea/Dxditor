@@ -11,16 +11,16 @@
         android:id="@+id/two"
         android:checkableBehavior="single">
     <item
-        android:id="@+id/wallet"
+        android:id="@+id/xjmanager"
         android:icon="@drawable/zhgz_1"
-        android:title="综合感知"/></group>
+        android:title="线夹管理"/></group>
     <group
         android:id="@+id/three"
         android:checkableBehavior="single">
     <item
-        android:id="@+id/gdmap"
+        android:id="@+id/ztmanager"
         android:icon="@drawable/tsfx_1"
-        android:title="态势分析"/></group>
+        android:title="坠坨管理"/></group>
     <group
         android:id="@+id/foue"
         android:checkableBehavior="single">

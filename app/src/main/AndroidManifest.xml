@@ -20,7 +20,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        android:theme="@style/StyledIndicators">
         <meta-data android:name="com.amap.api.v2.apikey" android:value="b3af8b127fdf51d5c528f20cc4435524">
             //开发者申请的key
         </meta-data>
@@ -34,6 +34,8 @@
         <activity android:name=".activitys.LoginPageActivity"/>
         <activity android:name=".activitys.MapPageActivity"/>
         <activity android:name=".activitys.ComprehensiveperceptionAvtivity"/>
+        <activity android:name=".activitys.XJManageActivity"/>
+        <activity android:name=".activitys.ZTManagerActivity"/>
     </application>
 
 </manifest>
