@@ -3,8 +3,10 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent">
+    <include layout="@layout/main_title" />
     <com.viewpagerindicator.TabPageIndicator
         android:id="@+id/indicator"
+        android:background="@android:color/darker_gray"
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
         />
