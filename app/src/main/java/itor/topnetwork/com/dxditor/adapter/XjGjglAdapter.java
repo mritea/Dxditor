@@ -14,15 +14,15 @@ import itor.topnetwork.com.dxditor.R;
 import itor.topnetwork.com.dxditor.bean.Gjlb;
 
 /**
- * 首页告警列表
- * Created by D.Han on 2017/11/24.
+ * 线夹告警管理adapter
+ * Created by D.Han on 2017/12/6.
  */
 
-public class GjAdapter extends RecyclerView.Adapter<GjAdapter.ViewHolder> {
+public class XjGjglAdapter extends RecyclerView.Adapter<XjGjglAdapter.ViewHolder>{
     private ArrayList<Gjlb> mData;
     Context context;
 
-    public GjAdapter(Context context, ArrayList<Gjlb> data) {
+    public XjGjglAdapter(Context context, ArrayList<Gjlb> data) {
         this.mData = data;
         this.context = context;
     }
@@ -31,21 +31,19 @@ public class GjAdapter extends RecyclerView.Adapter<GjAdapter.ViewHolder> {
         mData.addAll(data);
         notifyDataSetChanged();
     }
-
-
     @Override
-    public GjAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public XjGjglAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // 实例化展示的view
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_gj_item, parent, false);
         // 实例化viewholder
-        ViewHolder viewHolder = new ViewHolder(v);
+        XjGjglAdapter.ViewHolder viewHolder = new XjGjglAdapter.ViewHolder(v);
         return viewHolder;
     }
 
 
     @Override
-    public void onBindViewHolder(GjAdapter.ViewHolder holder, int position) {
-        // 绑定数据
+    public void onBindViewHolder(XjGjglAdapter.ViewHolder holder, int position) {
+// 绑定数据
         holder.xl_tv.setText(mData.get(position).getXl());
         holder.glb_tv.setText(mData.get(position).getGlb());
         holder.yw_tv.setText(mData.get(position).getYw());
@@ -91,6 +89,4 @@ public class GjAdapter extends RecyclerView.Adapter<GjAdapter.ViewHolder> {
             wd_rl = (RelativeLayout) itemView.findViewById(R.id.wd_rl);
         }
     }
-
-
 }

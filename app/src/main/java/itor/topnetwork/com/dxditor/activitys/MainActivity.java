@@ -36,6 +36,7 @@ import java.util.List;
 
 import itor.topnetwork.com.dxditor.R;
 import itor.topnetwork.com.dxditor.adapter.GjAdapter;
+import itor.topnetwork.com.dxditor.bean.Gjlb;
 import itor.topnetwork.com.dxditor.bean.GjxxBean;
 import itor.topnetwork.com.dxditor.bean.SbxxBean;
 import itor.topnetwork.com.dxditor.presenter.MainpagePresenter;
@@ -203,10 +204,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
         basepresenter.initData();
     }
 
-    @Override
-    public GjAdapter getgjAdapter() {
-        return gjAdapter;
-    }
+
 
     /**
      * 设置顶部三个圆的基础数据
@@ -232,8 +230,9 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
      * 刷新adapter
      */
     @Override
-    public void refreshAdapter() {
+    public void refreshAdapter(ArrayList<Gjlb> gjxxBeans) {
 
+        gjAdapter.updateData(gjxxBeans);
     }
 
     @Override

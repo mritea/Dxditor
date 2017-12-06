@@ -23,7 +23,9 @@ public class MainpagePresenter extends BasePresenter<MainActivity> implements IM
         this.iMainpageView = iMainpageView;
         this.mainpageModel = new MainpageModel();
 
-    } @Override
+    }
+
+    @Override
     public ArrayList<Gjlb> getGjadapterData() {
         return mainpageModel.getgjlblist();
     }
@@ -70,7 +72,7 @@ public class MainpagePresenter extends BasePresenter<MainActivity> implements IM
         mainpageModel.getgjlbData(new ValueCallBack<ArrayList<Gjlb>>() {
             @Override
             public void onSuccess(ArrayList<Gjlb> gjxxBeans) {
-                iMainpageView.getgjAdapter().updateData(gjxxBeans);
+                iMainpageView.refreshAdapter(gjxxBeans);
             }
 
             @Override

@@ -13,7 +13,7 @@ public class MainpagePresenterTest {
 
     @Test
     public void print(int a,int b) throws Exception {
-        System.out.println(a+b);
+        //System.out.println(a+b);
     }
 
 }
