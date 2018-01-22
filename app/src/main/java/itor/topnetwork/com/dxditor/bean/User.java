@@ -5,18 +5,18 @@ package itor.topnetwork.com.dxditor.bean;
  */
 
 public class User {
-    public User(int age, String name) {
+    public User(String age, String name) {
         this.age = age;
         this.name = name;
     }
 
-    private  int age;
+    private  String age;
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 

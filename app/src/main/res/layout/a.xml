@@ -4,7 +4,6 @@
         <variable name="user" type="itor.topnetwork.com.dxditor.bean.User"/>
     </data>
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

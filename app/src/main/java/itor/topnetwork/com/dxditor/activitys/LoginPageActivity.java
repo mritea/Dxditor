@@ -18,8 +18,8 @@ public class LoginPageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ABinding binding = DataBindingUtil.setContentView(this, R.layout.a);
-        User user = new User(12, "User");
+        LoginLayoutBinding binding=DataBindingUtil.setContentView(this, R.layout.login_layout);
+        User user = new User("23", "User");
         binding.setUser(user);
 
     }
