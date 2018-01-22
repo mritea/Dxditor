@@ -1,23 +1,27 @@
 package itor.topnetwork.com.dxditor.activitys;
 
+import android.app.Activity;
+import android.databinding.DataBindingUtil;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
+import android.support.v7.app.AppCompatActivity;
 
 import itor.topnetwork.com.dxditor.R;
-import itor.topnetwork.com.dxditor.presenter.BasePresenter;
+import itor.topnetwork.com.dxditor.bean.User;
 
 /**
  * Created by handong on 2017/11/23.
  */
 
-public class LoginPageActivity extends BaseActivity{
+public class LoginPageActivity extends AppCompatActivity {
     @Override
-    BasePresenter initPresent() {
-        return null;
-    }
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ABinding binding = DataBindingUtil.setContentView(this, R.layout.a);
+        User user = new User(12, "User");
+        binding.setUser(user);
 
-    @Override
-    int getLayout() {
-        return R.layout.login_layout;
     }
 
     @Override
@@ -28,8 +32,5 @@ public class LoginPageActivity extends BaseActivity{
         passwordWrapper.setHint("密码");
     }
 
-    @Override
-    void onPrepare() {
 
-    }
 }
