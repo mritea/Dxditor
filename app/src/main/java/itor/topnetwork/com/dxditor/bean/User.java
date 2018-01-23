@@ -10,6 +10,14 @@ public class User {
         this.name = name;
     }
 
+    public User(String age, String name, String hobby, String color, String money) {
+        this.age = age;
+        this.name = name;
+        this.hobby = hobby;
+        this.color = color;
+        this.money = money;
+    }
+
     private  String age;
 
     public String getAge() {
@@ -29,6 +37,31 @@ public class User {
     }
 
     private String name;
+    private String hobby;
+    private String color;
+    private String money;
 
+    public String getHobby() {
+        return hobby;
+    }
 
+    public void setHobby(String hobby) {
+        this.hobby = hobby;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getMoney() {
+        return money;
+    }
+
+    public void setMoney(String money) {
+        this.money = money;
+    }
 }

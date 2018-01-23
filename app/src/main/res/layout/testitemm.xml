@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <data>
+        <variable name="user" type="itor.topnetwork.com.dxditor.bean.User"/>
+        <variable
+            name="adapter"
+            type="itor.topnetwork.com.dxditor.activitys.LoginPageActivity.mytestAdapter" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+    <TextView android:layout_width="0dip"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="@{user.name}"/>
+    <TextView android:layout_width="0dip"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="@{user.age}"/>
+    <TextView android:layout_width="0dip"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="@{user.color}"/>
+    <TextView android:layout_width="0dip"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="@{user.hobby}"/>
+    <TextView android:layout_width="0dip"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="@{user.money}"/></LinearLayout>
+
+</layout>
