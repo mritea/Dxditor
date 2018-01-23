@@ -12,7 +12,8 @@ fun main(args:Array<String>){
     println(SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Date()))
     val a=29
     print(a::class)
-
+var b="uklsah"
+    b= 8.toString()
 
 }
 fun  sss(){

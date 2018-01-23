@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.os.Handler;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.design.internal.NavigationMenuPresenter;
@@ -202,6 +203,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
         mRecyclerView.setAdapter(gjAdapter);
 
         basepresenter.initData();
+        Handler h=new Handler();
     }
 
 
