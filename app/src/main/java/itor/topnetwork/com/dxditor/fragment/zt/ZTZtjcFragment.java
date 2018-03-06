@@ -10,13 +10,13 @@ import itor.topnetwork.com.dxditor.presenter.BaseFragmentPresenter;
  * Created by D.Han on 2017/12/6.
  */
 
-public class ZTGjglFragment extends BaseFragment {
+public class ZTZtjcFragment extends BaseFragment {
     String mText;
     public static String PARAM_KEY_TEXT="param_key_text";
     private TextView textView;
 
     @Override
-    public  BaseFragmentPresenter initPresent() {
+    public BaseFragmentPresenter initPresent() {
         return null;
     }
 
@@ -30,7 +30,6 @@ public class ZTGjglFragment extends BaseFragment {
         textView = (TextView) view.findViewById(R.id.textview);
 
     }
-
 
     @Override
     public void onPrepare() {

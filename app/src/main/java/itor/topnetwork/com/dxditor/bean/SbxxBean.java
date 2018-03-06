@@ -8,8 +8,9 @@ package itor.topnetwork.com.dxditor.bean;
 public class SbxxBean {
     private int count;
 
+
     public SbxxBean(int count) {
-        this.count=count;
+        this.count = count;
     }
 
     public int getCount() {

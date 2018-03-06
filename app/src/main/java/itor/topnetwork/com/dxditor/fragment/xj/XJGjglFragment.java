@@ -9,8 +9,8 @@ import itor.topnetwork.com.dxditor.R;
 import itor.topnetwork.com.dxditor.adapter.XjGjglAdapter;
 import itor.topnetwork.com.dxditor.bean.Gjlb;
 import itor.topnetwork.com.dxditor.fragment.BaseFragment;
-import itor.topnetwork.com.dxditor.presenter.XjglPresenter;
-import itor.topnetwork.com.dxditor.view.IXjGjglView;
+import itor.topnetwork.com.dxditor.presenter.xj.XjglPresenter;
+import itor.topnetwork.com.dxditor.view.xj.IXjGjglView;
 
 /**
  * 线夹告警管理

@@ -1,4 +1,4 @@
-package itor.topnetwork.com.dxditor.model;
+package itor.topnetwork.com.dxditor.model.xj;
 
 import java.util.ArrayList;
 

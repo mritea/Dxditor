@@ -7,5 +7,5 @@ import itor.topnetwork.com.dxditor.fragment.BaseFragment;
  */
 
 public abstract class BaseFragmentPresenter <T extends BaseFragment> {
-    abstract void initData();
+    public abstract void initData();
 }

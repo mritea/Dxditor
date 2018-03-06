@@ -1,19 +1,20 @@
-package itor.topnetwork.com.dxditor.presenter;
+package itor.topnetwork.com.dxditor.presenter.xj;
 
 import java.util.ArrayList;
 
 import itor.topnetwork.com.dxditor.bean.Gjlb;
 import itor.topnetwork.com.dxditor.fragment.xj.XJGjglFragment;
-import itor.topnetwork.com.dxditor.model.XjGjglModel;
+import itor.topnetwork.com.dxditor.model.xj.XjGjglModel;
+import itor.topnetwork.com.dxditor.presenter.BaseFragmentPresenter;
 import itor.topnetwork.com.dxditor.utils.ValueCallBack;
-import itor.topnetwork.com.dxditor.view.IXjGjglView;
+import itor.topnetwork.com.dxditor.view.xj.IXjGjglView;
 
 /**
  * 线夹告警管理
  * Created by D.Han on 2017/12/6.
  */
 
-public class XjglPresenter extends BaseFragmentPresenter<XJGjglFragment>{
+public class XjglPresenter extends BaseFragmentPresenter<XJGjglFragment> {
     private IXjGjglView iXjGjglView;
     private XjGjglModel xjGjglModel;
 
