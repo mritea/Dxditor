@@ -20,6 +20,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="false"
         android:theme="@style/StyledIndicators">
         <meta-data android:name="com.amap.api.v2.apikey" android:value="b3af8b127fdf51d5c528f20cc4435524">
             //开发者申请的key

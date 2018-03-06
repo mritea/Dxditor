@@ -17,11 +17,11 @@ import java.util.List;
 
 import itor.topnetwork.com.dxditor.R;
 import itor.topnetwork.com.dxditor.fragment.BaseFragmentActivity;
-import itor.topnetwork.com.dxditor.fragment.ZTGdpmFragment;
-import itor.topnetwork.com.dxditor.fragment.ZTGdqsFragment;
-import itor.topnetwork.com.dxditor.fragment.ZTGjfxFragment;
-import itor.topnetwork.com.dxditor.fragment.ZTGjglFragment;
-import itor.topnetwork.com.dxditor.fragment.ZTZtjcFragment;
+import itor.topnetwork.com.dxditor.fragment.zt.ZTGdpmFragment;
+import itor.topnetwork.com.dxditor.fragment.zt.ZTGdqsFragment;
+import itor.topnetwork.com.dxditor.fragment.zt.ZTGjfxFragment;
+import itor.topnetwork.com.dxditor.fragment.zt.ZTGjglFragment;
+import itor.topnetwork.com.dxditor.fragment.zt.ZTZtjcFragment;
 
 /**
  * 坠坨管理

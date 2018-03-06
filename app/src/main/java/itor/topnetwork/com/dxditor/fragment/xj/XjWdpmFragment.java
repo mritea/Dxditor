@@ -1,21 +1,22 @@
-package itor.topnetwork.com.dxditor.fragment;
+package itor.topnetwork.com.dxditor.fragment.xj;
 
 import android.widget.TextView;
 
 import itor.topnetwork.com.dxditor.R;
+import itor.topnetwork.com.dxditor.fragment.BaseFragment;
 import itor.topnetwork.com.dxditor.presenter.BaseFragmentPresenter;
 
 /**
  * Created by D.Han on 2017/12/6.
  */
 
-public class ZTGjfxFragment extends BaseFragment {
+public class XjWdpmFragment extends BaseFragment {
     String mText;
     public static String PARAM_KEY_TEXT="param_key_text";
     private TextView textView;
 
     @Override
-    BaseFragmentPresenter initPresent() {
+    public BaseFragmentPresenter initPresent() {
         return null;
     }
 

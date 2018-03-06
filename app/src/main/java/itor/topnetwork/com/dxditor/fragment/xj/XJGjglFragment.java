@@ -1,4 +1,4 @@
-package itor.topnetwork.com.dxditor.fragment;
+package itor.topnetwork.com.dxditor.fragment.xj;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import itor.topnetwork.com.dxditor.R;
 import itor.topnetwork.com.dxditor.adapter.XjGjglAdapter;
 import itor.topnetwork.com.dxditor.bean.Gjlb;
+import itor.topnetwork.com.dxditor.fragment.BaseFragment;
 import itor.topnetwork.com.dxditor.presenter.XjglPresenter;
 import itor.topnetwork.com.dxditor.view.IXjGjglView;
 
@@ -22,7 +23,7 @@ public class XJGjglFragment extends BaseFragment<XjglPresenter> implements IXjGj
     private XjGjglAdapter xjGjglAdapter;
 
     @Override
-    XjglPresenter initPresent() {
+    public XjglPresenter initPresent() {
         return new XjglPresenter(this);
     }
 

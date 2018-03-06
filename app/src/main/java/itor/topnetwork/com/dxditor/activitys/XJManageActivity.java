@@ -17,11 +17,11 @@ import java.util.List;
 
 import itor.topnetwork.com.dxditor.R;
 import itor.topnetwork.com.dxditor.fragment.BaseFragmentActivity;
-import itor.topnetwork.com.dxditor.fragment.XJGjfxFragment;
-import itor.topnetwork.com.dxditor.fragment.XJGjglFragment;
-import itor.topnetwork.com.dxditor.fragment.XJWdqsFragment;
-import itor.topnetwork.com.dxditor.fragment.XjWdpmFragment;
-import itor.topnetwork.com.dxditor.fragment.XjXjjcFragment;
+import itor.topnetwork.com.dxditor.fragment.xj.XJGjfxFragment;
+import itor.topnetwork.com.dxditor.fragment.xj.XJGjglFragment;
+import itor.topnetwork.com.dxditor.fragment.xj.XJWdqsFragment;
+import itor.topnetwork.com.dxditor.fragment.xj.XjWdpmFragment;
+import itor.topnetwork.com.dxditor.fragment.xj.XjXjjcFragment;
 
 /**
  * 线夹管理

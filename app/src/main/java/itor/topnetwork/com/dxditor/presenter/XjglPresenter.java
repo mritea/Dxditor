@@ -3,7 +3,7 @@ package itor.topnetwork.com.dxditor.presenter;
 import java.util.ArrayList;
 
 import itor.topnetwork.com.dxditor.bean.Gjlb;
-import itor.topnetwork.com.dxditor.fragment.XJGjglFragment;
+import itor.topnetwork.com.dxditor.fragment.xj.XJGjglFragment;
 import itor.topnetwork.com.dxditor.model.XjGjglModel;
 import itor.topnetwork.com.dxditor.utils.ValueCallBack;
 import itor.topnetwork.com.dxditor.view.IXjGjglView;

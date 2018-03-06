@@ -1,8 +1,9 @@
-package itor.topnetwork.com.dxditor.fragment;
+package itor.topnetwork.com.dxditor.fragment.xj;
 
 import android.widget.TextView;
 
 import itor.topnetwork.com.dxditor.R;
+import itor.topnetwork.com.dxditor.fragment.BaseFragment;
 import itor.topnetwork.com.dxditor.presenter.BaseFragmentPresenter;
 
 /**
@@ -15,7 +16,7 @@ public class XJGjfxFragment  extends BaseFragment {
     private TextView textView;
 
     @Override
-    BaseFragmentPresenter initPresent() {
+    public BaseFragmentPresenter initPresent() {
         return null;
     }
 

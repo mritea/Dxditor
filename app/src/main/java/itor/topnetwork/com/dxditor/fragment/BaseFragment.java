@@ -27,7 +27,7 @@ public abstract class BaseFragment<T extends BaseFragmentPresenter> extends Frag
         onPrepare();
         return view;
     }
-    abstract T initPresent();
+    public abstract T initPresent();
     public abstract int getLayout();
 
     public abstract void initView();
