@@ -221,23 +221,23 @@ public class MapPageActivity extends BaseActivity implements AMap.OnMarkerClickL
     }
 
     @Override
-    BasePresenter initPresent() {
+    public BasePresenter initPresent() {
         return null;
     }
 
     @Override
-    int getLayout() {
+    public int getLayout() {
         return R.layout.mapview_activity;
     }
 
     @Override
-    void initView() {
+    public void initView( ) {
         mapView = (MapView) findViewById(R.id.map);
 
     }
 
     @Override
-    void onPrepare() {
+    public void onPrepare() {
 
     }
 

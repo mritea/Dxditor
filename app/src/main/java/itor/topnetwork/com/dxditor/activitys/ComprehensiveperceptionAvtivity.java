@@ -9,22 +9,22 @@ import itor.topnetwork.com.dxditor.presenter.BasePresenter;
 
 public class ComprehensiveperceptionAvtivity extends BaseActivity{
     @Override
-    BasePresenter initPresent() {
+    public BasePresenter initPresent() {
         return null;
     }
 
     @Override
-    int getLayout() {
+    public int getLayout() {
         return 0;
     }
 
     @Override
-    void initView() {
+    public void initView( ) {
 
     }
 
     @Override
-    void onPrepare() {
+    public void onPrepare() {
 
     }
 }

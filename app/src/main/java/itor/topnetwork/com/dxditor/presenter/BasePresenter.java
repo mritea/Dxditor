@@ -7,5 +7,5 @@ import itor.topnetwork.com.dxditor.activitys.BaseActivity;
  */
 
 public abstract class BasePresenter<T extends BaseActivity> {
-    abstract void initData();
+    public abstract void initData();
 }

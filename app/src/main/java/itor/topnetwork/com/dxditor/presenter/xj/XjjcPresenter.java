@@ -1,9 +1,9 @@
 package itor.topnetwork.com.dxditor.presenter.xj;
 
 import itor.topnetwork.com.dxditor.bean.XjBean;
-import itor.topnetwork.com.dxditor.fragment.xj.XjXjjcFragment;
+import itor.topnetwork.com.dxditor.activitys.XjjcLiveActivity;
 import itor.topnetwork.com.dxditor.model.xj.XjjcModel;
-import itor.topnetwork.com.dxditor.presenter.BaseFragmentPresenter;
+import itor.topnetwork.com.dxditor.presenter.BasePresenter;
 import itor.topnetwork.com.dxditor.utils.ValueCallBack;
 import itor.topnetwork.com.dxditor.view.xj.IXjjcView;
 
@@ -11,7 +11,7 @@ import itor.topnetwork.com.dxditor.view.xj.IXjjcView;
  * Created by kimi on 2018/3/6.
  */
 
-public class XjjcPresenter extends BaseFragmentPresenter<XjXjjcFragment> {
+public class XjjcPresenter extends BasePresenter<XjjcLiveActivity> {
     private IXjjcView iXjjcView;
     private XjjcModel xjjcModel;
 

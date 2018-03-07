@@ -56,17 +56,17 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
     private GjAdapter gjAdapter;
 
     @Override
-    MainpagePresenter initPresent() {
+    public MainpagePresenter initPresent() {
         return new MainpagePresenter(this);
     }
 
     @Override
-    int getLayout() {
+    public int getLayout() {
         return R.layout.activity_main;
     }
 
     @Override
-    void initView() {
+    public void initView( ) {
         gj = (TextView) findViewById(R.id.gj);
         zc = (TextView) findViewById(R.id.zc);
         lx = (TextView) findViewById(R.id.lx);
@@ -194,7 +194,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
     }
 
     @Override
-    void onPrepare() {
+    public void onPrepare() {
         mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
 
         // 设置布局管理器

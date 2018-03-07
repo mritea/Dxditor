@@ -37,6 +37,7 @@
         <activity android:name=".activitys.ComprehensiveperceptionAvtivity"/>
         <activity android:name=".activitys.XJManageActivity"/>
         <activity android:name=".activitys.ZTManagerActivity"/>
+        <activity android:name=".activitys.XjjcLiveActivity"/>
     </application>
 
 </manifest>

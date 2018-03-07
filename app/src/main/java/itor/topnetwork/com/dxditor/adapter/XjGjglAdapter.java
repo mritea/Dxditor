@@ -18,7 +18,7 @@ import itor.topnetwork.com.dxditor.bean.Gjlb;
  * Created by D.Han on 2017/12/6.
  */
 
-public class XjGjglAdapter extends RecyclerView.Adapter<XjGjglAdapter.ViewHolder>{
+public class XjGjglAdapter extends RecyclerView.Adapter<XjGjglAdapter.ViewHolder> implements View.OnClickListener {
     private ArrayList<Gjlb> mData;
     Context context;
 
@@ -35,6 +35,8 @@ public class XjGjglAdapter extends RecyclerView.Adapter<XjGjglAdapter.ViewHolder
     public XjGjglAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // 实例化展示的view
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_gj_item, parent, false);
+        //设置view的点击事件
+        v.setOnClickListener(this);
         // 实例化viewholder
         XjGjglAdapter.ViewHolder viewHolder = new XjGjglAdapter.ViewHolder(v);
         return viewHolder;
@@ -60,6 +62,8 @@ public class XjGjglAdapter extends RecyclerView.Adapter<XjGjglAdapter.ViewHolder
         } else if (t > 40) {
             holder.wd_rl.setBackgroundColor(context.getResources().getColor(R.color.tem_h));
         }
+        //给holder的itemview添加Tag为position
+        holder.itemView.setTag(position);
     }
 
 
@@ -68,8 +72,21 @@ public class XjGjglAdapter extends RecyclerView.Adapter<XjGjglAdapter.ViewHolder
         return mData == null ? 0 : mData.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-
+    @Override
+    public void onClick(View v) {
+        if (mOnItemClickListener != null) {
+            //注意这里使用getTag方法获取position
+            mOnItemClickListener.onClick(v,(int)v.getTag());
+        }
+    }
+    public void setOnItemClickListener(OnRecyclerViewItemClickListener  listener) {
+        this.mOnItemClickListener = listener;
+    }
+    private OnRecyclerViewItemClickListener  mOnItemClickListener = null;
+    public interface OnRecyclerViewItemClickListener  {
+        void onClick(View view, int position);
+    };
+    public static class ViewHolder extends RecyclerView.ViewHolder{
         TextView xl_tv;
         TextView glb_tv;
         TextView yw_tv;
@@ -87,6 +104,9 @@ public class XjGjglAdapter extends RecyclerView.Adapter<XjGjglAdapter.ViewHolder
             dqz_tv = (TextView) itemView.findViewById(R.id.wd_value_tv);
             sj_tv = (TextView) itemView.findViewById(R.id.sj_value);
             wd_rl = (RelativeLayout) itemView.findViewById(R.id.wd_rl);
+
         }
+
+
     }
 }

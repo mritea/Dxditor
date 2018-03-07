@@ -8,7 +8,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.viewpagerindicator.TabPageIndicator;
 
@@ -21,7 +20,6 @@ import itor.topnetwork.com.dxditor.fragment.xj.XJGjfxFragment;
 import itor.topnetwork.com.dxditor.fragment.xj.XJGjglFragment;
 import itor.topnetwork.com.dxditor.fragment.xj.XJWdqsFragment;
 import itor.topnetwork.com.dxditor.fragment.xj.XjWdpmFragment;
-import itor.topnetwork.com.dxditor.fragment.xj.XjXjjcFragment;
 
 /**
  * 线夹管理
@@ -32,7 +30,7 @@ public class XJManageActivity extends BaseFragmentActivity {
     /**
      * Tab标题
      */
-    private static final String[] TITLE = new String[]{"告警管理", "线夹监测", "温度排名", "温度趋势",
+    private static final String[] TITLE = new String[]{"告警管理", "温度排名", "温度趋势",
             "告警分析"};
     private List<Class> fList;
     private ViewPager pager;
@@ -51,7 +49,7 @@ public class XJManageActivity extends BaseFragmentActivity {
     public void onPrepare() {
         fList = new ArrayList<Class>();
         fList.add(XJGjglFragment.class);
-        fList.add(XjXjjcFragment.class);
+        //fList.add(XjjcLiveActivity.class);
         fList.add(XjWdpmFragment.class);
         fList.add(XJWdqsFragment.class);
         fList.add(XJGjfxFragment.class);
@@ -69,7 +67,7 @@ public class XJManageActivity extends BaseFragmentActivity {
 
             @Override
             public void onPageSelected(int arg0) {
-                Toast.makeText(getApplicationContext(), TITLE[arg0], Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getApplicationContext(), TITLE[arg0], Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -84,14 +82,20 @@ public class XJManageActivity extends BaseFragmentActivity {
         });
     }
 
-
+    /**
+     * 跳转到某一页
+     * @param item
+     */
+    public void pagerToSelect(int item){
+        pager.setCurrentItem(item);
+}
     /**
      * ViewPager适配器
      *
      * @author
      */
     class TabPageIndicatorAdapter extends FragmentPagerAdapter {
-        private static final int COUNT = 5;
+        private static final int COUNT = 4;
 
         private Fragment[] mFragments;
         private Context mContext;
@@ -137,4 +141,5 @@ public class XJManageActivity extends BaseFragmentActivity {
 
 
     }
+
 }

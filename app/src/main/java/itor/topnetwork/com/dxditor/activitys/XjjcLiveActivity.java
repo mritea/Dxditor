@@ -1,14 +1,16 @@
-package itor.topnetwork.com.dxditor.fragment.xj;
+package itor.topnetwork.com.dxditor.activitys;
 
 import android.graphics.Color;
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import itor.topnetwork.com.dxditor.R;
+import itor.topnetwork.com.dxditor.bean.Pv;
 import itor.topnetwork.com.dxditor.bean.XjBean;
-import itor.topnetwork.com.dxditor.fragment.BaseFragment;
 import itor.topnetwork.com.dxditor.presenter.xj.XjjcPresenter;
 import itor.topnetwork.com.dxditor.view.xj.IXjjcView;
 import lecho.lib.hellocharts.gesture.ContainerScrollType;
@@ -22,11 +24,11 @@ import lecho.lib.hellocharts.model.Viewport;
 import lecho.lib.hellocharts.view.LineChartView;
 
 /**
- * 线夹监测
+ * 线夹监测Activity
  * Created by D.Han on 2017/12/6.
  */
 
-public class XjXjjcFragment extends BaseFragment<XjjcPresenter> implements IXjjcView {
+public class XjjcLiveActivity extends BaseActivity<XjjcPresenter> implements IXjjcView {
     private LineChartView xj_ChartView;
     String mText;
     public static String PARAM_KEY_TEXT = "param_key_text";
@@ -38,6 +40,10 @@ public class XjXjjcFragment extends BaseFragment<XjjcPresenter> implements IXjjc
     private List<Line> linesList;
     private List<PointValue> pointValueList;
     int i = 0;
+    private TextView title;
+    private String sbid;
+
+
     @Override
     public XjjcPresenter initPresent() {
         return new XjjcPresenter(this);
@@ -45,14 +51,19 @@ public class XjXjjcFragment extends BaseFragment<XjjcPresenter> implements IXjjc
 
     @Override
     public int getLayout() {
+        sbid = getIntent().getStringExtra("sbid");
         return R.layout.xjjc_layout;
     }
 
     @Override
     public void initView() {
-        TextView title = (TextView) view.findViewById(R.id.title);
-        title.setText("22222222" + "温度实时监控");
-        xj_ChartView = (LineChartView) view.findViewById(R.id.xj_chart);
+        title = (TextView) findViewById(R.id.title);
+        if (!TextUtils.isEmpty(sbid)) {
+            title.setText(sbid + "温度实时监控");
+        } else {
+            title.setText("00000" + "温度实时监控");
+        }
+        xj_ChartView = (LineChartView) findViewById(R.id.xj_chart);
         initAxisView();
     }
 
@@ -65,7 +76,9 @@ public class XjXjjcFragment extends BaseFragment<XjjcPresenter> implements IXjjc
      * 初始化显示坐标轴
      */
     private void initAxisView() {
-        pointValueList = new ArrayList<PointValue>();
+
+            pointValueList = new ArrayList<PointValue>();
+
         linesList = new ArrayList<Line>();
         /** 初始化Y轴 */
         axisY = new Axis();
@@ -85,7 +98,7 @@ public class XjXjjcFragment extends BaseFragment<XjjcPresenter> implements IXjjc
         axisX.setTextSize(10); // 设置字体大小
         axisX.setMaxLabelChars(0); // 设置0的话X轴坐标值就间隔为1
         List<AxisValue> mAxisXValues = new ArrayList<AxisValue>();
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 10000; i++) {
             //间隔5秒
             //mAxisXValues.add(new AxisValue(i).setLabel(i * 5 + ""));
             //间隔1秒
@@ -164,5 +177,32 @@ public class XjXjjcFragment extends BaseFragment<XjjcPresenter> implements IXjjc
         xj_ChartView.setMaximumViewport(port);
         xj_ChartView.setCurrentViewport(port);
 
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putInt("i", i);
+        if(pointValueList.size()>0){
+            ArrayList<Pv> pvs = new ArrayList<>();
+            for(int i=0;i<pointValueList.size();i++){
+                Pv pv = new Pv();
+                pv.set(pointValueList.get(i).getX(),pointValueList.get(i).getY());
+                pvs.add(pv);
+            }
+            savedInstanceState.putSerializable("pvs",pvs);
+        }
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        i = savedInstanceState.getInt("i");
+        ArrayList<Pv> pvs=(ArrayList<Pv>)savedInstanceState.getSerializable("pvs");
+        for(int i=0;i<pvs.size();i++){
+            PointValue pointValue = new PointValue();
+            pointValue.set(pvs.get(i).getX(),pvs.get(i).getY());
+            pointValueList.add(pointValue);
+        }
     }
 }

@@ -20,11 +20,11 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         basepresenter = initPresent();
         onPrepare();
     }
-    abstract T initPresent();
+    public abstract T initPresent();
 
-    abstract int getLayout();
+    public abstract int getLayout();
 
-    abstract void initView();
+    public abstract void initView();
 
-    abstract void onPrepare();
+    public abstract void onPrepare();
 }
