@@ -3,29 +3,58 @@
     <group
         android:id="@+id/one"
         android:checkableBehavior="single">
-    <item
-        android:id="@+id/mainpage"
-        android:icon="@drawable/home_1"
-        android:title="主页"/></group>
+        <item
+            android:id="@+id/mainpage"
+            android:icon="@drawable/home_1"
+            android:title="主页" />
+    </group>
     <group
         android:id="@+id/two"
         android:checkableBehavior="single">
-    <item
-        android:id="@+id/xjmanager"
-        android:icon="@drawable/zhgz_1"
-        android:title="线夹管理"/></group>
+        <item
+            android:id="@+id/brigemanager"
+            android:icon="@drawable/zhgz_1"
+            android:title="桥梁管理" />
+    </group>
     <group
         android:id="@+id/three"
         android:checkableBehavior="single">
-    <item
-        android:id="@+id/ztmanager"
-        android:icon="@drawable/tsfx_1"
-        android:title="坠坨管理"/></group>
+        <item
+            android:id="@+id/SPZmanager"
+            android:icon="@drawable/zhgz_1"
+            android:title="声屏障管理" />
+    </group>
     <group
-        android:id="@+id/foue"
+        android:id="@+id/five"
         android:checkableBehavior="single">
-    <item
-        android:id="@+id/mine"
-        android:icon="@drawable/me_1"
-        android:title="我的"/></group>
+        <item
+            android:id="@+id/ztmanager"
+            android:icon="@drawable/tsfx_1"
+            android:title="坠坨管理" />
+    </group>
+    <group
+        android:id="@+id/four"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/xjmanager"
+            android:icon="@drawable/zhgz_1"
+            android:title="线夹管理" />
+    </group>
+
+    <group
+        android:id="@+id/six"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/GDBmanager"
+            android:icon="@drawable/tsfx_1"
+            android:title="轨道板管理" />
+    </group>
+    <group
+        android:id="@+id/seven"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/mine"
+            android:icon="@drawable/me_1"
+            android:title="我的" />
+    </group>
 </menu>

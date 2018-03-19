@@ -38,6 +38,8 @@ dependencies {
     compile 'com.amap.api:3dmap:latest.integration'
     compile 'com.google.code.gson:gson:2.8.2'
     compile 'com.github.JakeWharton:ViewPagerIndicator:2.4.1'
+    // ECharts - Java类库 http://git.oschina.net/free/ECharts
+    compile 'com.github.abel533:ECharts:2.2.7'
 }
 repositories {
     mavenCentral()

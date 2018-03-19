@@ -17,6 +17,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -40,6 +42,7 @@ import itor.topnetwork.com.dxditor.adapter.GjAdapter;
 import itor.topnetwork.com.dxditor.bean.Gjlb;
 import itor.topnetwork.com.dxditor.bean.GjxxBean;
 import itor.topnetwork.com.dxditor.bean.SbxxBean;
+import itor.topnetwork.com.dxditor.hybrid.WebAppInterface;
 import itor.topnetwork.com.dxditor.presenter.MainpagePresenter;
 import itor.topnetwork.com.dxditor.view.IMainpageView;
 
@@ -87,6 +90,15 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
 
+        WebView line_echarts=(WebView)findViewById(R.id.line_echarts);
+
+        WebSettings webSettings = line_echarts.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+        webSettings.setSupportZoom(true);
+        webSettings.setDisplayZoomControls(true);
+        line_echarts.addJavascriptInterface(new WebAppInterface(this,line_echarts), "Android");
+        line_echarts.loadUrl("file:///android_asset/echarts/mainpage_total.html");
     }
 
     private void initnavigation() {
@@ -99,12 +111,24 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
                     case R.id.mainpage:
                         main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
+                    case R.id.brigemanager://桥梁管理
+                        startActivity(new Intent(MainActivity.this, BrigeActivity.class));
+                        main_drawerlayout.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.SPZmanager://声屏障管理
+                        startActivity(new Intent(MainActivity.this, SPZActivity.class));
+                        main_drawerlayout.closeDrawer(GravityCompat.START);
+                        break;
                     case R.id.xjmanager://线夹管理
                         startActivity(new Intent(MainActivity.this, XJManageActivity.class));
                         main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.ztmanager://坠坨管理
                         startActivity(new Intent(MainActivity.this, ZTManagerActivity.class));
+                        main_drawerlayout.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.GDBmanager://轨道板管理
+                        startActivity(new Intent(MainActivity.this, GDBActivity.class));
                         main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.mine:

@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <include layout="@layout/main_title" />
@@ -184,50 +184,55 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@android:color/white"
-                android:orientation="vertical">
+                android:background="#4A78CE"
+                android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#4A78CE"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="8dp"
-                        android:text="告警信息"
-                        android:textColor="@android:color/white"
-                        android:textSize="15sp" />
-                </LinearLayout>
-
-                <com.github.mikephil.charting.charts.PieChart
-                    android:id="@+id/gjxx"
-                    android:layout_width="match_parent"
-                    android:layout_height="160dp" />
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:text="告警信息"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp" />
             </LinearLayout>
 
-
-
-            <android.support.v7.widget.RecyclerView
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="10dp"
-                android:id="@+id/my_recycler_view"
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/gjxx"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scrollbars="vertical" />
+                android:layout_height="160dp" />
         </LinearLayout>
+
+        <WebView
+            android:id="@+id/line_echarts"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"></WebView>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/my_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:scrollbars="vertical" />
+    </LinearLayout>
 
 
     <android.support.design.widget.NavigationView
