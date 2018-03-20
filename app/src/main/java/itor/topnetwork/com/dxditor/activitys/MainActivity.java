@@ -1,10 +1,11 @@
 package itor.topnetwork.com.dxditor.activitys;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.os.Handler;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.design.internal.NavigationMenuPresenter;
@@ -19,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -42,7 +44,7 @@ import itor.topnetwork.com.dxditor.adapter.GjAdapter;
 import itor.topnetwork.com.dxditor.bean.Gjlb;
 import itor.topnetwork.com.dxditor.bean.GjxxBean;
 import itor.topnetwork.com.dxditor.bean.SbxxBean;
-import itor.topnetwork.com.dxditor.hybrid.WebAppInterface;
+import itor.topnetwork.com.dxditor.hybrid.bean.EchartsDataBean;
 import itor.topnetwork.com.dxditor.presenter.MainpagePresenter;
 import itor.topnetwork.com.dxditor.view.IMainpageView;
 
@@ -57,6 +59,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
     private RecyclerView.LayoutManager mLayoutManager;
     private DrawerLayout main_drawerlayout;
     private GjAdapter gjAdapter;
+    private ProgressDialog dialog;
 
     @Override
     public MainpagePresenter initPresent() {
@@ -69,7 +72,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
     }
 
     @Override
-    public void initView( ) {
+    public void initView() {
         gj = (TextView) findViewById(R.id.gj);
         zc = (TextView) findViewById(R.id.zc);
         lx = (TextView) findViewById(R.id.lx);
@@ -90,15 +93,43 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
 
-        WebView line_echarts=(WebView)findViewById(R.id.line_echarts);
+        final WebView line_echarts = (WebView) findViewById(R.id.line_echarts);
+
+        dialog = new ProgressDialog(this);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setMessage("请稍后...");
 
         WebSettings webSettings = line_echarts.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
         webSettings.setSupportZoom(true);
         webSettings.setDisplayZoomControls(true);
-        line_echarts.addJavascriptInterface(new WebAppInterface(this,line_echarts), "Android");
         line_echarts.loadUrl("file:///android_asset/echarts/mainpage_total.html");
+        line_echarts.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                return super.shouldOverrideUrlLoading(view, url);
+            }
+
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+
+                super.onPageStarted(view, url, favicon);
+                dialog.show();
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                //最好在这里调用js代码 以免网页未加载完成
+                //line_echarts.loadUrl("javascript:createChart('line'," + EchartsDataBean.getInstance().getEchartsLineJson() + ");");
+                line_echarts.loadUrl("javascript:createChart('createbarlineChart'," + EchartsDataBean.getInstance().getEchartsTotalJson() + ");");
+                if (dialog.isShowing()) {
+                    dialog.dismiss();
+                }
+            }
+        });
+
     }
 
     private void initnavigation() {
@@ -106,7 +137,6 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                System.out.println(item.getItemId());
                 switch (item.getItemId()) {
                     case R.id.mainpage:
                         main_drawerlayout.closeDrawer(GravityCompat.START);
@@ -220,16 +250,12 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
     @Override
     public void onPrepare() {
         mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-
         // 设置布局管理器
         mRecyclerView.setLayoutManager(mLayoutManager);
         gjAdapter = new GjAdapter(this, basepresenter.getGjadapterData());
         mRecyclerView.setAdapter(gjAdapter);
-
         basepresenter.initData();
-        Handler h=new Handler();
     }
-
 
 
     /**
