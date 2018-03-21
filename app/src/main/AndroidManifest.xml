@@ -40,10 +40,14 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".activitys.ZTManagerActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".activitys.XjjcLiveActivity"/>
-        <activity android:name=".activitys.BrigeActivity"/>
-        <activity android:name=".activitys.GDBActivity"/>
-        <activity android:name=".activitys.SPZActivity"/>
+        <activity android:name=".activitys.XjjcLiveActivity"
+            />
+        <activity android:name=".activitys.BridgeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activitys.GDBActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activitys.SPZActivity"
+            android:screenOrientation="portrait"/>
 
     </application>
 

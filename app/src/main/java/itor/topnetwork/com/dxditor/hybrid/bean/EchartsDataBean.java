@@ -3,8 +3,10 @@ package itor.topnetwork.com.dxditor.hybrid.bean;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
+import itor.topnetwork.com.dxditor.hybrid.bean.bridge.BridgeBean;
 import itor.topnetwork.com.dxditor.hybrid.bean.total.Bar;
 import itor.topnetwork.com.dxditor.hybrid.bean.total.Line;
 import itor.topnetwork.com.dxditor.hybrid.bean.total.TotalBean;
@@ -20,6 +22,7 @@ public class EchartsDataBean {
     private static EchartsPieBean pieBean;
     private static EchartsDataBean echartsDataBean;
     private static TotalBean totalBean;
+    private static BridgeBean bridgeBean;
 
     private EchartsDataBean() {
     }
@@ -32,6 +35,7 @@ public class EchartsDataBean {
             barBean = new EchartsBarBean();
             pieBean = new EchartsPieBean();
             totalBean = new TotalBean();
+            bridgeBean = new BridgeBean();
         }
         return echartsDataBean;
     }
@@ -82,11 +86,12 @@ public class EchartsDataBean {
         }
         return gson.toJson(pieBean);
     }
+    final Random random = new Random();
     public String getEchartsTotalJson() {
         totalBean.legendData = new String[]{"桥梁","声屏障","坠坨","线夹","轨道板","损坏量"};
-        totalBean.xData=new String[]{"京广线","京沪线","京九线","京津线"};
+        totalBean.xData=new String[]{"京广线","京沪线","京九线","京津线","京津线","京津线","京津线","京九线"};
         totalBean.series = new ArrayList<>();
-        final Random random = new Random();
+
         for(int i = 0; i < totalBean.legendData.length-1; i++){
             Bar bar = new Bar();
             bar.name=totalBean.legendData[i];
@@ -105,8 +110,23 @@ public class EchartsDataBean {
         line.name="损坏量";
         line.type="line";
         line.yAxisIndex=1;
-        line.data=new int[]{23,34,42,24};
+        line.data=new int[]{23,34,42,24,32,23,23,23};
         totalBean.series.add(line);
         return gson.toJson(totalBean);
+    }
+    public String bridgeEcharts(){
+        bridgeBean.xData=new String[]{"一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"};
+        List<Integer> seriesData = new ArrayList<>();
+        for(int i=0;i<bridgeBean.xData.length;i++){
+            seriesData.add(random.nextInt(100)+1);
+       }
+        List<Integer> beginData = new ArrayList<>();
+        for(int i=0;i<bridgeBean.xData.length;i++){
+            beginData.add(seriesData.get(0));
+        }
+        bridgeBean.seriesData=seriesData;
+        bridgeBean.linebegin=beginData;
+
+        return gson.toJson(bridgeBean);
     }
 }

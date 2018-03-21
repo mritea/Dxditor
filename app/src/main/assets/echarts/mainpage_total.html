@@ -3,11 +3,11 @@
     <meta charset="utf-8"/>
 
 </head>
-<body onload="createChart('createbarlineChart','')">
+<body>
 <!--onload="createChart('createbarlineChart','')"-->
 <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
 <div id="main"
-     style="float: center;height:280px;"></div>
+     style="float: center;height:290px;"></div>
 <!-- ECharts单文件引入 -->
 <script src="js/echarts.min.js"></script>
 <script type="text/javascript">
@@ -16,10 +16,7 @@
    var myChart;
  //声明图表配置项和数据
  var options;
- //symbol的images的格式“image://./images/node.png”最好是能够写绝对路径，加上“//.”回到根目录echart/
- var childUrl='./images/child.png';
  var lineJson;//用于临时存储折线图json对象, 便于追加数据
-
  //创建折线图
   function createLineChart(obj){
       lineJson=obj;
@@ -93,14 +90,14 @@
                             {
                               type :'max'  ,
                               name:'最大值' ,
-                              symbol:'image://' + childUrl,
+
                               symbolSize: [25, 30],
                                symbolOffset:[0,'-60%']
                              },
                             {
                               type : 'min',
                               name: '最小值',
-                              symbol:'image://' + childUrl,
+
                               symbolSize: [25, 30],
                               symbolOffset:[0,'50%']
                             }
@@ -500,7 +497,11 @@ options = {
     xAxis : [
         {
             type : 'category',
-            data : obj.xData
+            data : obj.xData,
+             axisLabel: {
+            rotate:90,
+        }
+
         }
     ],
     yAxis : [
@@ -510,7 +511,7 @@ options = {
         },
         {
             type: 'value',
-            name: '损坏量',
+            name: '告警数',
             axisLabel: {
                 formatter: '{value} '
             }
@@ -521,6 +522,7 @@ options = {
 
 
 }
+
 
 
 </script>

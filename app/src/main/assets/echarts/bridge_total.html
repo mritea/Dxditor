@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8"/>
+
+</head>
+<body >
+<!--onload="createChart('line','')"-->
+<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+<div id="main"
+     style="float: center;height:280px;"></div>
+<!-- ECharts单文件引入 -->
+<script src="js/echarts.min.js"></script>
+<script type="text/javascript">
+ //声明Echarts实例
+   var myChart;
+ //声明图表配置项和数据
+ var options;
+//显示图表
+   function createChart(type,json){
+
+        if(type=='line'){
+          createLineChart(json);
+        }
+
+
+        // 基于准备好的dom，初始化echarts实例
+        myChart = echarts.init(document.getElementById('main'));
+        //使用指定的配置项和数据显示图表。
+        myChart.setOption(options);
+    }
+function createLineChart(obj){
+options = {
+ legend: {
+        data:['位移值','初始值']
+
+    },
+    xAxis: {
+        type: 'category',
+        data:obj.xData,
+axisLabel: {
+            rotate:70,
+        }
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [{
+    name:'位移值',
+
+        data:obj.seriesData,
+        type: 'line'
+    },{
+         name:'初始值',
+
+        data:obj.linebegin,
+        type: 'line',
+
+    }]
+};
+}
+
+
+</script>

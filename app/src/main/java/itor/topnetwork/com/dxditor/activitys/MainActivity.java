@@ -142,7 +142,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
                         main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.brigemanager://桥梁管理
-                        startActivity(new Intent(MainActivity.this, BrigeActivity.class));
+                        startActivity(new Intent(MainActivity.this, BridgeActivity.class));
                         main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.SPZmanager://声屏障管理

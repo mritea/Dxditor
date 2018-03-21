@@ -6,6 +6,7 @@
     <color name="mainpage_itemname">#3F51B5</color>
     <color name="white">#FFFFFF</color>
     <color name="main_item_text">#000000</color>
+    <color name="main_back">#ECE5EC</color>
     <color name="main_item_value">#A6A4BA</color>
     <color name="tem_h">#D24002</color>
     <color name="tem_m">#F64D00</color>
