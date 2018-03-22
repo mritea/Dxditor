@@ -24,7 +24,7 @@ import itor.topnetwork.com.dxditor.fragment.zt.ZTGjglFragment;
 import itor.topnetwork.com.dxditor.fragment.zt.ZTZtjcFragment;
 
 /**
- * 坠坨管理
+ * 坠坨管理      较早版本采用Fragment方式展示页面，于2018.3.22改版换掉了，暂保留代码，但项目未使用
  * Created by D.Han on 2017/12/5.
  */
 

@@ -7,9 +7,12 @@ import java.util.List;
 import java.util.Random;
 
 import itor.topnetwork.com.dxditor.hybrid.bean.bridge.BridgeBean;
+import itor.topnetwork.com.dxditor.hybrid.bean.spz.SpzEchartsBean;
 import itor.topnetwork.com.dxditor.hybrid.bean.total.Bar;
 import itor.topnetwork.com.dxditor.hybrid.bean.total.Line;
 import itor.topnetwork.com.dxditor.hybrid.bean.total.TotalBean;
+import itor.topnetwork.com.dxditor.hybrid.bean.zt.ZtTopEchartsBean;
+import itor.topnetwork.com.dxditor.utils.Constants;
 
 /**
  * Created by dell1 on 2017/5/29.
@@ -23,6 +26,8 @@ public class EchartsDataBean {
     private static EchartsDataBean echartsDataBean;
     private static TotalBean totalBean;
     private static BridgeBean bridgeBean;
+    private static SpzEchartsBean spzEchartsBean;
+    private static ZtTopEchartsBean ztTopEchartsBean;
 
     private EchartsDataBean() {
     }
@@ -36,6 +41,8 @@ public class EchartsDataBean {
             pieBean = new EchartsPieBean();
             totalBean = new TotalBean();
             bridgeBean = new BridgeBean();
+            spzEchartsBean = new SpzEchartsBean();
+            ztTopEchartsBean = new ZtTopEchartsBean();
         }
         return echartsDataBean;
     }
@@ -86,47 +93,110 @@ public class EchartsDataBean {
         }
         return gson.toJson(pieBean);
     }
+
     final Random random = new Random();
+
     public String getEchartsTotalJson() {
-        totalBean.legendData = new String[]{"桥梁","声屏障","坠坨","线夹","轨道板","损坏量"};
-        totalBean.xData=new String[]{"京广线","京沪线","京九线","京津线","京津线","京津线","京津线","京九线"};
-        totalBean.series = new ArrayList<>();
+        if (Constants.testDtat) {
+            totalBean.legendData = new String[]{"桥梁", "声屏障", "坠坨", "线夹", "轨道板", "损坏量"};
+            totalBean.xData = new String[]{"京广线", "京沪线", "京九线", "京津线", "京津线", "京津线", "京津线", "京九线"};
+            totalBean.series = new ArrayList<>();
 
-        for(int i = 0; i < totalBean.legendData.length-1; i++){
-            Bar bar = new Bar();
-            bar.name=totalBean.legendData[i];
-            bar.type="bar";
-            bar.yAxisIndex=0;
-            bar.stack="a";
-            int []d = new int[totalBean.xData.length];
-            for(int j=0;j<totalBean.xData.length;j++){
-               d[j]=random.nextInt(150)+1;
+            for (int i = 0; i < totalBean.legendData.length - 1; i++) {
+                Bar bar = new Bar();
+                bar.name = totalBean.legendData[i];
+                bar.type = "bar";
+                bar.yAxisIndex = 0;
+                bar.stack = "a";
+                int[] d = new int[totalBean.xData.length];
+                for (int j = 0; j < totalBean.xData.length; j++) {
+                    d[j] = random.nextInt(150) + 1;
 
+                }
+                bar.data = d;
+                totalBean.series.add(bar);
             }
-            bar.data=d;
-            totalBean.series.add(bar);
+            Line line = new Line();
+            line.name = "损坏量";
+            line.type = "line";
+            line.yAxisIndex = 1;
+            line.data = new int[]{23, 34, 42, 24, 32, 23, 23, 23};
+            totalBean.series.add(line);
         }
-        Line line = new Line();
-        line.name="损坏量";
-        line.type="line";
-        line.yAxisIndex=1;
-        line.data=new int[]{23,34,42,24,32,23,23,23};
-        totalBean.series.add(line);
         return gson.toJson(totalBean);
-    }
-    public String bridgeEcharts(){
-        bridgeBean.xData=new String[]{"一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"};
-        List<Integer> seriesData = new ArrayList<>();
-        for(int i=0;i<bridgeBean.xData.length;i++){
-            seriesData.add(random.nextInt(100)+1);
-       }
-        List<Integer> beginData = new ArrayList<>();
-        for(int i=0;i<bridgeBean.xData.length;i++){
-            beginData.add(seriesData.get(0));
-        }
-        bridgeBean.seriesData=seriesData;
-        bridgeBean.linebegin=beginData;
 
+    }
+
+    public String bridgeEcharts() {
+        if (Constants.testDtat) {
+            bridgeBean.xData = new String[]{"一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"};
+            List<Integer> seriesData = new ArrayList<>();
+            for (int i = 0; i < bridgeBean.xData.length; i++) {
+                seriesData.add(random.nextInt(100) + 1);
+            }
+            List<Integer> beginData = new ArrayList<>();
+            for (int i = 0; i < bridgeBean.xData.length; i++) {
+                beginData.add(seriesData.get(0));
+            }
+            bridgeBean.seriesData = seriesData;
+            bridgeBean.linebegin = beginData;
+
+        }
         return gson.toJson(bridgeBean);
+
+    }
+
+    //应力
+    public String spzYlEcharts() {
+        if (Constants.testDtat) {
+            spzEchartsBean.xData = new String[]{"一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"};
+            List<Integer> seriesData = new ArrayList<>();
+            for (int i = 0; i < spzEchartsBean.xData.length; i++) {
+                seriesData.add(random.nextInt(100) + 1);
+            }
+            spzEchartsBean.seriesData = seriesData;
+        }
+        return gson.toJson(spzEchartsBean);
+
+    }
+
+    //位移
+    public String spzWyEcharts() {
+        if (Constants.testDtat) {
+            spzEchartsBean.xData = new String[]{"一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"};
+            List<Integer> seriesData = new ArrayList<>();
+            for (int i = 0; i < spzEchartsBean.xData.length; i++) {
+                seriesData.add(random.nextInt(100) + 1);
+            }
+            spzEchartsBean.seriesData = seriesData;
+        }
+        return gson.toJson(spzEchartsBean);
+
+    }
+    //排名，top20 A值
+    public String ztTopEcharts() {
+        if (Constants.testDtat) {
+            ztTopEchartsBean.xData = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12","13","14","15","16","17","18","19","20"};
+            List<Integer> seriesData = new ArrayList<>();
+            for (int i = 0; i < ztTopEchartsBean.xData.length; i++) {
+                seriesData.add(random.nextInt(100) + 1);
+            }
+            ztTopEchartsBean.seriesData = seriesData;
+        }
+        return gson.toJson(ztTopEchartsBean);
+
+    }
+    //排名，top20 B值
+    public String ztTopBEcharts() {
+        if (Constants.testDtat) {
+            ztTopEchartsBean.xData = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12","13","14","15","16","17","18","19","20"};
+            List<Integer> seriesData = new ArrayList<>();
+            for (int i = 0; i < ztTopEchartsBean.xData.length; i++) {
+                seriesData.add(random.nextInt(100) + 1);
+            }
+            ztTopEchartsBean.seriesData = seriesData;
+        }
+        return gson.toJson(ztTopEchartsBean);
+
     }
 }

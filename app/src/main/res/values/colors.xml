@@ -13,4 +13,6 @@
     <color name="tem_l">#F66908</color>
     <color name="tem_ll">#FAAA1B</color>
 
+    <color name="spz_but_text">#333366</color>
+    <color name="spz_but_back">#66ff66</color>
 </resources>

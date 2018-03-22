@@ -97,7 +97,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
 
         dialog = new ProgressDialog(this);
         dialog.setCanceledOnTouchOutside(false);
-        dialog.setMessage("请稍后...");
+        dialog.setMessage(getResources().getString(R.string.waiting));
 
         WebSettings webSettings = line_echarts.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -154,7 +154,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
                         main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.ztmanager://坠坨管理
-                        startActivity(new Intent(MainActivity.this, ZTManagerActivity.class));
+                        startActivity(new Intent(MainActivity.this, ZTActivity.class));
                         main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.GDBmanager://轨道板管理

@@ -48,6 +48,10 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".activitys.SPZActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".activitys.XJActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activitys.ZTActivity"
+            android:screenOrientation="portrait"/>
 
     </application>
 

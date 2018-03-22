@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">物联网</string>
+
+    <string name="waiting">请稍后...</string>
 </resources>

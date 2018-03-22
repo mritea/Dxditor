@@ -49,43 +49,6 @@
                     android:background="@color/default_circle_indicator_fill_color" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@android:color/white"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#4A78CE"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="8dp"
-                        android:text="声屏障监测指标"
-                        android:textColor="@android:color/white"
-                        android:textSize="15sp" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/zpzwaring_tv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:paddingBottom="10dp"
-                    android:paddingTop="10dp"
-                    android:text="位移 最大  最小  告警中\n风速 最大 最小 \n应力  最大  最小"
-                    android:textColor="@android:color/holo_red_light" />
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -120,34 +83,67 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/yl_but"
+                        android:id="@+id/a_but"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:background="@color/spz_but_back"
-                        android:text="应力"
+                        android:text="A值"
                         android:textColor="@color/spz_but_text"
                         android:textSize="20sp" />
 
                     <Button
-                        android:id="@+id/wy_but"
+                        android:id="@+id/b_but"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:background="@android:color/white"
-                        android:text="位移"
+                        android:text="B值"
                         android:textColor="@color/spz_but_text"
                         android:textSize="20sp" />
                 </LinearLayout>
 
                 <WebView
-                    android:id="@+id/zpz_echarts"
+                    android:id="@+id/zt_echarts"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"></WebView>
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#4A78CE"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="8dp"
+                        android:text="历史曲线"
+                        android:textColor="@android:color/white"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <WebView
+                    android:id="@+id/zt_history_echarts"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"></WebView>
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
-
 </LinearLayout>
