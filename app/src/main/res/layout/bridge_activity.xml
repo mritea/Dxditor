@@ -44,10 +44,116 @@
                         android:textSize="15sp" />
                 </LinearLayout>
 
-                <ImageView
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:background="@color/default_circle_indicator_fill_color" />
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:background="@drawable/qlsyt_img" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="80dp"
+                        android:layout_marginTop="115dp">
+
+                        <ImageView
+                            android:id="@+id/num1back_iv"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@drawable/red_back" />
+
+                        <itor.topnetwork.com.dxditor.utils.MyTextView
+                            android:id="@+id/num1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="1"
+                            android:textColor="@color/white" />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="65dp"
+                        android:layout_marginTop="30dp">
+
+                        <ImageView
+                            android:id="@+id/num2back_iv"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@drawable/green_back" />
+
+                        <itor.topnetwork.com.dxditor.utils.MyTextView
+                            android:id="@+id/num2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="2"
+                            android:textColor="@color/white" />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="140dp"
+                        android:layout_marginTop="105dp">
+
+                        <ImageView
+                            android:id="@+id/num3back_iv"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@drawable/purpse_back" />
+
+                        <itor.topnetwork.com.dxditor.utils.MyTextView
+                            android:id="@+id/num3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="3"
+                            android:textColor="@color/white" />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="190dp"
+                        android:layout_marginTop="110dp">
+
+                        <ImageView
+                            android:id="@+id/num4back_iv"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@drawable/blue_back" />
+
+                        <itor.topnetwork.com.dxditor.utils.MyTextView
+                            android:id="@+id/num4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="4"
+                            android:textColor="@color/white" />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="250dp"
+                        android:layout_marginTop="100dp">
+
+                        <ImageView
+                            android:id="@+id/num5back_iv"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@drawable/pink_back" />
+
+                        <itor.topnetwork.com.dxditor.utils.MyTextView
+                            android:id="@+id/num5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="5"
+                            android:textColor="@color/white" />
+                    </RelativeLayout>
+                </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout

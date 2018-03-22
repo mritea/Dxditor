@@ -150,7 +150,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
                         main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.xjmanager://线夹管理
-                        startActivity(new Intent(MainActivity.this, XJManageActivity.class));
+                        startActivity(new Intent(MainActivity.this, XJActivity.class));
                         main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.ztmanager://坠坨管理
