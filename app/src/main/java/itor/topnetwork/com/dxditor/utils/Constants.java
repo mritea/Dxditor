@@ -9,8 +9,10 @@ public class Constants {
     public static boolean testDtat=true;
 
     public static String IP="http://10.1.4.123:8080";
-
+//桥梁趋势
     public static String getAppBridgeMonthDisplacementInfo=IP+"/iotr/iotrApp/iotr/iotrApp/iotrAppDataBridge!getAppBridgeMonthDisplacementInfo.action";
-
+//桥梁告警
     public static String getAppBridgeNewOneAlarm=IP+"/iotr/iotrApp/iotrAppDataBridge!getAppBridgeNewOneAlarm.action";
+//坠坨现场测试
+    public static String getAppWeightsTrendInfo=IP+"/iotr/iotrApp/iotrAppDataWeights!getAppWeightsTrendInfo.action";
 }
