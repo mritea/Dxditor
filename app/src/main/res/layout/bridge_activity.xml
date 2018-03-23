@@ -65,7 +65,7 @@
                             android:layout_height="20dp"
                             android:background="@drawable/red_back" />
 
-                        <itor.topnetwork.com.dxditor.utils.MyTextView
+                        <TextView
                             android:id="@+id/num1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -76,8 +76,8 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="65dp"
-                        android:layout_marginTop="30dp">
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="5dp">
 
                         <ImageView
                             android:id="@+id/num2back_iv"
@@ -85,7 +85,7 @@
                             android:layout_height="20dp"
                             android:background="@drawable/green_back" />
 
-                        <itor.topnetwork.com.dxditor.utils.MyTextView
+                        <TextView
                             android:id="@+id/num2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -105,7 +105,7 @@
                             android:layout_height="20dp"
                             android:background="@drawable/purpse_back" />
 
-                        <itor.topnetwork.com.dxditor.utils.MyTextView
+                        <TextView
                             android:id="@+id/num3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
                             android:layout_height="20dp"
                             android:background="@drawable/blue_back" />
 
-                        <itor.topnetwork.com.dxditor.utils.MyTextView
+                        <TextView
                             android:id="@+id/num4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -145,7 +145,7 @@
                             android:layout_height="20dp"
                             android:background="@drawable/pink_back" />
 
-                        <itor.topnetwork.com.dxditor.utils.MyTextView
+                        <TextView
                             android:id="@+id/num5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -183,14 +183,14 @@
                         android:textSize="15sp" />
                 </LinearLayout>
 
-                <TextView
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/warning_rv"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:paddingBottom="10dp"
-                    android:paddingTop="10dp"
-                    android:text="北京-亦庄 02号 桥梁， 16号梁，\n横向移位10mm，初始值12mm，告警中。"
-                    android:textColor="@android:color/holo_red_light" />
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:scrollbars="vertical" />
             </LinearLayout>
 
             <LinearLayout

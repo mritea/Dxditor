@@ -122,7 +122,6 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
             @Override
             public void onPageFinished(WebView view, String url) {
                 //最好在这里调用js代码 以免网页未加载完成
-                //line_echarts.loadUrl("javascript:createChart('line'," + EchartsDataBean.getInstance().getEchartsLineJson() + ");");
                 line_echarts.loadUrl("javascript:createChart('createbarlineChart'," + EchartsDataBean.getInstance().getEchartsTotalJson() + ");");
                 if (dialog.isShowing()) {
                     dialog.dismiss();
