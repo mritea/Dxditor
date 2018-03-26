@@ -14,5 +14,9 @@
     <color name="tem_ll">#FAAA1B</color>
 
     <color name="spz_but_text">#333366</color>
-    <color name="spz_but_back">#66ff66</color>
+    <color name="spz_but_back_press">#4F94CD</color>
+    <color name="spz_but_back_normal">#A4D3EE</color>
+
+    <color name="abvalue_but_back_press">#CD8C95</color>
+    <color name="abvalue_but_back_normal">#E3E3E3</color>
 </resources>

@@ -48,66 +48,7 @@
                     android:layout_height="150dp"
                     android:background="@color/default_circle_indicator_fill_color" />
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@android:color/white"
-                android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#4A78CE"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="8dp"
-                        android:text="曲线图"
-                        android:textColor="@android:color/white"
-                        android:textSize="15sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/a_zt_but"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:background="@color/spz_but_back"
-                        android:text="JJ_K200+001_01_01"
-                        android:textColor="@color/spz_but_text"
-                         />
-
-                    <Button
-                        android:id="@+id/b_zt_but"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:background="@android:color/white"
-                        android:text="JJ_K200+002_01_01"
-                        android:textColor="@color/spz_but_text"
-                         />
-                </LinearLayout>
-
-                <WebView
-                    android:id="@+id/zt_qx_echarts"
-                    android:layout_width="match_parent"
-                    android:layout_height="400dp"></WebView>
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -147,7 +88,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:background="@color/spz_but_back"
+                        android:background="@color/spz_but_back_press"
                         android:text="A值"
                         android:textColor="@color/spz_but_text"
                         android:textSize="20sp" />

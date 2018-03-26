@@ -85,12 +85,12 @@ public class SPZActivity extends BaseActivity implements View.OnClickListener{
         switch (v.getId()){
             case R.id.yl_but:
                 zpz_echarts.loadUrl("javascript:createChart('ylline'," + EchartsDataBean.getInstance().spzYlEcharts() + ");");
-                yl_but.setBackgroundColor(getResources().getColor(R.color.spz_but_back));
+                yl_but.setBackgroundColor(getResources().getColor(R.color.spz_but_back_press));
                 wy_but.setBackgroundColor(getResources().getColor(R.color.white));
                 return;
             case R.id.wy_but:
                 zpz_echarts.loadUrl("javascript:createChart('wyline'," + EchartsDataBean.getInstance().spzWyEcharts() + ");");
-                wy_but.setBackgroundColor(getResources().getColor(R.color.spz_but_back));
+                wy_but.setBackgroundColor(getResources().getColor(R.color.spz_but_back_press));
                 yl_but.setBackgroundColor(getResources().getColor(R.color.white));
                 return;
         }

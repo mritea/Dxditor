@@ -245,7 +245,6 @@ public class EchartsDataBean {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String res = response.body().string();
-                //System.out.println("ztLiveEcharts:" + res);
 
                 try {
                     JSONObject js = new JSONObject(res);
@@ -265,6 +264,24 @@ public class EchartsDataBean {
                             seriesdata.add(h);
                         }
                         ztLiveEchartsBean.seriesData = seriesdata;
+
+                        ArrayList<Float> aValues = new ArrayList<Float>();
+                        for (int i = 0; i < ZtLiveBeans.size(); i++) {
+                            aValues.add(ZtLiveBeans.get(i).getaValue());
+                        }
+                        ztLiveEchartsBean.aValues = aValues;
+
+                        ArrayList<Float> bValues = new ArrayList<Float>();
+                        for (int i = 0; i < ZtLiveBeans.size(); i++) {
+                            bValues.add(ZtLiveBeans.get(i).getbValue());
+                        }
+                        ztLiveEchartsBean.bValues = bValues;
+
+                        ArrayList<Integer> temps = new ArrayList<Integer>();
+                        for (int i = 0; i < ZtLiveBeans.size(); i++) {
+                            temps.add(ZtLiveBeans.get(i).getTemperature());
+                        }
+                        ztLiveEchartsBean.temps = temps;
 
                     } else {
                     }

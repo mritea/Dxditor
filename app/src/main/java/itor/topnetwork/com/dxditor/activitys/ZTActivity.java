@@ -23,10 +23,9 @@ public class ZTActivity extends BaseActivity implements View.OnClickListener,Ech
     private WebView zt_echarts;
     private WebView zt_history_echarts,zt_qx_echarts;
     private ProgressDialog dialog;
-    private Button a_but,a_zt_but,b_zt_but;
+    private Button a_but;
     private Button b_but;
-    private String string1,string2;
-    private EchartsDataBean echartsDataBean;
+
 
     @Override
     public BasePresenter initPresent() {
@@ -41,7 +40,7 @@ public class ZTActivity extends BaseActivity implements View.OnClickListener,Ech
     @Override
     public void initView() {
         zt_echarts = findViewById(R.id.zt_echarts);
-        zt_qx_echarts = findViewById(R.id.zt_qx_echarts);
+
         zt_history_echarts = findViewById(R.id.zt_history_echarts);
 
         dialog = new ProgressDialog(this);
@@ -54,16 +53,7 @@ public class ZTActivity extends BaseActivity implements View.OnClickListener,Ech
         webSettings.setSupportZoom(true);
         webSettings.setDisplayZoomControls(true);
 
-        WebSettings webSettings1 = zt_qx_echarts.getSettings();
-        webSettings1.setJavaScriptEnabled(true);
-        webSettings1.setJavaScriptCanOpenWindowsAutomatically(true);
-        webSettings1.setSupportZoom(true);
-        webSettings1.setDisplayZoomControls(true);
 
-        a_zt_but = (Button)findViewById(R.id.a_zt_but);
-        b_zt_but = (Button)findViewById(R.id.b_zt_but);
-        a_zt_but.setOnClickListener(this);
-        b_zt_but.setOnClickListener(this);
 
         a_but = (Button)findViewById(R.id.a_but);
         b_but = (Button)findViewById(R.id.b_but);
@@ -97,30 +87,7 @@ public class ZTActivity extends BaseActivity implements View.OnClickListener,Ech
                 }
             }
         });
-        echartsDataBean = new EchartsDataBean(this);
-        zt_qx_echarts.loadUrl("file:///android_asset/echarts/ztLive.html");
-        zt_qx_echarts.setWebViewClient(new WebViewClient() {
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-                return super.shouldOverrideUrlLoading(view, url);
-            }
 
-            @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                super.onPageStarted(view, url, favicon);
-                dialog.show();
-            }
-
-            @Override
-            public void onPageFinished(WebView view, String url) {
-                //最好在这里调用js代码 以免网页未加载完成
-                echartsDataBean.ztLiveEcharts("001_01_01");
-                if (dialog.isShowing()) {
-                    dialog.dismiss();
-                }
-            }
-        });
     }
 
     @Override
@@ -128,25 +95,16 @@ public class ZTActivity extends BaseActivity implements View.OnClickListener,Ech
         switch (v.getId()){
             case R.id.a_but:
                 zt_echarts.loadUrl("javascript:createChart('bar'," + EchartsDataBean.getInstance().ztTopEcharts() + ");");
-                a_but.setBackgroundColor(getResources().getColor(R.color.spz_but_back));
+                a_but.setBackgroundColor(getResources().getColor(R.color.spz_but_back_press));
                 b_but.setBackgroundColor(getResources().getColor(R.color.white));
 
                 break;
             case R.id.b_but:
                 zt_echarts.loadUrl("javascript:createChart('bar'," + EchartsDataBean.getInstance().ztTopBEcharts() + ");");
                 a_but.setBackgroundColor(getResources().getColor(R.color.white));
-                b_but.setBackgroundColor(getResources().getColor(R.color.spz_but_back));
+                b_but.setBackgroundColor(getResources().getColor(R.color.spz_but_back_press));
                 break;
-            case R.id.a_zt_but:
-                echartsDataBean.ztLiveEcharts("001_01_01");
-                a_zt_but.setBackgroundColor(getResources().getColor(R.color.spz_but_back));
-                b_zt_but.setBackgroundColor(getResources().getColor(R.color.white));
-                break;
-            case R.id.b_zt_but:
-                echartsDataBean.ztLiveEcharts("002_01_01");
-                a_zt_but.setBackgroundColor(getResources().getColor(R.color.white));
-                b_zt_but.setBackgroundColor(getResources().getColor(R.color.spz_but_back));
-                break;
+
 
 
         }
@@ -156,15 +114,7 @@ public class ZTActivity extends BaseActivity implements View.OnClickListener,Ech
 
     @Override
     public void refresh(final String s) {
-        System.out.println("s:"+s);
-        if (!ZTActivity.this.isFinishing()) {
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    zt_qx_echarts.loadUrl("javascript:createChart('line'," + s + ");");
-                }
-            });
-        }
+
 
     }
 }

@@ -125,7 +125,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:background="@color/spz_but_back"
+                        android:background="@color/spz_but_back_press"
                         android:text="应力"
                         android:textColor="@color/spz_but_text"
                         android:textSize="20sp" />

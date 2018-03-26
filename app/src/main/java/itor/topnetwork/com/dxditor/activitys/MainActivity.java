@@ -164,6 +164,10 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
                         startActivity(new Intent(MainActivity.this, LoginPageActivity.class));
                         main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
+                    case R.id.zt_test:
+                        startActivity(new Intent(MainActivity.this, ZtTest.class));
+                        main_drawerlayout.closeDrawer(GravityCompat.START);
+                        break;
                 }
 
 

@@ -4,7 +4,7 @@
 
 </head>
 <body >
-<!--onload="createChart('ylline',{'seriesData':[11,38,91,16,37,7,52,96,85,78,43,47],'xData':['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']})"-->
+<!--onload="createChart('line',{'seriesData':[11,38,91,16,37,7,52,96,85,78,43,47],'xData':['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']})"-->
 <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
 <div id="main"
      style="float: center;height:350px;"></div>
@@ -18,11 +18,10 @@
 //显示图表
    function createChart(type,json){
 
-        if(type=='line'){
-          createlineChart(json);
-        }
-
-
+        if(type=='aline'){
+          createalineChart(json);
+        }else if(type=='bline'){
+        createblineChart(json);}
         // 基于准备好的dom，初始化echarts实例
         myChart = echarts.init(document.getElementById('main'));
         //使用指定的配置项和数据显示图表。
@@ -31,25 +30,58 @@
 function createlineChart(obj){
 options = {
  legend: {
-        data:['告警值']
+        data:['A值','传感器高度','B值','温度']
 
     },
     xAxis: {
         type: 'category',
         data:obj.xData,
 axisLabel: {
+
             rotate:70,
             fontSize:6
         }
     },
-    yAxis: {
-     name:'告警值',
-        type: 'value'
-    },
-    series: [{
+    yAxis: [{
 
- name:'告警值',
+        type: 'value',
+        scale: true
+    },{
+      type: 'value',
+            name: '温度',
+            axisLabel: {
+                formatter: '{value} ℃'
+            }
+    }],
+    series: [{
+     name:'传感器高度',
         data:obj.seriesData,
+        type: 'line',
+
+    },{
+     name:'A值',
+        data:obj.aValues,
+        type: 'line',
+markLine: {
+
+                data: [
+                 {name:'ss',yAxis:20},{name:'aa',yAxis:30}
+                ]
+            }
+    },{
+     name:'B值',
+        data:obj.bValues,
+        type: 'line',
+markLine: {
+
+                data: [
+                 {name:'ss',yAxis:20},{name:'aa',yAxis:30}
+                ]
+            }
+    },{
+    name:'温度',
+    yAxisIndex:'1',
+        data: obj.temps,
         type: 'line'
     }],
     dataZoom: [
@@ -62,12 +94,131 @@ axisLabel: {
                   textStyle:{
                  color:'#fff',
                  fontSize:'16'
-                  }
+                  },
+                  bottom:'0'
               }
           ]
+
 };
 }
+function createalineChart(obj){
+options = {
+ legend: {
+        data:['A值','温度']
 
+    },
+    xAxis: {
+        type: 'category',
+        data:obj.xData,
+axisLabel: {
+
+            rotate:70,
+            fontSize:6
+        }
+    },
+    yAxis: [{
+
+        type: 'value',
+        scale: true
+    },{
+      type: 'value',
+            name: '温度',
+            axisLabel: {
+                formatter: '{value} ℃'
+            }
+    }],
+    series: [{
+     name:'A值',
+        data:obj.aValues,
+        type: 'line',
+markLine: {
+
+                data: [
+                 {name:'ss',yAxis:20},{name:'aa',yAxis:30}
+                ]
+            }
+    },{
+    name:'温度',
+    yAxisIndex:'1',
+        data: obj.temps,
+        type: 'line'
+    }],
+    dataZoom: [
+              { width:'auto',
+              start:1,
+              end:100,
+                  type: 'slider',
+                  xAxisIndex: 0,
+                  //filterMode: 'empty',
+                  textStyle:{
+                 color:'#fff',
+                 fontSize:'16'
+                  },
+                  bottom:'0'
+              }
+          ]
+
+};
+}
+function createblineChart(obj){
+options = {
+ legend: {
+        data:['B值','温度']
+
+    },
+    xAxis: {
+        type: 'category',
+        data:obj.xData,
+axisLabel: {
+
+            rotate:70,
+            fontSize:6
+        }
+    },
+    yAxis: [{
+
+        type: 'value',
+        scale: true
+    },{
+      type: 'value',
+            name: '温度',
+            axisLabel: {
+                formatter: '{value} ℃'
+            }
+    }],
+    series: [{
+     name:'B值',
+        data:obj.bValues,
+        type: 'line',
+markLine: {
+
+                data: [
+                 {name:'ss',yAxis:20},{name:'aa',yAxis:30}
+                ]
+            }
+    },{
+    name:'温度',
+    yAxisIndex:'1',
+        data: obj.temps,
+        type: 'line'
+    }],
+    dataZoom: [
+              { width:'auto',
+              start:1,
+              end:100,
+                  type: 'slider',
+                  xAxisIndex: 0,
+                  //filterMode: 'empty',
+                  textStyle:{
+                 color:'#fff',
+                 fontSize:'16'
+                  },
+                  bottom:'0'
+              }
+          ]
+
+};
+}
 
 
 </script>

@@ -6,7 +6,9 @@ package itor.topnetwork.com.dxditor.hybrid.bean.zt;
  */
 
 public class ZtLiveBean {
+    public Float aValue;
     public Float bValue;
+    public int temperature;
     public Float weightsHeight;
     public String timeStamp;
 
@@ -32,5 +34,21 @@ public class ZtLiveBean {
 
     public void setTimeStamp(String timeStamp) {
         this.timeStamp = timeStamp;
+    }
+
+    public Float getaValue() {
+        return aValue;
+    }
+
+    public void setaValue(Float aValue) {
+        this.aValue = aValue;
+    }
+
+    public int getTemperature() {
+        return temperature;
+    }
+
+    public void setTemperature(int temperature) {
+        this.temperature = temperature;
     }
 }

@@ -57,4 +57,12 @@
             android:icon="@drawable/me_1"
             android:title="我的" />
     </group>
+    <group
+        android:id="@+id/eight"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/zt_test"
+            android:icon="@drawable/me_1"
+            android:title="坠坨测试" />
+    </group>
 </menu>

@@ -10,4 +10,7 @@ import java.util.List;
 public class ZtLiveEchartsBean {
     public List<String> xData;
     public List<Float> seriesData;
+    public List<Float> aValues;
+    public List<Float> bValues;
+    public List<Integer> temps;
 }
