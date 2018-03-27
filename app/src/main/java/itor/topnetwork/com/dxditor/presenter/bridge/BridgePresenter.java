@@ -3,12 +3,12 @@ package itor.topnetwork.com.dxditor.presenter.bridge;
 import java.util.ArrayList;
 
 import itor.topnetwork.com.dxditor.activitys.BridgeActivity;
-import itor.topnetwork.com.dxditor.bean.BridgeTrend;
 import itor.topnetwork.com.dxditor.bean.BridgeWarning;
 import itor.topnetwork.com.dxditor.model.bridge.BridgeModel;
 import itor.topnetwork.com.dxditor.presenter.BasePresenter;
 import itor.topnetwork.com.dxditor.utils.ValueCallBack;
 import itor.topnetwork.com.dxditor.view.bridge.IBridgeActivityView;
+import itor.topnetwork.com.dxditor.view.zt.EchartsrefreshInterface;
 
 /**
  * @Description:
@@ -16,11 +16,13 @@ import itor.topnetwork.com.dxditor.view.bridge.IBridgeActivityView;
  */
 
 public class BridgePresenter extends BasePresenter<BridgeActivity> implements IBridgePresenter {
-    IBridgeActivityView bv;
-    BridgeModel bridgeModel;
+    private IBridgeActivityView bv;
+    private BridgeModel bridgeModel;
+    private EchartsrefreshInterface er;
 
-    public BridgePresenter(IBridgeActivityView bv) {
+    public BridgePresenter(IBridgeActivityView bv, EchartsrefreshInterface er) {
         this.bv = bv;
+        this.er = er;
         this.bridgeModel = new BridgeModel();
 
     }
@@ -31,32 +33,37 @@ public class BridgePresenter extends BasePresenter<BridgeActivity> implements IB
             @Override
             public void onSuccess(ArrayList<BridgeWarning> bridgeWarnings) {
 
-bv.refreshWarningAdapter(bridgeWarnings);
+                bv.refreshWarningAdapter(bridgeWarnings);
             }
 
             @Override
             public void onFail(String code) {
 
-    bv.onDataError(code);
+                bv.onDataError(code);
 
             }
         });
-        bridgeModel.getTrendData(new ValueCallBack<ArrayList<BridgeTrend>>() {
-            @Override
-            public void onSuccess(ArrayList<BridgeTrend> bridgeTrends) {
 
-            }
-
-            @Override
-            public void onFail(String code) {
-
-            }
-        });
     }
 
 
     @Override
     public ArrayList<BridgeWarning> getBridgeWarningadapterData() {
         return bridgeModel.getWarningList();
+    }
+
+    @Override
+    public void getBridgelineData(int position) {
+        bridgeModel.getTrendData(new ValueCallBack<String>() {
+            @Override
+            public void onSuccess(String bridgeTrends) {
+                er.refresh(bridgeTrends);
+            }
+
+            @Override
+            public void onFail(String code) {
+                bv.onDataError(code);
+            }
+        }, position);
     }
 }

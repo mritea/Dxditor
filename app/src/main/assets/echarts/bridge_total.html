@@ -31,7 +31,7 @@
 function createLineChart(obj){
 options = {
  legend: {
-        data:['位移值','初始值']
+        data:['位移值']
 
     },
     xAxis: {
@@ -48,13 +48,13 @@ axisLabel: {
     name:'位移值',
 
         data:obj.seriesData,
-        type: 'line'
-    },{
-         name:'初始值',
-
-        data:obj.linebegin,
         type: 'line',
+        markLine: {
 
+                data: [
+                 {name:'ss',yAxis:obj.initValue},
+                ]
+            }
     }]
 };
 }

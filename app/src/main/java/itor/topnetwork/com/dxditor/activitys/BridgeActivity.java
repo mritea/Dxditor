@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -15,16 +16,16 @@ import java.util.ArrayList;
 import itor.topnetwork.com.dxditor.R;
 import itor.topnetwork.com.dxditor.adapter.BridgeWarningAdapter;
 import itor.topnetwork.com.dxditor.bean.BridgeWarning;
-import itor.topnetwork.com.dxditor.hybrid.bean.EchartsDataBean;
 import itor.topnetwork.com.dxditor.presenter.bridge.BridgePresenter;
 import itor.topnetwork.com.dxditor.view.bridge.IBridgeActivityView;
+import itor.topnetwork.com.dxditor.view.zt.EchartsrefreshInterface;
 
 /**
  * @Description:桥梁监测
  * @Created by D.Han on 2018/3/19 11:33 in Peking.
  */
 
-public class BridgeActivity extends BaseActivity<BridgePresenter> implements IBridgeActivityView {
+public class BridgeActivity extends BaseActivity<BridgePresenter> implements IBridgeActivityView, EchartsrefreshInterface {
 
     private WebView bridge_echarts;
     private ProgressDialog dialog;
@@ -39,7 +40,7 @@ public class BridgeActivity extends BaseActivity<BridgePresenter> implements IBr
     @Override
     public BridgePresenter initPresent() {
 
-        return new BridgePresenter(this);
+        return new BridgePresenter(this, this);
     }
 
     @Override
@@ -94,6 +95,7 @@ public class BridgeActivity extends BaseActivity<BridgePresenter> implements IBr
     }
 
     private RecyclerView.LayoutManager mLayoutManager;
+
     @Override
     public void onPrepare() {
         basepresenter.initData();
@@ -116,18 +118,27 @@ public class BridgeActivity extends BaseActivity<BridgePresenter> implements IBr
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
 
                 super.onPageStarted(view, url, favicon);
-                dialog.show();
+                // dialog.show();
             }
 
             @Override
             public void onPageFinished(WebView view, String url) {
                 //最好在这里调用js代码 以免网页未加载完成
-                bridge_echarts.loadUrl("javascript:createChart('line'," + EchartsDataBean.getInstance().bridgeEcharts() + ");");
+               /* bridge_echarts.loadUrl("javascript:createChart('line'," + EchartsDataBean.getInstance().bridgeEcharts() + ");");
                 if (dialog.isShowing()) {
                     dialog.dismiss();
-                }
+                }*/
             }
         });
+
+        bwAdapter.setOnItemClickListener(new BridgeWarningAdapter.OnRecyclerViewItemClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                dialog.show();
+                basepresenter.getBridgelineData(position);
+            }
+        });
+
     }
 
     @Override
@@ -137,18 +148,19 @@ public class BridgeActivity extends BaseActivity<BridgePresenter> implements IBr
 
     @Override
     public void showToast(final String msg) {
-
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(BridgeActivity.this,msg,Toast.LENGTH_SHORT).show();
-            }
-        });
+        if (!BridgeActivity.this.isFinishing()) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(BridgeActivity.this, msg, Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 
     @Override
     public void onDataError(String error) {
-        if(error.equals("01")){
+        if (error.equals("01")) {
             showToast(getResources().getString(R.string.internet_error));
         }
     }
@@ -160,6 +172,24 @@ public class BridgeActivity extends BaseActivity<BridgePresenter> implements IBr
                 @Override
                 public void run() {
                     bwAdapter.updateData(data);
+                }
+            });
+            basepresenter.getBridgelineData(0);
+        }
+    }
+
+    @Override
+    public void refresh(final String s) {
+        if (!BridgeActivity.this.isFinishing()) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if (dialog.isShowing()) {
+                        dialog.dismiss();
+                    }
+
+                    bridge_echarts.loadUrl("javascript:createChart('line'," + s + ");");
+
                 }
             });
         }

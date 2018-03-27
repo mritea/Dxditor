@@ -122,7 +122,7 @@ public class EchartsDataBean {
     public String getEchartsTotalJson() {
         if (Constants.testDtat) {
             totalBean.legendData = new String[]{"桥梁", "声屏障", "坠坨", "线夹", "轨道板", "损坏量"};
-            totalBean.xData = new String[]{"京广线", "京沪线", "京九线", "京津线", "京津线", "京津线", "京津线", "京九线"};
+            totalBean.xData = new String[]{"京广线", "京沪线", "京九线", "京津线", "京哈线", "京张铁路", "京通线", "张集线"};
             totalBean.series = new ArrayList<>();
 
             for (int i = 0; i < totalBean.legendData.length - 1; i++) {
@@ -150,7 +150,7 @@ public class EchartsDataBean {
 
     }
 
-    public String bridgeEcharts() {
+    /*public String bridgeEcharts() {
         if (Constants.testDtat) {
             bridgeBean.xData = new String[]{"一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"};
             List<Integer> seriesData = new ArrayList<>();
@@ -167,7 +167,7 @@ public class EchartsDataBean {
         }
         return gson.toJson(bridgeBean);
 
-    }
+    }*/
 
     //应力
     public String spzYlEcharts() {
@@ -245,7 +245,7 @@ public class EchartsDataBean {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String res = response.body().string();
-
+                //System.out.println("res："+res);
                 try {
                     JSONObject js = new JSONObject(res);
                     if (js.getBoolean("success")) {

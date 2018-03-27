@@ -83,9 +83,11 @@ public class XjGjglAdapter extends RecyclerView.Adapter<XjGjglAdapter.ViewHolder
         this.mOnItemClickListener = listener;
     }
     private OnRecyclerViewItemClickListener  mOnItemClickListener = null;
+
     public interface OnRecyclerViewItemClickListener  {
         void onClick(View view, int position);
     };
+
     public static class ViewHolder extends RecyclerView.ViewHolder{
         TextView xl_tv;
         TextView glb_tv;

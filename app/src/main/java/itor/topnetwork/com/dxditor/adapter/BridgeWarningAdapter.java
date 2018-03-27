@@ -17,7 +17,7 @@ import itor.topnetwork.com.dxditor.bean.BridgeWarning;
  * @Created by D.Han on 2018/3/23 15:18 in Peking.
  */
 
-public class BridgeWarningAdapter extends RecyclerView.Adapter<BridgeWarningAdapter.ViewHolder>{
+public class BridgeWarningAdapter extends RecyclerView.Adapter<BridgeWarningAdapter.ViewHolder> implements View.OnClickListener{
     ArrayList<BridgeWarning> mData;
     Context context;
     public BridgeWarningAdapter(Context context, ArrayList<BridgeWarning> bw) {
@@ -32,6 +32,8 @@ public class BridgeWarningAdapter extends RecyclerView.Adapter<BridgeWarningAdap
     public BridgeWarningAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // 实例化展示的view
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.bridge_warning_recycle_item, parent, false);
+        //设置view的点击事件
+        v.setOnClickListener(this);
         // 实例化viewholder
         ViewHolder viewHolder = new ViewHolder(v);
         return viewHolder;
@@ -47,12 +49,17 @@ public class BridgeWarningAdapter extends RecyclerView.Adapter<BridgeWarningAdap
         holder.initValue_tv.setText(mData.get(position).getInitValue());
         holder.currentValue_tv.setText(mData.get(position).getCurrentValue());
 
+        //给holder的itemview添加Tag为position
+        holder.itemView.setTag(position);
     }
 
     @Override
     public int getItemCount() {
         return mData == null ? 0 : mData.size();
     }
+
+
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView monitorname_tv;
@@ -68,4 +75,18 @@ public class BridgeWarningAdapter extends RecyclerView.Adapter<BridgeWarningAdap
             currentValue_tv = (TextView) itemView.findViewById(R.id.currentValue_tv);
         }
     }
+    private OnRecyclerViewItemClickListener  mOnItemClickListener = null;
+    @Override
+    public void onClick(View v) {
+        if (mOnItemClickListener != null) {
+            //注意这里使用getTag方法获取position
+            mOnItemClickListener.onClick(v,(int)v.getTag());
+        }
+    }
+    public void setOnItemClickListener(OnRecyclerViewItemClickListener  listener) {
+        this.mOnItemClickListener = listener;
+    }
+    public interface OnRecyclerViewItemClickListener  {
+        void onClick(View view, int position);
+    };
 }

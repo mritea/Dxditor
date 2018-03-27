@@ -11,4 +11,5 @@ import itor.topnetwork.com.dxditor.bean.BridgeWarning;
 
 public interface IBridgePresenter {
    public ArrayList<BridgeWarning> getBridgeWarningadapterData();
+   public void getBridgelineData(int position);
 }

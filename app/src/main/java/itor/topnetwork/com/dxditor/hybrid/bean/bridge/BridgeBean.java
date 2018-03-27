@@ -8,7 +8,7 @@ import java.util.List;
  */
 
 public class BridgeBean {
-    public String[] xData;
-    public List<Integer> seriesData;
-    public List<Integer> linebegin;
+    public List<String> xData;
+    public List<Float> seriesData;
+    public int initValue;
 }

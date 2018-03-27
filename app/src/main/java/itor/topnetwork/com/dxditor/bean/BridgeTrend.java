@@ -6,5 +6,22 @@ package itor.topnetwork.com.dxditor.bean;
  */
 
 public class BridgeTrend {
+private String value;
+private String storageTime;
 
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public String getStorageTime() {
+        return storageTime;
+    }
+
+    public void setStorageTime(String storageTime) {
+        this.storageTime = storageTime;
+    }
 }

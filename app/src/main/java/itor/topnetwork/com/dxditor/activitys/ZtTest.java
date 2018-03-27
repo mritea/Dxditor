@@ -80,7 +80,7 @@ public class ZtTest extends Activity implements View.OnClickListener, Echartsref
 
     }
 
-    String type_abvalue = "a";
+    String type_abvalue = "b";
 
     @Override
     public void onClick(View v) {
@@ -115,7 +115,6 @@ public class ZtTest extends Activity implements View.OnClickListener, Echartsref
     @Override
     public void refresh(String s) {
         datas = s;
-        System.out.println("datas:"+datas);
         if (!ZtTest.this.isFinishing()) {
             runOnUiThread(new Runnable() {
                 @Override

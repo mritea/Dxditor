@@ -11,6 +11,9 @@ public class BridgeWarning {
     private String currentValue;
     private String initValue;
     private String itemName;
+    private String bridgeCode;
+    private String monitorObjectCode;
+    private String monitorItemCode;
 
     public String getMonitorName() {
         return monitorName;
@@ -50,5 +53,29 @@ public class BridgeWarning {
 
     public void setItemName(String itemName) {
         this.itemName = itemName;
+    }
+
+    public String getBridgeCode() {
+        return bridgeCode;
+    }
+
+    public void setBridgeCode(String bridgeCode) {
+        this.bridgeCode = bridgeCode;
+    }
+
+    public String getMonitorObjectCode() {
+        return monitorObjectCode;
+    }
+
+    public void setMonitorObjectCode(String monitorObjectCode) {
+        this.monitorObjectCode = monitorObjectCode;
+    }
+
+    public String getMonitorItemCode() {
+        return monitorItemCode;
+    }
+
+    public void setMonitorItemCode(String monitorItemCode) {
+        this.monitorItemCode = monitorItemCode;
     }
 }

@@ -2,7 +2,6 @@ package itor.topnetwork.com.dxditor.model.bridge;
 
 import java.util.ArrayList;
 
-import itor.topnetwork.com.dxditor.bean.BridgeTrend;
 import itor.topnetwork.com.dxditor.bean.BridgeWarning;
 import itor.topnetwork.com.dxditor.utils.ValueCallBack;
 
@@ -15,5 +14,5 @@ public interface IBridgeModel {
     //获取桥梁告警信息
     public void getWarningData(ValueCallBack<ArrayList<BridgeWarning>> callBack);
     //获取桥梁趋势图
-    public void getTrendData(ValueCallBack<ArrayList<BridgeTrend>> callBack);
+    public void getTrendData(ValueCallBack<String> callBack,int position);
 }

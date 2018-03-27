@@ -53,7 +53,7 @@
         <activity android:name=".activitys.ZTActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".activitys.ZtTest"
-            android:screenOrientation="portrait"/>
+            />
 
     </application>
 
