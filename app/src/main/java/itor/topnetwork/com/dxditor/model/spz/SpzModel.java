@@ -1,4 +1,4 @@
-package itor.topnetwork.com.dxditor.model.bridge;
+package itor.topnetwork.com.dxditor.model.spz;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -9,9 +9,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import itor.topnetwork.com.dxditor.bean.BridgeTrend;
-import itor.topnetwork.com.dxditor.bean.BridgeWarning;
-import itor.topnetwork.com.dxditor.hybrid.bean.bridge.BridgeBean;
+import itor.topnetwork.com.dxditor.bean.SpzTrend;
+import itor.topnetwork.com.dxditor.bean.SpzWarning;
+import itor.topnetwork.com.dxditor.hybrid.bean.spz.SpzEchartsBean;
 import itor.topnetwork.com.dxditor.utils.Constants;
 import itor.topnetwork.com.dxditor.utils.ValueCallBack;
 import okhttp3.Call;
@@ -23,39 +23,37 @@ import okhttp3.Response;
 
 /**
  * @Description:
- * @Created by D.Han on 2018/3/23 13:52 in Peking.
+ * @Created by D.Han on 2018/3/27 15:01 in Peking.
  */
 
-public class BridgeModel implements IBridgeModel {
-
-    private ArrayList<BridgeWarning> bridgeWarnings;
-    private ArrayList<BridgeTrend> bridgeTrends;
-    private final OkHttpClient okHttpClient;
+public class SpzModel implements ISpzModel {
     private final Gson gson;
-    private BridgeBean bridgeBean;
+    private final OkHttpClient okHttpClient;
 
-    public BridgeModel() {
+    private ArrayList<SpzWarning> spzWarnings;
+    private ArrayList<SpzTrend> spzTrends;
+
+    public SpzModel() {
         okHttpClient = new OkHttpClient();
-        bridgeWarnings = new ArrayList<BridgeWarning>();
         gson = new Gson();
+        spzWarnings = new ArrayList<SpzWarning>();
     }
 
-    public ArrayList<BridgeWarning> getWarningList() {
-        return bridgeWarnings;
+    public ArrayList<SpzWarning> getWarningList() {
+        return spzWarnings;
     }
 
     @Override
-    public void getWarningData(final ValueCallBack<ArrayList<BridgeWarning>> callBack) {
-
-        //Form表单格式的参数传递
+    public void getWarningData(final ValueCallBack<ArrayList<SpzWarning>> callBack) {
+        /*//Form表单格式的参数传递
         FormBody formBody = new FormBody
                 .Builder()
                 .add("bridgeCode", Constants.BRIDGECODE)//设置参数名称和参数值
-                .build();
+                .build();*/
         Request request = new Request
                 .Builder()
-                .post(formBody)
-                .url(Constants.getAppBridgeNewOneAlarm)
+                //  .post(formBody)
+                .url(Constants.getAppSoundBarrierNewOneAlarm)
                 .build();
 
         okHttpClient.newCall(request).enqueue(new Callback() {
@@ -67,14 +65,14 @@ public class BridgeModel implements IBridgeModel {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String res = response.body().string();
-               // System.out.println("getWarningData:" + res);
+                System.out.println("getAppSoundBarrierNewOneAlarm:" + res);
 
                 try {
                     JSONObject js = new JSONObject(res);
                     if (js.getBoolean("success")) {
-                        bridgeWarnings = gson.fromJson(js.getString("data"), new TypeToken<ArrayList<BridgeWarning>>() {
+                        spzWarnings = gson.fromJson(js.getString("data"), new TypeToken<ArrayList<SpzWarning>>() {
                         }.getType());
-                        callBack.onSuccess(bridgeWarnings);
+                        callBack.onSuccess(spzWarnings);
                     } else {
                         callBack.onFail("01");
                     }
@@ -85,24 +83,24 @@ public class BridgeModel implements IBridgeModel {
                 }
             }
         });
-        //callBack.onSuccess(bridgeWarnings);
+
+
     }
 
     @Override
-    public void getTrendData(final ValueCallBack<String> callBack,final int position) {
-        bridgeTrends = new ArrayList<BridgeTrend>();
+    public void getTrendData(final ValueCallBack<String> callBack, int position) {
+        spzTrends = new ArrayList<SpzTrend>();
         //Form表单格式的参数传递
         FormBody formBody = new FormBody
                 .Builder()
-                .add("bridgeCode", bridgeWarnings.get(position).getBridgeCode())
-                .add("monitotObjectCode", bridgeWarnings.get(position).getMonitorObjectCode())
-                .add("monitorItemCode", bridgeWarnings.get(position).getMonitorItemCode())
+                .add("bridgeCode", spzWarnings.get(position).getBridgeCode())
+                .add("type", spzWarnings.get(position).getType())
                 .add("storageTime", Constants.MONTH)
                 .build();
         Request request = new Request
                 .Builder()
                 .post(formBody)
-                .url(Constants.getAppBridgeMonthDisplacementInfo)
+                .url(Constants.getAppSoundBarrierInfo)
                 .build();
 
         okHttpClient.newCall(request).enqueue(new Callback() {
@@ -114,29 +112,29 @@ public class BridgeModel implements IBridgeModel {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String res = response.body().string();
-                System.out.println("bridgeTrends:" + res);
+                System.out.println("getAppSoundBarrierInfo:" + res);
 
                 try {
                     JSONObject js = new JSONObject(res);
                     if (js.getBoolean("success")) {
-                        bridgeTrends = gson.fromJson(js.getString("data"), new TypeToken<ArrayList<BridgeTrend>>() {
+                        spzTrends = gson.fromJson(js.getString("data"), new TypeToken<ArrayList<SpzTrend>>() {
                         }.getType());
-                        BridgeBean bridgeBean = new BridgeBean();
+                        SpzEchartsBean spzBean = new SpzEchartsBean();
+                        //bridgeBean.initValue =;
                         List<String> time = new ArrayList<>();
-                        for (int i = 0; i < bridgeTrends.size(); i++) {
-                            time.add(bridgeTrends.get(i).getStorageTime());
+                        for (int i = 0; i < spzTrends.size(); i++) {
+                            time.add(spzTrends.get(i).getStorageTime());
                         }
-                        bridgeBean.xData = time;
+                        spzBean.xData = time;
 
                         List<Float> lineDatas = new ArrayList<>();
-                        for (int i = 0; i < bridgeTrends.size(); i++) {
-                            lineDatas.add(Float.parseFloat( bridgeTrends.get(i).getValue()));
+                        for (int i = 0; i < spzTrends.size(); i++) {
+                            lineDatas.add( spzTrends.get(i).getTypeData());
                         }
-                        bridgeBean.seriesData = lineDatas;
+                        spzBean.seriesData = lineDatas;
 
-                        bridgeBean.initValue=Integer.parseInt(bridgeWarnings.get(position).getInitValue());
 
-                        callBack.onSuccess(gson.toJson(bridgeBean));
+                        callBack.onSuccess(gson.toJson(spzBean));
                     } else {
                         callBack.onFail("01");
                     }
@@ -147,7 +145,7 @@ public class BridgeModel implements IBridgeModel {
                 }
             }
         });
-
     }
+
 
 }

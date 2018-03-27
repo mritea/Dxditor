@@ -76,15 +76,14 @@
                         android:textSize="15sp" />
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/zpzwaring_tv"
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/spz_warning_rv"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:paddingBottom="10dp"
-                    android:paddingTop="10dp"
-                    android:text="位移 最大  最小  告警中\n风速 最大 最小 \n应力  最大  最小"
-                    android:textColor="@android:color/holo_red_light" />
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:scrollbars="vertical" />
             </LinearLayout>
 
             <LinearLayout

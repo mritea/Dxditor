@@ -170,7 +170,7 @@ public class EchartsDataBean {
     }*/
 
     //应力
-    public String spzYlEcharts() {
+    /*public String spzYlEcharts() {
         if (Constants.testDtat) {
             spzEchartsBean.xData = new String[]{"一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"};
             List<Integer> seriesData = new ArrayList<>();
@@ -195,7 +195,7 @@ public class EchartsDataBean {
         }
         return gson.toJson(spzEchartsBean);
 
-    }
+    }*/
 
     //排名，top20 A值
     public String ztTopEcharts() {
@@ -251,6 +251,7 @@ public class EchartsDataBean {
                     if (js.getBoolean("success")) {
                         ArrayList<ZtLiveBean> ZtLiveBeans = gson.fromJson(js.getString("data"), new TypeToken<ArrayList<ZtLiveBean>>() {
                         }.getType());
+                        System.out.println("ZtLiveBeans.size():"+ZtLiveBeans.size());
                         ArrayList<String> xdata = new ArrayList<String>();
                         for (int i = 0; i < ZtLiveBeans.size(); i++) {
                             String time = ZtLiveBeans.get(i).getTimeStamp().replace("T", " ");
