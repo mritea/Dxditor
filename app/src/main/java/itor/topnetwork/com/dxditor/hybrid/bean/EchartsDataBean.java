@@ -259,12 +259,12 @@ public class EchartsDataBean {
                         }
                         ztLiveEchartsBean.xData = xdata;
 
-                        ArrayList<Float> seriesdata = new ArrayList<Float>();
+                        /*ArrayList<Float> seriesdata = new ArrayList<Float>();
                         for (int i = 0; i < ZtLiveBeans.size(); i++) {
                             Float h = ZtLiveBeans.get(i).getbValue() + ZtLiveBeans.get(i).getWeightsHeight();
                             seriesdata.add(h);
                         }
-                        ztLiveEchartsBean.seriesData = seriesdata;
+                        ztLiveEchartsBean.seriesData = seriesdata;*/
 
                         ArrayList<Float> aValues = new ArrayList<Float>();
                         for (int i = 0; i < ZtLiveBeans.size(); i++) {
@@ -283,7 +283,8 @@ public class EchartsDataBean {
                             temps.add(ZtLiveBeans.get(i).getTemperature());
                         }
                         ztLiveEchartsBean.temps = temps;
-
+                        ztLiveEchartsBean.startValue=ZtLiveBeans.size()-50;
+                        ztLiveEchartsBean.endValue=ZtLiveBeans.size();
                     } else {
                     }
                     ei.refresh(gson.toJson(ztLiveEchartsBean));

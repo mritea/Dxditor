@@ -17,7 +17,9 @@
  var options;
 //显示图表
    function createChart(type,json){
-
+   if(myChart!=null){
+myChart.clear();
+myChart.dispose();}
         if(type=='aline'){
           createalineChart(json);
         }else if(type=='bline'){
@@ -26,6 +28,7 @@
         myChart = echarts.init(document.getElementById('main'));
         //使用指定的配置项和数据显示图表。
         myChart.setOption(options);
+
     }
 function createlineChart(obj){
 options = {
@@ -142,25 +145,23 @@ markLine: {
         data: obj.temps,
         type: 'line'
     }],
-    dataZoom: [
-              { width:'auto',
-              start:1,
-              end:100,
-                  type: 'slider',
-                  xAxisIndex: 0,
-                  //filterMode: 'empty',
-                  textStyle:{
-                 color:'#fff',
-                 fontSize:'16'
-                  },
-                  bottom:'0'
-              }
-          ]
+     dataZoom: [
+        {type:'inside',
+            show: true,
+            realtime: true,
+           startValue :obj.startValue,
+            endValue:obj.endValue,
+            maxValueSpan:50,
+            minValueSpan:10,
+            xAxisIndex:0
+        }
+    ]
 
 };
 }
 function createblineChart(obj){
 options = {
+animation:false,
  legend: {
         data:['B值','温度']
 
@@ -196,23 +197,22 @@ markLine: {
     },{
     name:'温度',
     yAxisIndex:'1',
-        data: obj.temps,
+        data:obj.temps,
         type: 'line'
     }],
-    dataZoom: [
-              { width:'auto',
-              start:1,
-              end:100,
-                  type: 'slider',
-                  xAxisIndex: 0,
-                  //filterMode: 'empty',
-                  textStyle:{
-                 color:'#fff',
-                 fontSize:'16'
-                  },
-                  bottom:'0'
-              }
-          ]
+          dataZoom: [
+        {type:'inside',
+            show: true,
+             throttle: 200,
+            realtime: false,
+            startValue :obj.startValue,
+            endValue:obj.endValue,
+            maxValueSpan:50,
+            minValueSpan:10,
+
+            xAxisIndex:0
+        }
+    ]
 
 };
 }
