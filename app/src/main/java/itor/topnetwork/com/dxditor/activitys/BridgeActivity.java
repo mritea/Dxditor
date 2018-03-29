@@ -11,11 +11,8 @@ import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
 import itor.topnetwork.com.dxditor.R;
 import itor.topnetwork.com.dxditor.adapter.BridgeWarningAdapter;
-import itor.topnetwork.com.dxditor.bean.BridgeWarning;
 import itor.topnetwork.com.dxditor.presenter.bridge.BridgePresenter;
 import itor.topnetwork.com.dxditor.view.bridge.IBridgeActivityView;
 import itor.topnetwork.com.dxditor.view.zt.EchartsrefreshInterface;
@@ -98,7 +95,6 @@ public class BridgeActivity extends BaseActivity<BridgePresenter> implements IBr
 
     @Override
     public void onPrepare() {
-        basepresenter.initData();
         mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         // 设置布局管理器
         warning_rv.setLayoutManager(mLayoutManager);
@@ -128,6 +124,7 @@ public class BridgeActivity extends BaseActivity<BridgePresenter> implements IBr
                 if (dialog.isShowing()) {
                     dialog.dismiss();
                 }*/
+                basepresenter.initData();
             }
         });
 
@@ -166,12 +163,12 @@ public class BridgeActivity extends BaseActivity<BridgePresenter> implements IBr
     }
 
     @Override
-    public void refreshWarningAdapter(final ArrayList<BridgeWarning> data) {
+    public void refreshWarningAdapter() {
         if (!BridgeActivity.this.isFinishing()) {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    bwAdapter.updateData(data);
+                    bwAdapter.updateData();
                 }
             });
             basepresenter.getBridgelineData(0);
@@ -187,7 +184,6 @@ public class BridgeActivity extends BaseActivity<BridgePresenter> implements IBr
                     if (dialog.isShowing()) {
                         dialog.dismiss();
                     }
-
                     bridge_echarts.loadUrl("javascript:createChart('line'," + s + ");");
 
                 }

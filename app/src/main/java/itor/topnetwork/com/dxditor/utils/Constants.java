@@ -6,11 +6,11 @@ package itor.topnetwork.com.dxditor.utils;
  */
 
 public class Constants {
-    public static boolean testDtat = true;
+    public static boolean testData = true;
 
-    //public static String IP = "http://36.110.98.226:5280/iotr_product";
+   public static String IP = "http://36.110.98.226:5280/iotr_product";
 
-     public static String IP = "http://10.1.4.132:8080/iotr";
+    // public static String IP = "http://10.1.4.132:8080/iotr";
     //桥梁趋势
     public static String getAppBridgeMonthDisplacementInfo = IP + "/iotrApp/iotr/iotrApp/iotrAppDataBridge!getAppBridgeMonthDisplacementInfo.action";
     //桥梁告警

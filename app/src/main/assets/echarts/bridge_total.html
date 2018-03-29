@@ -30,8 +30,11 @@
     }
 function createLineChart(obj){
 options = {
+ grid:{
+        y2:75
+    },
  legend: {
-        data:['位移值']
+        data:['变化值']
 
     },
     xAxis: {
@@ -45,7 +48,7 @@ axisLabel: {
         type: 'value'
     },
     series: [{
-    name:'位移值',
+    name:'变化值',
 
         data:obj.seriesData,
         type: 'line',

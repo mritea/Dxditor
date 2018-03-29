@@ -106,6 +106,10 @@ markLine: {
 }
 function createalineChart(obj){
 options = {
+grid:{
+y:30,
+        y2:75
+    },
  legend: {
         data:['A值','温度']
 
@@ -114,9 +118,8 @@ options = {
         type: 'category',
         data:obj.xData,
 axisLabel: {
-
             rotate:70,
-            fontSize:6
+            fontSize:10
         }
     },
     yAxis: [{
@@ -151,7 +154,7 @@ markLine: {
             realtime: true,
            startValue :obj.startValue,
             endValue:obj.endValue,
-            maxValueSpan:50,
+            maxValueSpan:80,
             minValueSpan:10,
             xAxisIndex:0
         }
@@ -161,7 +164,11 @@ markLine: {
 }
 function createblineChart(obj){
 options = {
-animation:false,
+animation:true,
+grid:{
+  y:30,
+  y2:75
+    },
  legend: {
         data:['B值','温度']
 
@@ -172,7 +179,7 @@ animation:false,
 axisLabel: {
 
             rotate:70,
-            fontSize:6
+            fontSize:10
         }
     },
     yAxis: [{
@@ -203,11 +210,11 @@ markLine: {
           dataZoom: [
         {type:'inside',
             show: true,
-             throttle: 200,
+             throttle: 0,
             realtime: false,
             startValue :obj.startValue,
             endValue:obj.endValue,
-            maxValueSpan:50,
+            maxValueSpan:80,
             minValueSpan:10,
 
             xAxisIndex:0

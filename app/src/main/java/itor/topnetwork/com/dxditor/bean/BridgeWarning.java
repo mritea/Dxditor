@@ -15,6 +15,17 @@ public class BridgeWarning {
     private String monitorObjectCode;
     private String monitorItemCode;
 
+    public BridgeWarning(String monitorName, String bridgeName, String currentValue, String initValue, String itemName, String bridgeCode, String monitorObjectCode, String monitorItemCode) {
+        this.monitorName = monitorName;
+        this.bridgeName = bridgeName;
+        this.currentValue = currentValue;
+        this.initValue = initValue;
+        this.itemName = itemName;
+        this.bridgeCode = bridgeCode;
+        this.monitorObjectCode = monitorObjectCode;
+        this.monitorItemCode = monitorItemCode;
+    }
+
     public String getMonitorName() {
         return monitorName;
     }

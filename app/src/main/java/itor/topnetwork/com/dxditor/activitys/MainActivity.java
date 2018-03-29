@@ -73,6 +73,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
 
     @Override
     public void initView() {
+        back_iv.setVisibility(View.GONE);
         gj = (TextView) findViewById(R.id.gj);
         zc = (TextView) findViewById(R.id.zc);
         lx = (TextView) findViewById(R.id.lx);
@@ -142,32 +143,33 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
                         break;
                     case R.id.brigemanager://桥梁管理
                         startActivity(new Intent(MainActivity.this, BridgeActivity.class));
-                        main_drawerlayout.closeDrawer(GravityCompat.START);
+                        // main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.SPZmanager://声屏障管理
                         startActivity(new Intent(MainActivity.this, SPZActivity.class));
-                        main_drawerlayout.closeDrawer(GravityCompat.START);
+                        //main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.xjmanager://线夹管理
                         startActivity(new Intent(MainActivity.this, XJActivity.class));
-                        main_drawerlayout.closeDrawer(GravityCompat.START);
+                        //main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.ztmanager://坠坨管理
-                        startActivity(new Intent(MainActivity.this, ZTActivity.class));
-                        main_drawerlayout.closeDrawer(GravityCompat.START);
+                        startActivity(new Intent(MainActivity.this, ZtTest.class));
+                        //startActivity(new Intent(MainActivity.this, ZTActivity.class));
+                        // main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.GDBmanager://轨道板管理
                         startActivity(new Intent(MainActivity.this, GDBActivity.class));
-                        main_drawerlayout.closeDrawer(GravityCompat.START);
+                        // main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
 //                    case R.id.mine:
 //                        startActivity(new Intent(MainActivity.this, LoginPageActivity.class));
 //                        main_drawerlayout.closeDrawer(GravityCompat.START);
 //                        break;
-                    case R.id.zt_test:
-                        startActivity(new Intent(MainActivity.this, ZtTest.class));
-                        main_drawerlayout.closeDrawer(GravityCompat.START);
-                        break;
+                    /*case R.id.zt_test:
+
+                        //main_drawerlayout.closeDrawer(GravityCompat.START);
+                        break;*/
                 }
 
 

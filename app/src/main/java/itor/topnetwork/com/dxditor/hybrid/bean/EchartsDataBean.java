@@ -120,7 +120,7 @@ public class EchartsDataBean {
     final Random random = new Random();
 
     public String getEchartsTotalJson() {
-        if (Constants.testDtat) {
+        if (Constants.testData) {
             totalBean.legendData = new String[]{"桥梁", "声屏障", "坠坨", "线夹", "轨道板", "损坏量"};
             totalBean.xData = new String[]{"京广线", "京沪线", "京九线", "京津线", "京哈线", "京张铁路", "京通线", "张集线"};
             totalBean.series = new ArrayList<>();
@@ -199,7 +199,7 @@ public class EchartsDataBean {
 
     //排名，top20 A值
     public String ztTopEcharts() {
-        if (Constants.testDtat) {
+        if (Constants.testData) {
             ztTopEchartsBean.xData = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"};
             List<Integer> seriesData = new ArrayList<>();
             for (int i = 0; i < ztTopEchartsBean.xData.length; i++) {
@@ -213,7 +213,7 @@ public class EchartsDataBean {
 
     //排名，top20 B值
     public String ztTopBEcharts() {
-        if (Constants.testDtat) {
+        if (Constants.testData) {
             ztTopEchartsBean.xData = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"};
             List<Integer> seriesData = new ArrayList<>();
             for (int i = 0; i < ztTopEchartsBean.xData.length; i++) {

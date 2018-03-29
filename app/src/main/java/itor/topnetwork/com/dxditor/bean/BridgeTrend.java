@@ -9,6 +9,11 @@ public class BridgeTrend {
 private String value;
 private String storageTime;
 
+    public BridgeTrend(String value, String storageTime) {
+        this.value = value;
+        this.storageTime = storageTime;
+    }
+
     public String getValue() {
         return value;
     }

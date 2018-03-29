@@ -11,7 +11,9 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import itor.topnetwork.com.dxditor.R;
 import itor.topnetwork.com.dxditor.hybrid.bean.EchartsDataBean;
@@ -28,8 +30,9 @@ public class ZtTest extends Activity implements View.OnClickListener, Echartsref
     private ProgressDialog dialog;
     private EchartsDataBean echartsDataBean;
     private String datas;
-    private LinearLayout title_include, one_title, zt_select_ll, ab_select_ll;
-
+    private LinearLayout  one_title, zt_select_ll, ab_select_ll;
+    private RelativeLayout title_include;
+    public ImageView back_iv;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,6 +48,13 @@ public class ZtTest extends Activity implements View.OnClickListener, Echartsref
         bvalue_but = (Button) findViewById(R.id.bvalue_but);
 
         title_include = findViewById(R.id.title_include);
+        back_iv = findViewById(R.id.back_iv);
+        back_iv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         one_title = findViewById(R.id.one_title);
         zt_select_ll = findViewById(R.id.zt_select_ll);
         ab_select_ll = findViewById(R.id.ab_select_ll);

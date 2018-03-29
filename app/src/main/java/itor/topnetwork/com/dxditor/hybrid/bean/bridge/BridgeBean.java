@@ -10,5 +10,5 @@ import java.util.List;
 public class BridgeBean {
     public List<String> xData;
     public List<Float> seriesData;
-    public int initValue;
+    public Float initValue;
 }

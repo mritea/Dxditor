@@ -23,7 +23,7 @@ public class MainpageModel implements IMainpageModel {
     @Override
     public void getTestData(ValueCallBack<List<SbxxBean>> callBack) {
         List<SbxxBean> list = new ArrayList<>();
-        if (Constants.testDtat) {
+        if (Constants.testData) {
             list.add(new SbxxBean(3));
             list.add(new SbxxBean(57));
             list.add(new SbxxBean(31));
@@ -65,13 +65,6 @@ public class MainpageModel implements IMainpageModel {
         list.add(new Gjlb("京沪", "K101+345", "线夹", "4601400000000024", "20.5", "2017-11-24 09:23:35"));
         list.add(new Gjlb("京广", "K564+345", "线夹", "4601400000000025", "45.5", "2017-11-24 09:23:35"));
         list.add(new Gjlb("京哈", "K43+345", "线夹", "4601400000000026", "36.5", "2017-11-24 09:23:35"));
-        list.add(new Gjlb("京九", "K458+345", "线夹", "4601400000000027", "31.5", "2017-11-24 09:23:35"));
-        list.add(new Gjlb("京九", "K458+345", "线夹", "4601400000000027", "31.5", "2017-11-24 09:23:35"));
-        list.add(new Gjlb("京九", "K458+345", "线夹", "4601400000000027", "31.5", "2017-11-24 09:23:35"));
-        list.add(new Gjlb("京九", "K458+345", "线夹", "4601400000000027", "31.5", "2017-11-24 09:23:35"));
-        list.add(new Gjlb("京九", "K458+345", "线夹", "4601400000000027", "31.5", "2017-11-24 09:23:35"));
-        list.add(new Gjlb("京九", "K458+345", "线夹", "4601400000000027", "31.5", "2017-11-24 09:23:35"));
-        list.add(new Gjlb("京九", "K458+345", "线夹", "4601400000000027", "31.5", "2017-11-24 09:23:35"));
         list.add(new Gjlb("京九", "K458+345", "线夹", "4601400000000027", "31.5", "2017-11-24 09:23:35"));
         list.add(new Gjlb("京九", "K458+345", "线夹", "4601400000000027", "31.5", "2017-11-24 09:23:35"));
         list.add(new Gjlb("京九", "K458+345", "线夹", "4601400000000027", "31.5", "2017-11-24 09:23:35"));

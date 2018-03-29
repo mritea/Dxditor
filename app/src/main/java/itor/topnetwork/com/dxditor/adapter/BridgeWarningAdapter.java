@@ -24,8 +24,8 @@ public class BridgeWarningAdapter extends RecyclerView.Adapter<BridgeWarningAdap
         this.mData = bw;
         this.context = context;
     }
-    public void updateData(ArrayList<BridgeWarning> data) {
-        mData.addAll(data);
+    public void updateData() {
+      //  mData.addAll(data);
         notifyDataSetChanged();
     }
     @Override
@@ -45,7 +45,7 @@ public class BridgeWarningAdapter extends RecyclerView.Adapter<BridgeWarningAdap
     public void onBindViewHolder(BridgeWarningAdapter.ViewHolder holder, int position) {
         // 绑定数据
         holder.monitorname_tv.setText(mData.get(position).getMonitorName());
-        holder.itemname_tv.setText(mData.get(position).getItemName());
+       // holder.itemname_tv.setText(mData.get(position).getItemName());
         holder.initValue_tv.setText(mData.get(position).getInitValue());
         holder.currentValue_tv.setText(mData.get(position).getCurrentValue());
 
@@ -70,7 +70,7 @@ public class BridgeWarningAdapter extends RecyclerView.Adapter<BridgeWarningAdap
         public ViewHolder(View itemView) {
             super(itemView);
             monitorname_tv = (TextView) itemView.findViewById(R.id.monitorname_tv);
-            itemname_tv = (TextView) itemView.findViewById(R.id.itemname_tv);
+           // itemname_tv = (TextView) itemView.findViewById(R.id.itemname_tv);
             initValue_tv = (TextView) itemView.findViewById(R.id.initValue_tv);
             currentValue_tv = (TextView) itemView.findViewById(R.id.currentValue_tv);
         }
