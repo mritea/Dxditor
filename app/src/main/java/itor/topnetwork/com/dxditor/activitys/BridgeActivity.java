@@ -11,8 +11,11 @@ import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import itor.topnetwork.com.dxditor.R;
 import itor.topnetwork.com.dxditor.adapter.BridgeWarningAdapter;
+import itor.topnetwork.com.dxditor.bean.BridgeWarning;
 import itor.topnetwork.com.dxditor.presenter.bridge.BridgePresenter;
 import itor.topnetwork.com.dxditor.view.bridge.IBridgeActivityView;
 import itor.topnetwork.com.dxditor.view.zt.EchartsrefreshInterface;
@@ -163,12 +166,12 @@ public class BridgeActivity extends BaseActivity<BridgePresenter> implements IBr
     }
 
     @Override
-    public void refreshWarningAdapter() {
+    public void refreshWarningAdapter(final ArrayList<BridgeWarning> bridgeWarnings) {
         if (!BridgeActivity.this.isFinishing()) {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    bwAdapter.updateData();
+                    bwAdapter.updateData(bridgeWarnings);
                 }
             });
             basepresenter.getBridgelineData(0);

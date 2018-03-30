@@ -24,8 +24,9 @@ public class BridgeWarningAdapter extends RecyclerView.Adapter<BridgeWarningAdap
         this.mData = bw;
         this.context = context;
     }
-    public void updateData() {
-      //  mData.addAll(data);
+    public void updateData(ArrayList<BridgeWarning> data) {
+      if(data!=null){
+        mData.addAll(data);}
         notifyDataSetChanged();
     }
     @Override

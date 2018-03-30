@@ -17,6 +17,8 @@ public interface IMainpageModel {
     void getTestData(ValueCallBack<List<SbxxBean>> callBack);
     //告警信息
     void getGjxxData(ValueCallBack<List<GjxxBean>> callBack);
+    //全局信息
+    void getQjxxData(ValueCallBack<String> callBack);
     //系统评分
     void getXtpfData(ValueCallBack<List<GjxxBean>> callBack);
     //告警列表

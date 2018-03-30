@@ -32,7 +32,7 @@ public class BridgePresenter extends BasePresenter<BridgeActivity> implements IB
         bridgeModel.getWarningData(new ValueCallBack<ArrayList<BridgeWarning>>() {
             @Override
             public void onSuccess(ArrayList<BridgeWarning> bridgeWarnings) {
-                bv.refreshWarningAdapter();
+                bv.refreshWarningAdapter(bridgeWarnings);
             }
 
             @Override

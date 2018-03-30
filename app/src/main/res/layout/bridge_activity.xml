@@ -56,8 +56,8 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="80dp"
-                        android:layout_marginTop="115dp">
+                        android:layout_marginLeft="60dp"
+                        android:layout_marginTop="105dp">
 
                         <ImageView
                             android:id="@+id/num1back_iv"
@@ -76,8 +76,8 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="45dp"
-                        android:layout_marginTop="5dp">
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="10dp">
 
                         <ImageView
                             android:id="@+id/num2back_iv"
@@ -96,8 +96,8 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="140dp"
-                        android:layout_marginTop="105dp">
+                        android:layout_marginLeft="120dp"
+                        android:layout_marginTop="125dp">
 
                         <ImageView
                             android:id="@+id/num3back_iv"
@@ -116,7 +116,7 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="190dp"
+                        android:layout_marginLeft="200dp"
                         android:layout_marginTop="110dp">
 
                         <ImageView
@@ -134,6 +134,7 @@
                             android:textColor="@color/white" />
                     </RelativeLayout>
                     <RelativeLayout
+                        android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="250dp"

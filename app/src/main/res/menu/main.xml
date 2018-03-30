@@ -32,14 +32,14 @@
             android:icon="@drawable/tsfx_1"
             android:title="坠坨管理" />
     </group>
-    <group
+    <!--<group
         android:id="@+id/four"
         android:checkableBehavior="single">
         <item
             android:id="@+id/xjmanager"
             android:icon="@drawable/zhgz_1"
             android:title="线夹管理" />
-    </group>
+    </group>-->
 
     <group
         android:id="@+id/six"

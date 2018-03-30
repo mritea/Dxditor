@@ -46,6 +46,7 @@ import itor.topnetwork.com.dxditor.bean.GjxxBean;
 import itor.topnetwork.com.dxditor.bean.SbxxBean;
 import itor.topnetwork.com.dxditor.hybrid.bean.EchartsDataBean;
 import itor.topnetwork.com.dxditor.presenter.MainpagePresenter;
+import itor.topnetwork.com.dxditor.utils.Constants;
 import itor.topnetwork.com.dxditor.view.IMainpageView;
 
 /**
@@ -123,10 +124,14 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
             @Override
             public void onPageFinished(WebView view, String url) {
                 //最好在这里调用js代码 以免网页未加载完成
-                line_echarts.loadUrl("javascript:createChart('createbarlineChart'," + EchartsDataBean.getInstance().getEchartsTotalJson() + ");");
-                if (dialog.isShowing()) {
-                    dialog.dismiss();
+                basepresenter.initData();
+                if (Constants.testData) {
+                    line_echarts.loadUrl("javascript:createChart('createbarlineChart'," + EchartsDataBean.getInstance().getEchartsTotalJson() + ");");
+                    if (dialog.isShowing()) {
+                        dialog.dismiss();
+                    }
                 }
+
             }
         });
 
@@ -149,10 +154,10 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
                         startActivity(new Intent(MainActivity.this, SPZActivity.class));
                         //main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
-                    case R.id.xjmanager://线夹管理
+                    /*case R.id.xjmanager://线夹管理
                         startActivity(new Intent(MainActivity.this, XJActivity.class));
                         //main_drawerlayout.closeDrawer(GravityCompat.START);
-                        break;
+                        break;*/
                     case R.id.ztmanager://坠坨管理
                         startActivity(new Intent(MainActivity.this, ZtTest.class));
                         //startActivity(new Intent(MainActivity.this, ZTActivity.class));
@@ -200,8 +205,8 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
         // NOTE: The order of the entries when being added to the entries array determines their position around the center of
         // the chart.
         for (int i = 0; i < gjxxlist.size(); i++) {
-            entries.add(new PieEntry((float) gjxxlist.get(i).getPersent(),
-                    gjxxlist.get(i).getName()));
+            entries.add(new PieEntry(gjxxlist.get(i).getTypeProportion() * 100,
+                    gjxxlist.get(i).getTypeName()));
         }
 
         PieDataSet dataSet = new PieDataSet(entries, "");
@@ -259,7 +264,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
         mRecyclerView.setLayoutManager(mLayoutManager);
         gjAdapter = new GjAdapter(this, basepresenter.getGjadapterData());
         mRecyclerView.setAdapter(gjAdapter);
-        basepresenter.initData();
+
     }
 
 
@@ -267,10 +272,23 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
      * 设置顶部三个圆的基础数据
      */
     @Override
-    public void setBaseData(List<SbxxBean> sbxxBeans) {
-        gj.setText(sbxxBeans.get(0).getCount() + "");
-        zc.setText(sbxxBeans.get(1).getCount() + "");
-        lx.setText(sbxxBeans.get(2).getCount() + "");
+    public void setBaseData(final List<SbxxBean> sbxxBeans) {
+        if (!MainActivity.this.isFinishing()) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    for (int i = 0; i < sbxxBeans.size(); i++) {
+                        if (sbxxBeans.get(i).getTypeCode() == 0) {
+                            zc.setText(sbxxBeans.get(i).getTypeCount());
+                        } else if (sbxxBeans.get(i).getTypeCode() == 1) {
+                            gj.setText(sbxxBeans.get(i).getTypeCount());
+                        } else if (sbxxBeans.get(i).getTypeCode() == 2) {
+                            lx.setText(sbxxBeans.get(i).getTypeCount());
+                        }
+                    }
+                }
+            });
+        }
     }
 
     /**

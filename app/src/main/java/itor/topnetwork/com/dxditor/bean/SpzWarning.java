@@ -12,6 +12,14 @@ public class SpzWarning {
     private String type;
     private String unit;
 
+    public SpzWarning(String bridgeCode, String monitorName, String monitorValue, String type, String unit) {
+        this.bridgeCode = bridgeCode;
+        this.monitorName = monitorName;
+        this.monitorValue = monitorValue;
+        this.type = type;
+        this.unit = unit;
+    }
+
     public String getBridgeCode() {
         return bridgeCode;
     }

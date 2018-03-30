@@ -5,27 +5,47 @@ package itor.topnetwork.com.dxditor.bean;
  */
 
 public class GjxxBean {
-    private String name;
-    private int persent;
+    private int typeCode;
+    private String typeName;
+    private int typeCount;
+    private Float typeProportion;
 
-    public GjxxBean(String name, int persent) {
-        this.name = name;
-        this.persent = persent;
+    public GjxxBean(int typeCode, String typeName, int typeCount, Float typeProportion) {
+        this.typeCode = typeCode;
+        this.typeName = typeName;
+        this.typeCount = typeCount;
+        this.typeProportion = typeProportion;
     }
 
-    public String getName() {
-        return name;
+    public int getTypeCode() {
+        return typeCode;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTypeCode(int typeCode) {
+        this.typeCode = typeCode;
     }
 
-    public int getPersent() {
-        return persent;
+    public String getTypeName() {
+        return typeName;
     }
 
-    public void setPersent(int persent) {
-        this.persent = persent;
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
+    }
+
+    public int getTypeCount() {
+        return typeCount;
+    }
+
+    public void setTypeCount(int typeCount) {
+        this.typeCount = typeCount;
+    }
+
+    public Float getTypeProportion() {
+        return typeProportion;
+    }
+
+    public void setTypeProportion(Float typeProportion) {
+        this.typeProportion = typeProportion;
     }
 }

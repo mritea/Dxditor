@@ -30,7 +30,7 @@ public class ZtTest extends Activity implements View.OnClickListener, Echartsref
     private ProgressDialog dialog;
     private EchartsDataBean echartsDataBean;
     private String datas;
-    private LinearLayout  one_title, zt_select_ll, ab_select_ll;
+    private LinearLayout one_title, zt_select_ll, ab_select_ll, ztsyt_ll;
     private RelativeLayout title_include;
     public ImageView back_iv;
 
@@ -58,16 +58,19 @@ public class ZtTest extends Activity implements View.OnClickListener, Echartsref
         one_title = findViewById(R.id.one_title);
         zt_select_ll = findViewById(R.id.zt_select_ll);
         ab_select_ll = findViewById(R.id.ab_select_ll);
+        ztsyt_ll = findViewById(R.id.ztsyt_ll);
         if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
             title_include.setVisibility(View.GONE);
             one_title.setVisibility(View.GONE);
             zt_select_ll.setVisibility(View.GONE);
             ab_select_ll.setVisibility(View.GONE);
+            ztsyt_ll.setVisibility(View.GONE);
         } else {
             title_include.setVisibility(View.VISIBLE);
             one_title.setVisibility(View.VISIBLE);
             zt_select_ll.setVisibility(View.VISIBLE);
             ab_select_ll.setVisibility(View.VISIBLE);
+            ztsyt_ll.setVisibility(View.VISIBLE);
         }
         if (savedInstanceState != null) {
             type_zt = savedInstanceState.getString("type_zt");
@@ -161,7 +164,7 @@ public class ZtTest extends Activity implements View.OnClickListener, Echartsref
 
     @Override
     public void refresh(String s) {
-       // System.out.println("s:" + s);
+        // System.out.println("s:" + s);
         datas = s;
         if (!ZtTest.this.isFinishing()) {
             runOnUiThread(new Runnable() {

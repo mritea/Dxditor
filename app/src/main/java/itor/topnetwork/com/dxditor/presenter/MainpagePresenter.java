@@ -59,6 +59,17 @@ public class MainpagePresenter extends BasePresenter<MainActivity> implements IM
 
             }
         });
+        mainpageModel.getQjxxData(new ValueCallBack<String>() {
+            @Override
+            public void onSuccess(String s) {
+
+            }
+
+            @Override
+            public void onFail(String code) {
+
+            }
+        });
         mainpageModel.getXtpfData(new ValueCallBack<List<GjxxBean>>() {
             @Override
             public void onSuccess(List<GjxxBean> gjxxBeans) {

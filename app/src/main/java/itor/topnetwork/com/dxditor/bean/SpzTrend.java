@@ -9,6 +9,11 @@ public class SpzTrend {
     private Float typeData;
     private String storageTime;
 
+    public SpzTrend(Float typeData, String storageTime) {
+        this.typeData = typeData;
+        this.storageTime = storageTime;
+    }
+
     public Float getTypeData() {
         return typeData;
     }

@@ -30,7 +30,9 @@ public class SpzWarningAdapter extends RecyclerView.Adapter<SpzWarningAdapter.Vi
         this.mData=sw;
     }
     public void updateData(ArrayList<SpzWarning> data) {
-        mData.addAll(data);
+        if(data!=null){
+        mData.addAll(data);}
+
         notifyDataSetChanged();
     }
     @Override

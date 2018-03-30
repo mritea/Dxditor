@@ -25,7 +25,7 @@ import itor.topnetwork.com.dxditor.view.zt.EchartsrefreshInterface;
  * @Created by D.Han on 2018/3/19 11:33 in Peking.
  */
 
-public class SPZActivity extends BaseActivity<SpzPresenter> implements View.OnClickListener, ISpzActivityView,EchartsrefreshInterface {
+public class SPZActivity extends BaseActivity<SpzPresenter> implements View.OnClickListener, ISpzActivityView, EchartsrefreshInterface {
 
     private WebView zpz_echarts;
     private ProgressDialog dialog;
@@ -36,7 +36,7 @@ public class SPZActivity extends BaseActivity<SpzPresenter> implements View.OnCl
 
     @Override
     public SpzPresenter initPresent() {
-        return new SpzPresenter(this,this);
+        return new SpzPresenter(this, this);
     }
 
     @Override
@@ -74,7 +74,7 @@ public class SPZActivity extends BaseActivity<SpzPresenter> implements View.OnCl
         spz_warning_rv.setLayoutManager(mLayoutManager);
         spzAdapter = new SpzWarningAdapter(this, basepresenter.getSpzWarningadapterData());
         spz_warning_rv.setAdapter(spzAdapter);
-        basepresenter.initData();
+
 
         zpz_echarts.loadUrl("file:///android_asset/echarts/spz_echarts.html");
         zpz_echarts.setWebViewClient(new WebViewClient() {
@@ -98,6 +98,7 @@ public class SPZActivity extends BaseActivity<SpzPresenter> implements View.OnCl
                 if (dialog.isShowing()) {
                     dialog.dismiss();
                 }*/
+                basepresenter.initData();
             }
         });
         spzAdapter.setOnItemClickListener(new SpzWarningAdapter.OnRecyclerViewItemClickListener() {
@@ -113,7 +114,7 @@ public class SPZActivity extends BaseActivity<SpzPresenter> implements View.OnCl
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.yl_but:
-               // zpz_echarts.loadUrl("javascript:createChart('ylline'," + EchartsDataBean.getInstance().spzYlEcharts() + ");");
+                // zpz_echarts.loadUrl("javascript:createChart('ylline'," + EchartsDataBean.getInstance().spzYlEcharts() + ");");
                 yl_but.setBackgroundColor(getResources().getColor(R.color.spz_but_back_press));
                 wy_but.setBackgroundColor(getResources().getColor(R.color.white));
                 return;
@@ -124,6 +125,7 @@ public class SPZActivity extends BaseActivity<SpzPresenter> implements View.OnCl
                 return;
         }
     }
+
     @Override
     public void showToast(final String msg) {
         if (!SPZActivity.this.isFinishing()) {
@@ -135,6 +137,7 @@ public class SPZActivity extends BaseActivity<SpzPresenter> implements View.OnCl
             });
         }
     }
+
     @Override
     public void onDataError(String error) {
         if (error.equals("01")) {

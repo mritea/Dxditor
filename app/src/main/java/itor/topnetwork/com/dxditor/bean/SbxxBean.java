@@ -6,18 +6,36 @@ package itor.topnetwork.com.dxditor.bean;
  */
 
 public class SbxxBean {
-    private int count;
-
-
-    public SbxxBean(int count) {
-        this.count = count;
+    private int typeCode;
+    private String typeName;
+    private String typeCount;
+    public SbxxBean(int typeCode, String typeName, String typeCount) {
+        this.typeCode = typeCode;
+        this.typeName = typeName;
+        this.typeCount = typeCount;
     }
 
-    public int getCount() {
-        return count;
+    public int getTypeCode() {
+        return typeCode;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public void setTypeCode(int typeCode) {
+        this.typeCode = typeCode;
+    }
+
+    public String getTypeName() {
+        return typeName;
+    }
+
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
+    }
+
+    public String getTypeCount() {
+        return typeCount;
+    }
+
+    public void setTypeCount(String typeCount) {
+        this.typeCount = typeCount;
     }
 }

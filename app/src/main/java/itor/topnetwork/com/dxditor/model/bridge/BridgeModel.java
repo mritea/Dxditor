@@ -46,12 +46,13 @@ public class BridgeModel implements IBridgeModel {
     @Override
     public void getWarningData(final ValueCallBack<ArrayList<BridgeWarning>> callBack) {
         if (Constants.testData) {
-            bridgeWarnings.add(new BridgeWarning("京津线39号桥梁(中间)梁体应力", null, "3.5N", "2.3N", null, "1", null, null));
-            bridgeWarnings.add(new BridgeWarning("京张铁路18号桥梁(中间)梁体裂缝宽度", null, "1.2cm", "1.1cm", null, "2", null, null));
-            bridgeWarnings.add(new BridgeWarning("京沪线75号桥梁梁体横向位移", null, "0.6cm", "0.8cm", null, "3", null, null));
+            ArrayList<BridgeWarning> temp= new ArrayList<BridgeWarning>();
+            temp.add(new BridgeWarning("京津线39号桥梁(中间)梁体应力", null, "3.5N", "2.3N", null, "1", null, null));
+            temp.add(new BridgeWarning("京张铁路18号桥梁(中间)梁体裂缝宽度", null, "1.2cm", "1.1cm", null, "2", null, null));
+            temp.add(new BridgeWarning("京沪线75号桥梁梁体横向位移", null, "0.6cm", "0.9cm", null, "3", null, null));
+            bridgeWarnings=temp;
             callBack.onSuccess(bridgeWarnings);
         } else {
-            //Form表单格式的参数传递
             FormBody formBody = new FormBody
                     .Builder()
                     .add("bridgeCode", Constants.BRIDGECODE)//设置参数名称和参数值
@@ -113,8 +114,8 @@ public class BridgeModel implements IBridgeModel {
                 }
                 ;
             } else if (position == 2) {
-                for (int i = 0; i < 8; i++) {
-                    f.add(Float.parseFloat("0.7" + i));
+                for (int i = 1; i < 9; i++) {
+                    f.add(Float.parseFloat("0.8" + i));
                 }
             }
             bridgeBean.seriesData = f;
