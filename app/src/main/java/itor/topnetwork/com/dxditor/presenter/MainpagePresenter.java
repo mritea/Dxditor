@@ -10,6 +10,7 @@ import itor.topnetwork.com.dxditor.bean.SbxxBean;
 import itor.topnetwork.com.dxditor.model.MainpageModel;
 import itor.topnetwork.com.dxditor.utils.ValueCallBack;
 import itor.topnetwork.com.dxditor.view.IMainpageView;
+import itor.topnetwork.com.dxditor.view.zt.EchartsrefreshInterface;
 
 /**
  * Created by D.Han on 2017/11/15.
@@ -18,9 +19,11 @@ import itor.topnetwork.com.dxditor.view.IMainpageView;
 public class MainpagePresenter extends BasePresenter<MainActivity> implements IMainpagePresenter {
     private IMainpageView iMainpageView;
     private MainpageModel mainpageModel;
+    private EchartsrefreshInterface er;
 
-    public MainpagePresenter(IMainpageView iMainpageView) {
+    public MainpagePresenter(IMainpageView iMainpageView,EchartsrefreshInterface er) {
         this.iMainpageView = iMainpageView;
+        this.er = er;
         this.mainpageModel = new MainpageModel();
 
     }
@@ -62,7 +65,7 @@ public class MainpagePresenter extends BasePresenter<MainActivity> implements IM
         mainpageModel.getQjxxData(new ValueCallBack<String>() {
             @Override
             public void onSuccess(String s) {
-
+                er.refresh(s);
             }
 
             @Override

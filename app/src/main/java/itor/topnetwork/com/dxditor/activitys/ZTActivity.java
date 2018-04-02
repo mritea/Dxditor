@@ -97,7 +97,6 @@ public class ZTActivity extends BaseActivity implements View.OnClickListener,Ech
                 zt_echarts.loadUrl("javascript:createChart('bar'," + EchartsDataBean.getInstance().ztTopEcharts() + ");");
                 a_but.setBackgroundColor(getResources().getColor(R.color.spz_but_back_press));
                 b_but.setBackgroundColor(getResources().getColor(R.color.white));
-
                 break;
             case R.id.b_but:
                 zt_echarts.loadUrl("javascript:createChart('bar'," + EchartsDataBean.getInstance().ztTopBEcharts() + ");");

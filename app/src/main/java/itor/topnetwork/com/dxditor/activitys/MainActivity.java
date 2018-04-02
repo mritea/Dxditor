@@ -48,11 +48,12 @@ import itor.topnetwork.com.dxditor.hybrid.bean.EchartsDataBean;
 import itor.topnetwork.com.dxditor.presenter.MainpagePresenter;
 import itor.topnetwork.com.dxditor.utils.Constants;
 import itor.topnetwork.com.dxditor.view.IMainpageView;
+import itor.topnetwork.com.dxditor.view.zt.EchartsrefreshInterface;
 
 /**
  * 物联网Android
  */
-public class MainActivity extends BaseActivity<MainpagePresenter> implements IMainpageView {
+public class MainActivity extends BaseActivity<MainpagePresenter> implements IMainpageView,EchartsrefreshInterface {
     private TextView gj, zc, lx;
     private PieChart gjpiechart;
     private NavigationView navigationView;
@@ -61,10 +62,11 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
     private DrawerLayout main_drawerlayout;
     private GjAdapter gjAdapter;
     private ProgressDialog dialog;
+    private WebView line_echarts;
 
     @Override
     public MainpagePresenter initPresent() {
-        return new MainpagePresenter(this);
+        return new MainpagePresenter(this,this);
     }
 
     @Override
@@ -95,7 +97,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
 
-        final WebView line_echarts = (WebView) findViewById(R.id.line_echarts);
+        line_echarts = (WebView) findViewById(R.id.line_echarts);
 
         dialog = new ProgressDialog(this);
         dialog.setCanceledOnTouchOutside(false);
@@ -125,7 +127,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
             public void onPageFinished(WebView view, String url) {
                 //最好在这里调用js代码 以免网页未加载完成
                 basepresenter.initData();
-                if (Constants.testData) {
+                if (!Constants.testData) {
                     line_echarts.loadUrl("javascript:createChart('createbarlineChart'," + EchartsDataBean.getInstance().getEchartsTotalJson() + ");");
                     if (dialog.isShowing()) {
                         dialog.dismiss();
@@ -401,6 +403,22 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
             });
         } catch (Throwable e) {
             e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void refresh(final String s) {
+        if (!MainActivity.this.isFinishing()) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if (dialog.isShowing()) {
+                        dialog.dismiss();
+                    }
+                    line_echarts.loadUrl("javascript:createChart('createbarlineChart'," + s + ");");
+
+                }
+            });
         }
     }
 }

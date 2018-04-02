@@ -13,6 +13,8 @@ import itor.topnetwork.com.dxditor.bean.Gjlb;
 import itor.topnetwork.com.dxditor.bean.GjxxBean;
 import itor.topnetwork.com.dxditor.bean.QjxxBean;
 import itor.topnetwork.com.dxditor.bean.SbxxBean;
+import itor.topnetwork.com.dxditor.hybrid.bean.total.Bar;
+import itor.topnetwork.com.dxditor.hybrid.bean.total.Line;
 import itor.topnetwork.com.dxditor.hybrid.bean.total.TotalBean;
 import itor.topnetwork.com.dxditor.utils.Constants;
 import itor.topnetwork.com.dxditor.utils.ValueCallBack;
@@ -28,8 +30,8 @@ import okhttp3.Response;
 
 public class MainpageModel implements IMainpageModel {
     private ArrayList<Gjlb> listData;
-    private  OkHttpClient okHttpClient;
-    private  Gson gson;
+    private OkHttpClient okHttpClient;
+    private Gson gson;
     private List<SbxxBean> list;
     private List<GjxxBean> gjxxList;
     private ArrayList<QjxxBean> qjxxList;
@@ -43,7 +45,7 @@ public class MainpageModel implements IMainpageModel {
     @Override
     public void getTestData(final ValueCallBack<List<SbxxBean>> callBack) {
         list = new ArrayList<SbxxBean>();
-        if (Constants.testData) {
+        if (!Constants.testData) {
             list.add(new SbxxBean(0, "", "3"));
             list.add(new SbxxBean(1, "", "57"));
             list.add(new SbxxBean(2, "", "31"));
@@ -63,7 +65,7 @@ public class MainpageModel implements IMainpageModel {
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     String res = response.body().string();
-                    // System.out.println("getAppDeviceStausCount:" + res);
+                   System.out.println("getAppDeviceStausCount:" + res);
 
                     try {
                         JSONObject js = new JSONObject(res);
@@ -135,7 +137,7 @@ public class MainpageModel implements IMainpageModel {
     @Override
     public void getQjxxData(final ValueCallBack<String> callBack) {
         qjxxList = new ArrayList<QjxxBean>();
-        if (!Constants.testData) {
+        if (Constants.testData) {
             Request request = new Request
                     .Builder()
                     .url(Constants.getAppDeviceCount)
@@ -154,15 +156,64 @@ public class MainpageModel implements IMainpageModel {
                     try {
                         JSONObject js = new JSONObject(res);
                         if (js.getBoolean("success")) {
-                            qjxxList = gson.fromJson(js.getString("data"), new TypeToken<ArrayList<QjxxBean>>() {
-                            }.getType());
 
+                           /* QjxxBean qjxxbean = gson.fromJson(js.getString("data"), new TypeToken<QjxxBean>() {
+                            }.getType());*/
+                            QjxxBean qjxxbean = gson.fromJson(js.getString("data"),QjxxBean.class);
                             TotalBean totalBean = new TotalBean();
-                            ArrayList<String> legendList= new ArrayList<String>();
-                            /*for(int i=0;i<qjxxList.size();i++){
-                                legendList.add(qjxxList.get(i).getLineName());
-                            }*/
-                            totalBean.legendData=(String[])legendList.toArray() ;
+                            ArrayList<String> legendList = new ArrayList<String>();
+                            for (int i = 0; i < qjxxbean.getIotrappdeviceList().size(); i++) {
+                                if (!legendList.contains(qjxxbean.getIotrappdeviceList().get(i).getTypeCode())) {
+                                    legendList.add(qjxxbean.getIotrappdeviceList().get(i).getTypeCode());
+                                }
+                            }
+                            legendList.add("告警数");
+                            String[] arrayt =new String[legendList.size()];
+                            totalBean.legendData = legendList.toArray(arrayt);
+
+                            ArrayList<String> xData = new ArrayList<String>();
+                            for (int i = 0; i < qjxxbean.getIotrappdeviceList().size(); i++) {
+                                if (!xData.contains(qjxxbean.getIotrappdeviceList().get(i).getLineName())) {
+                                    xData.add(qjxxbean.getIotrappdeviceList().get(i).getLineName());
+                                }
+                            }
+                            String[] arrayp =new String[xData.size()];
+                            totalBean.xData =  xData.toArray(arrayp);
+
+                            totalBean.series = new ArrayList<>();
+
+                            for (int i = 0; i < totalBean.legendData.length - 1; i++) {
+                                Bar bar = new Bar();
+                                bar.name = totalBean.legendData[i];
+                                bar.type = "bar";
+                                bar.yAxisIndex = 0;
+                                bar.stack = "a";
+                                int[] d = new int[totalBean.xData.length];
+                                for (int j = 0; j < totalBean.xData.length; j++) {
+                                    for (QjxxBean.Qjxx q : qjxxbean.getIotrappdeviceList()) {
+                                        if (q.getTypeCode().equals(totalBean.legendData[i]) && q.getLineName().equals(totalBean.xData[j])) {
+                                            d[j] = q.getCount();
+                                        }
+                                    }
+
+                                }
+                                bar.data = d;
+                                totalBean.series.add(bar);
+                            }
+                            Line line = new Line();
+                            line.name = "告警数";
+                            line.type = "line";
+                            line.yAxisIndex = 1;
+                            int[] gjs = new int[totalBean.xData.length];
+                            for(int j = 0; j < totalBean.xData.length; j++){
+                                for (QjxxBean.GjCountBean g : qjxxbean.getLineAlarmConutList()) {
+                                    if(g.getLineName().equals(totalBean.xData[j])){
+                                        gjs[j]=g.getAlarmCount();
+                                    }
+                                }
+                            }
+                            line.data =gjs;
+                            totalBean.series.add(line);
 
 
                             callBack.onSuccess(gson.toJson(totalBean));
