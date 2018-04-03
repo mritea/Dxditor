@@ -26,4 +26,9 @@
         <item name="android:typeface">monospace</item>
         <item name="android:textColor">@drawable/selector_tabtext</item>
     </style>
+    <declare-styleable name="RadarScanView">
+        <attr name="circleColor" format="color"/>
+        <attr name="radarColor" format="color"/>
+        <attr name="tailColor" format="color"/>
+    </declare-styleable>
 </resources>

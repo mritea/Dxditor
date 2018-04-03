@@ -49,12 +49,12 @@
             android:icon="@drawable/tsfx_1"
             android:title="轨道板管理" />
     </group>
-   <!-- <group
+    <group
         android:id="@+id/seven"
         android:checkableBehavior="single">
         <item
             android:id="@+id/mine"
             android:icon="@drawable/me_1"
             android:title="我的" />
-    </group>-->
+    </group>
 </menu>

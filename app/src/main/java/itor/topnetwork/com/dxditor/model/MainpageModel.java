@@ -45,7 +45,7 @@ public class MainpageModel implements IMainpageModel {
     @Override
     public void getTestData(final ValueCallBack<List<SbxxBean>> callBack) {
         list = new ArrayList<SbxxBean>();
-        if (!Constants.testData) {
+        if (Constants.testData) {
             list.add(new SbxxBean(0, "", "3"));
             list.add(new SbxxBean(1, "", "57"));
             list.add(new SbxxBean(2, "", "31"));
@@ -137,7 +137,7 @@ public class MainpageModel implements IMainpageModel {
     @Override
     public void getQjxxData(final ValueCallBack<String> callBack) {
         qjxxList = new ArrayList<QjxxBean>();
-        if (Constants.testData) {
+        if (!Constants.testData) {
             Request request = new Request
                     .Builder()
                     .url(Constants.getAppDeviceCount)

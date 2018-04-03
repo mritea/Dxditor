@@ -45,6 +45,8 @@ import itor.topnetwork.com.dxditor.bean.Gjlb;
 import itor.topnetwork.com.dxditor.bean.GjxxBean;
 import itor.topnetwork.com.dxditor.bean.SbxxBean;
 import itor.topnetwork.com.dxditor.hybrid.bean.EchartsDataBean;
+import itor.topnetwork.com.dxditor.myview.RadarView;
+import itor.topnetwork.com.dxditor.myview.RaderView;
 import itor.topnetwork.com.dxditor.presenter.MainpagePresenter;
 import itor.topnetwork.com.dxditor.utils.Constants;
 import itor.topnetwork.com.dxditor.view.IMainpageView;
@@ -63,7 +65,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
     private GjAdapter gjAdapter;
     private ProgressDialog dialog;
     private WebView line_echarts;
-
+    private RadarView mRadarView;
     @Override
     public MainpagePresenter initPresent() {
         return new MainpagePresenter(this,this);
@@ -77,6 +79,12 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
     @Override
     public void initView() {
         back_iv.setVisibility(View.GONE);
+
+        mRadarView = (RadarView) findViewById(R.id.radar_view);
+        mRadarView.setSearching(true);
+        mRadarView.addPoint();
+        mRadarView.addPoint();
+
         gj = (TextView) findViewById(R.id.gj);
         zc = (TextView) findViewById(R.id.zc);
         lx = (TextView) findViewById(R.id.lx);
@@ -127,7 +135,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
             public void onPageFinished(WebView view, String url) {
                 //最好在这里调用js代码 以免网页未加载完成
                 basepresenter.initData();
-                if (!Constants.testData) {
+                if (Constants.testData) {
                     line_echarts.loadUrl("javascript:createChart('createbarlineChart'," + EchartsDataBean.getInstance().getEchartsTotalJson() + ");");
                     if (dialog.isShowing()) {
                         dialog.dismiss();
@@ -169,10 +177,10 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
                         startActivity(new Intent(MainActivity.this, GDBActivity.class));
                         // main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
-//                    case R.id.mine:
-//                        startActivity(new Intent(MainActivity.this, LoginPageActivity.class));
-//                        main_drawerlayout.closeDrawer(GravityCompat.START);
-//                        break;
+                    case R.id.mine:
+                        startActivity(new Intent(MainActivity.this, RaderView.class));
+                        main_drawerlayout.closeDrawer(GravityCompat.START);
+                        break;
                     /*case R.id.zt_test:
 
                         //main_drawerlayout.closeDrawer(GravityCompat.START);
