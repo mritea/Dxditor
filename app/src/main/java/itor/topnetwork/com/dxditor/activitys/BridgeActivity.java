@@ -70,7 +70,7 @@ public class BridgeActivity extends BaseActivity<BridgePresenter> implements IBr
         num5back_iv = (ImageView) findViewById(R.id.num5back_iv);
 
 //闪烁动画
-     /*   int duiation = 2000;
+     /*  int duiation = 2000;
         ObjectAnimator obj = ObjectAnimator.ofFloat(num1back_iv, "alpha", 0, 1, 0);
         obj.setDuration(duiation);
         obj.setRepeatCount(-1);
@@ -90,8 +90,8 @@ public class BridgeActivity extends BaseActivity<BridgePresenter> implements IBr
         ObjectAnimator obj4 = ObjectAnimator.ofFloat(num5back_iv, "alpha", 0, 1, 0);
         obj4.setDuration(duiation);
         obj4.setRepeatCount(-1);
-        obj4.start();*/
-
+        obj4.start();
+*/
     }
 
     private RecyclerView.LayoutManager mLayoutManager;

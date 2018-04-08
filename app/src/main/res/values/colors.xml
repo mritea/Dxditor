@@ -19,4 +19,6 @@
 
     <color name="abvalue_but_back_press">#CD8C95</color>
     <color name="abvalue_but_back_normal">#E3E3E3</color>
+
+    <color name="datevalue_but_back_press">#F4A460</color>
 </resources>

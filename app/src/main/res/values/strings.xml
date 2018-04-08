@@ -3,4 +3,6 @@
 
     <string name="waiting">请稍后...</string>
     <string name="internet_error">网络连接失败...</string>
+    <string name="start_time">开始时间</string>
+    <string name="end_time">结束时间</string>
 </resources>
