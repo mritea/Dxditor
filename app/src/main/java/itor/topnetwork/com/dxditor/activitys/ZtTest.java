@@ -29,7 +29,7 @@ import itor.topnetwork.com.dxditor.hybrid.bean.EchartsDataBean;
 import itor.topnetwork.com.dxditor.view.zt.EchartsrefreshInterface;
 
 /**
- * @Description:
+ * @Description:坠坨
  * @Created by D.Han on 2018/3/26 10:51 in Peking.
  */
 
@@ -48,8 +48,8 @@ public class ZtTest extends Activity implements View.OnClickListener, Echartsref
     private int day;
     private SimpleDateFormat dateFormat;
     private Date startDate, endDate;
-    private String endDateString;
-    private String startDateString;
+    private String endDateString="";
+    private String startDateString="";
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -153,7 +153,7 @@ public class ZtTest extends Activity implements View.OnClickListener, Echartsref
             public void onPageFinished(WebView view, String url) {
                 //最好在这里调用js代码 以免网页未加载完成
 
-                echartsDataBean.ztLiveEcharts(type_zt);
+                echartsDataBean.ztLiveEcharts(type_zt,startDateString,endDateString);
 
             }
         });
@@ -184,14 +184,14 @@ public class ZtTest extends Activity implements View.OnClickListener, Echartsref
         switch (v.getId()) {
             case R.id.a_zt_but:
                 dialog.show();
-                echartsDataBean.ztLiveEcharts("001_01_01");
+                echartsDataBean.ztLiveEcharts("001_01_01",startDateString,endDateString);
                 a_zt_but.setBackgroundColor(getResources().getColor(R.color.spz_but_back_press));
                 b_zt_but.setBackgroundColor(getResources().getColor(R.color.spz_but_back_normal));
                 type_zt = "001_01_01";
                 break;
             case R.id.b_zt_but:
                 dialog.show();
-                echartsDataBean.ztLiveEcharts("002_01_01");
+                echartsDataBean.ztLiveEcharts("002_01_01",startDateString,endDateString);
                 a_zt_but.setBackgroundColor(getResources().getColor(R.color.spz_but_back_normal));
                 b_zt_but.setBackgroundColor(getResources().getColor(R.color.spz_but_back_press));
                 type_zt = "002_01_01";
@@ -218,9 +218,22 @@ public class ZtTest extends Activity implements View.OnClickListener, Echartsref
                 break;
             case R.id.start_time_bt:
                 DatePickerDialog datedialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+                    private String startMonth;
+                    private String startDay;
+
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                        startDateString = year + "" + (monthOfYear + 1) + "" + dayOfMonth;
+                        if(monthOfYear + 1<10){
+                             startMonth= "0"+(monthOfYear + 1);
+                        }else{
+                            startMonth= (monthOfYear + 1)+"";
+                        }
+                        if(dayOfMonth<10){
+                            startDay= "0"+dayOfMonth;
+                        }else{
+                            startDay= dayOfMonth+"";
+                        }
+                        startDateString = year + startMonth +startDay;
                         start_time_bt.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
 
                     }
@@ -240,6 +253,8 @@ public class ZtTest extends Activity implements View.OnClickListener, Echartsref
                     return;
                 }
                 DatePickerDialog datedialog1 = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+                    private String endMonth;
+                    private String endDay;
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                        /* try {
@@ -254,7 +269,18 @@ public class ZtTest extends Activity implements View.OnClickListener, Echartsref
                             return;
                         }*/
                         end_time_bt.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
-                        endDateString = year + "" + (monthOfYear + 1) + "" + dayOfMonth;
+                        if(monthOfYear + 1<10){
+                            endMonth= "0"+(monthOfYear + 1);
+                        }else{
+                            endMonth= (monthOfYear + 1)+"";
+                        }
+                        if(dayOfMonth<10){
+                            endDay= "0"+dayOfMonth;
+                        }else{
+                            endDay= dayOfMonth+"";
+                        }
+                        endDateString = year + endMonth +endDay;
+                        echartsDataBean.ztLiveEcharts(type_zt,startDateString,endDateString);
                     }
                 }, year, month, day);
                 datedialog1.getDatePicker().setMinDate(startDate.getTime());

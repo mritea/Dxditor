@@ -278,6 +278,8 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
     }
 
 
+
+
     /**
      * 设置顶部三个圆的基础数据
      */

@@ -21,4 +21,5 @@
     <color name="abvalue_but_back_normal">#E3E3E3</color>
 
     <color name="datevalue_but_back_press">#F4A460</color>
+    <color name="toolbar_back">#2A409B</color>
 </resources>
