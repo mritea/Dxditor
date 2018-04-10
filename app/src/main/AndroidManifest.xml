@@ -33,7 +33,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activitys.LoginPageActivity"/>
         <activity android:name=".activitys.MapPageActivity"/>
         <activity android:name=".activitys.ComprehensiveperceptionAvtivity"/>
         <activity android:name=".activitys.XJManageActivity"

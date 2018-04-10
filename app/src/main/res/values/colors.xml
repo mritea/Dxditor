@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="mainpage_itemname">#3F51B5</color>
     <color name="white">#FFFFFF</color>
     <color name="main_item_text">#000000</color>
     <color name="main_back">#ECE5EC</color>
@@ -22,4 +18,5 @@
 
     <color name="datevalue_but_back_press">#F4A460</color>
     <color name="toolbar_back">#2A409B</color>
+
 </resources>

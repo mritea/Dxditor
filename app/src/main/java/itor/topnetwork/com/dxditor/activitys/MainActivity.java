@@ -45,7 +45,7 @@ import itor.topnetwork.com.dxditor.bean.Gjlb;
 import itor.topnetwork.com.dxditor.bean.GjxxBean;
 import itor.topnetwork.com.dxditor.bean.SbxxBean;
 import itor.topnetwork.com.dxditor.hybrid.bean.EchartsDataBean;
-import itor.topnetwork.com.dxditor.myview.RadarView;
+import itor.topnetwork.com.dxditor.myview.CircleView;
 import itor.topnetwork.com.dxditor.myview.RaderView;
 import itor.topnetwork.com.dxditor.presenter.MainpagePresenter;
 import itor.topnetwork.com.dxditor.utils.Constants;
@@ -65,7 +65,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
     private GjAdapter gjAdapter;
     private ProgressDialog dialog;
     private WebView line_echarts;
-    private RadarView mRadarView;
+    private CircleView gj_circleview,zc_circleview,lx_circleview;
     @Override
     public MainpagePresenter initPresent() {
         return new MainpagePresenter(this,this);
@@ -80,14 +80,13 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
     public void initView() {
         back_iv.setVisibility(View.GONE);
 
-        mRadarView = (RadarView) findViewById(R.id.radar_view);
-        mRadarView.setSearching(true);
-        mRadarView.addPoint();
-        mRadarView.addPoint();
 
-        gj = (TextView) findViewById(R.id.gj);
-        zc = (TextView) findViewById(R.id.zc);
-        lx = (TextView) findViewById(R.id.lx);
+       // gj = (TextView) findViewById(R.id.gj);
+        gj_circleview=(CircleView)findViewById(R.id.gj_circleview);
+        zc_circleview=(CircleView)findViewById(R.id.zc_circleview);
+        lx_circleview=(CircleView)findViewById(R.id.lx_circleview);
+       // zc = (TextView) findViewById(R.id.zc);
+        //lx = (TextView) findViewById(R.id.lx);
         //告警信息
         gjpiechart = (PieChart) findViewById(R.id.gjxx);
         initGjxxView();
@@ -291,11 +290,12 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
                 public void run() {
                     for (int i = 0; i < sbxxBeans.size(); i++) {
                         if (sbxxBeans.get(i).getTypeCode() == 0) {
-                            zc.setText(sbxxBeans.get(i).getTypeCount());
+                            zc_circleview.setData(80,sbxxBeans.get(i).getTypeCount()+"","#0ABB6D");
                         } else if (sbxxBeans.get(i).getTypeCode() == 1) {
-                            gj.setText(sbxxBeans.get(i).getTypeCount());
+                           // gj.setText(sbxxBeans.get(i).getTypeCount());
+                            gj_circleview.setData(10,sbxxBeans.get(i).getTypeCount()+"","#F5B400");
                         } else if (sbxxBeans.get(i).getTypeCode() == 2) {
-                            lx.setText(sbxxBeans.get(i).getTypeCount());
+                            lx_circleview.setData(10,sbxxBeans.get(i).getTypeCount()+"","#00AFDC");
                         }
                     }
                 }
