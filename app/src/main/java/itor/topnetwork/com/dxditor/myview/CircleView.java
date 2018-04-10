@@ -102,7 +102,6 @@ public class CircleView extends View {
 
     private void initPercentPaint() {
         percentPaint = new Paint();
-        System.out.println("--------"+color);
         percentPaint.setColor(Color.parseColor(color));
         percentPaint.setStrokeWidth(10);
         // percentPaint.setStyle(Paint.Style.STROKE);
