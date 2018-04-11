@@ -1,161 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:layout_height="70dp"
     android:layout_margin="1dp"
-    android:layout_height="wrap_content"
     android:background="@android:color/white"
     android:orientation="horizontal">
 
     <RelativeLayout
-        android:id="@+id/wd_rl"
-        android:layout_width="60dp"
+        android:paddingLeft="2dp"
+        android:gravity="center"
+        android:layout_width="0dp"
         android:layout_height="fill_parent"
-        android:background="#D24002"
-
-        >
+        android:layout_weight="1">
 
         <ImageView
-            android:id="@+id/wdj_iv"
-            android:layout_width="20dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="6dp"
-            android:layout_centerVertical="true"
-            android:background="@drawable/wdj" />
 
-        <TextView
-            android:id="@+id/wd_tv"
-            android:layout_marginTop="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:text="温度"
-            android:textColor="@android:color/white"
-            android:textSize="10sp" />
-
-        <TextView
-            android:id="@+id/wd_value_tv"
-            android:layout_marginRight="4dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/wd_tv"
-            android:text="20.7"
-            android:textColor="@android:color/white"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="4dp"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/wd_value_tv"
-            android:text="℃"
-            android:textColor="@android:color/white"
-            android:textSize="15sp" />
-
+            android:id="@+id/sb_img_iv"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/zt_img" />
     </RelativeLayout>
+
     <RelativeLayout
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="4">
+
         <TextView
             android:id="@+id/xl_name"
             android:layout_width="wrap_content"
-            android:text="线路:"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/main_item_margin_top"
-            android:textSize="@dimen/main_item_textsize"
+            android:text="线路:"
             android:textColor="@color/main_item_text"
-            android:layout_height="wrap_content" />
+            android:textSize="@dimen/main_item_textsize" />
+
         <TextView
             android:id="@+id/xl_value"
             android:layout_width="wrap_content"
-            android:text="京沪线"
-            android:layout_marginTop="@dimen/main_item_margin_top"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="2dp"
+            android:layout_marginTop="@dimen/main_item_margin_top"
             android:layout_toRightOf="@id/xl_name"
-            android:textSize="@dimen/main_item_textsize"
+            android:text="京沪线"
             android:textColor="@color/main_item_value"
-            android:layout_height="wrap_content" />
+            android:textSize="@dimen/main_item_textsize" />
+
         <TextView
             android:id="@+id/glb_name"
             android:layout_width="wrap_content"
-            android:text="公里标:"
-            android:layout_marginTop="@dimen/main_item_margin_top"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="@dimen/main_item_margin_top"
             android:layout_toRightOf="@id/xl_value"
-            android:textSize="@dimen/main_item_textsize"
+            android:text="公里标:"
             android:textColor="@color/main_item_text"
-            android:layout_height="wrap_content" />
+            android:textSize="@dimen/main_item_textsize" />
+
         <TextView
             android:id="@+id/glb_value"
             android:layout_width="wrap_content"
-            android:text="K323+998"
-            android:layout_marginTop="@dimen/main_item_margin_top"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="2dp"
+            android:layout_marginTop="@dimen/main_item_margin_top"
             android:layout_toRightOf="@id/glb_name"
-            android:textSize="@dimen/main_item_textsize"
+            android:text="K323+998"
             android:textColor="@color/main_item_value"
-            android:layout_height="wrap_content" />
+            android:textSize="@dimen/main_item_textsize" />
+
         <TextView
             android:id="@+id/sb_name"
             android:layout_width="wrap_content"
-            android:text="设备:"
-            android:layout_marginTop="@dimen/main_item_margin_top"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="@dimen/main_item_margin_top"
             android:layout_toRightOf="@id/glb_value"
-            android:textSize="@dimen/main_item_textsize"
+            android:text="设备:"
             android:textColor="@color/main_item_text"
-            android:layout_height="wrap_content" />
+            android:textSize="@dimen/main_item_textsize" />
+
         <TextView
             android:id="@+id/sb_value"
             android:layout_width="wrap_content"
-            android:text="线夹"
-            android:layout_marginTop="@dimen/main_item_margin_top"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="2dp"
+            android:layout_marginTop="@dimen/main_item_margin_top"
             android:layout_toRightOf="@id/sb_name"
-            android:textSize="@dimen/main_item_textsize"
+            android:text="线夹"
             android:textColor="@color/main_item_value"
-            android:layout_height="wrap_content" />
+            android:textSize="@dimen/main_item_textsize" />
+
         <TextView
             android:id="@+id/sbbh_name"
             android:layout_width="wrap_content"
-            android:text="设备编号:"
+            android:layout_height="wrap_content"
             android:layout_below="@id/xl_name"
             android:layout_marginTop="@dimen/main_item_margin_top"
-            android:textSize="@dimen/main_item_textsize"
+            android:text="设备号:"
             android:textColor="@color/main_item_text"
-            android:layout_height="wrap_content" />
+            android:textSize="@dimen/main_item_textsize" />
+
         <TextView
             android:id="@+id/sbbh_value"
             android:layout_width="wrap_content"
-            android:text="1000101001010000"
+            android:layout_height="wrap_content"
             android:layout_below="@id/xl_name"
-            android:layout_marginTop="@dimen/main_item_margin_top"
             android:layout_marginLeft="2dp"
-            android:layout_toRightOf="@id/sbbh_name"
-            android:textSize="@dimen/main_item_textsize"
-            android:textColor="@color/main_item_value"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:id="@+id/rq_name"
-            android:layout_width="wrap_content"
-            android:text="时间:"
-            android:layout_below="@id/sbbh_value"
             android:layout_marginTop="@dimen/main_item_margin_top"
-            android:textSize="@dimen/main_item_textsize"
-            android:textColor="@color/main_item_text"
-            android:layout_height="wrap_content" />
+            android:layout_toRightOf="@id/sbbh_name"
+            android:text="1000101001010000"
+            android:textColor="@color/main_item_value"
+            android:textSize="@dimen/main_item_textsize" />
+
+
         <TextView
             android:id="@+id/sj_value"
             android:layout_width="wrap_content"
-            android:text="2017-12-12 20:22:22"
+            android:layout_height="wrap_content"
             android:layout_below="@id/sbbh_value"
-            android:layout_toRightOf="@id/rq_name"
+            android:layout_marginLeft="7dp"
             android:layout_marginTop="@dimen/main_item_margin_top"
-            android:textSize="@dimen/main_item_textsize"
+            android:layout_toRightOf="@id/sbbh_name"
+            android:text="2017-12-12 20:22:22"
             android:textColor="@color/main_item_value"
-            android:layout_height="wrap_content" />
+            android:textSize="@dimen/main_item_textsize" />
     </RelativeLayout>
 </LinearLayout>

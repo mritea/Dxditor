@@ -10,16 +10,24 @@ public class Gjlb {
     private String glb;
     private String yw;
     private String sb;
-    private String dqz;
+    private String type;
     private String sj;
 
-    public Gjlb(String xl, String glb, String yw, String sb, String dqz, String sj) {
+    public Gjlb(String xl, String glb, String yw, String sb, String type, String sj) {
         this.xl = xl;
         this.glb = glb;
         this.yw = yw;
         this.sb = sb;
-        this.dqz = dqz;
+        this.type = type;
         this.sj = sj;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getXl() {
@@ -54,13 +62,6 @@ public class Gjlb {
         this.sb = sb;
     }
 
-    public String getDqz() {
-        return dqz;
-    }
-
-    public void setDqz(String dqz) {
-        this.dqz = dqz;
-    }
 
     public String getSj() {
         return sj;

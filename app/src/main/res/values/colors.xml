@@ -20,4 +20,12 @@
     <color name="toolbar_back">#2A409B</color>
 
     <color name="erji_title_back">#4B79CF</color>
+
+    <color name="zt_text">#0ABB6D</color>
+    <color name="ql_text">#FBA502</color>
+    <color name="spz_text">#F65000</color>
+    <color name="gdb_text">#02AFD9</color>
+    <color name="rygqj_text">#5656C9</color>
+
+
 </resources>

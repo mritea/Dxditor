@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -46,22 +46,68 @@ public class GjAdapter extends RecyclerView.Adapter<GjAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(GjAdapter.ViewHolder holder, int position) {
         // 绑定数据
-        holder.xl_tv.setText(mData.get(position).getXl());
-        holder.glb_tv.setText(mData.get(position).getGlb());
-        holder.yw_tv.setText(mData.get(position).getYw());
-        holder.sb_tv.setText(mData.get(position).getSb());
-        holder.dqz_tv.setText(mData.get(position).getDqz());
-        holder.sj_tv.setText(mData.get(position).getSj());
-        float t = Float.parseFloat(mData.get(position).getDqz());
-        if (t <= 30) {
-            holder.wd_rl.setBackgroundColor(context.getResources().getColor(R.color.tem_ll));
-        } else if (t > 30 && t <= 35) {
-            holder.wd_rl.setBackgroundColor(context.getResources().getColor(R.color.tem_l));
-        } else if (t > 35 && t <= 40) {
-            holder.wd_rl.setBackgroundColor(context.getResources().getColor(R.color.tem_m));
-        } else if (t > 40) {
-            holder.wd_rl.setBackgroundColor(context.getResources().getColor(R.color.tem_h));
+        if(mData.get(position).getType().equals("1")) {
+            holder.sb_img_iv.setBackground(context.getResources().getDrawable(R.drawable.zt_img));
+            holder.xl_tv.setText(mData.get(position).getXl());
+            holder.xl_tv.setTextColor(context.getResources().getColor(R.color.zt_text));
+            holder.glb_tv.setText(mData.get(position).getGlb());
+            holder.glb_tv.setTextColor(context.getResources().getColor(R.color.zt_text));
+            holder.yw_tv.setText(mData.get(position).getYw());
+            holder.yw_tv.setTextColor(context.getResources().getColor(R.color.zt_text));
+            holder.sb_tv.setText(mData.get(position).getSb());
+            holder.sb_tv.setTextColor(context.getResources().getColor(R.color.zt_text));
+            holder.sj_tv.setText(mData.get(position).getSj());
+            holder.sj_tv.setTextColor(context.getResources().getColor(R.color.zt_text));
+        }else if(mData.get(position).getType().equals("2")){
+            holder.sb_img_iv.setBackground(context.getResources().getDrawable(R.drawable.ql_img));
+            holder.xl_tv.setText(mData.get(position).getXl());
+            holder.xl_tv.setTextColor(context.getResources().getColor(R.color.ql_text));
+            holder.glb_tv.setText(mData.get(position).getGlb());
+            holder.glb_tv.setTextColor(context.getResources().getColor(R.color.ql_text));
+            holder.yw_tv.setText(mData.get(position).getYw());
+            holder.yw_tv.setTextColor(context.getResources().getColor(R.color.ql_text));
+            holder.sb_tv.setText(mData.get(position).getSb());
+            holder.sb_tv.setTextColor(context.getResources().getColor(R.color.ql_text));
+            holder.sj_tv.setText(mData.get(position).getSj());
+            holder.sj_tv.setTextColor(context.getResources().getColor(R.color.ql_text));
+        }else if(mData.get(position).getType().equals("3")){
+            holder.sb_img_iv.setBackground(context.getResources().getDrawable(R.drawable.spz_img));
+            holder.xl_tv.setText(mData.get(position).getXl());
+            holder.xl_tv.setTextColor(context.getResources().getColor(R.color.spz_text));
+            holder.glb_tv.setText(mData.get(position).getGlb());
+            holder.glb_tv.setTextColor(context.getResources().getColor(R.color.spz_text));
+            holder.yw_tv.setText(mData.get(position).getYw());
+            holder.yw_tv.setTextColor(context.getResources().getColor(R.color.spz_text));
+            holder.sb_tv.setText(mData.get(position).getSb());
+            holder.sb_tv.setTextColor(context.getResources().getColor(R.color.spz_text));
+            holder.sj_tv.setText(mData.get(position).getSj());
+            holder.sj_tv.setTextColor(context.getResources().getColor(R.color.spz_text));
+        }else if(mData.get(position).getType().equals("4")){
+            holder.sb_img_iv.setBackground(context.getResources().getDrawable(R.drawable.gdb_img));
+            holder.xl_tv.setText(mData.get(position).getXl());
+            holder.xl_tv.setTextColor(context.getResources().getColor(R.color.gdb_text));
+            holder.glb_tv.setText(mData.get(position).getGlb());
+            holder.glb_tv.setTextColor(context.getResources().getColor(R.color.gdb_text));
+            holder.yw_tv.setText(mData.get(position).getYw());
+            holder.yw_tv.setTextColor(context.getResources().getColor(R.color.gdb_text));
+            holder.sb_tv.setText(mData.get(position).getSb());
+            holder.sb_tv.setTextColor(context.getResources().getColor(R.color.gdb_text));
+            holder.sj_tv.setText(mData.get(position).getSj());
+            holder.sj_tv.setTextColor(context.getResources().getColor(R.color.gdb_text));
+        }else if(mData.get(position).getType().equals("5")){
+            holder.sb_img_iv.setBackground(context.getResources().getDrawable(R.drawable.rygqj_img));
+            holder.xl_tv.setText(mData.get(position).getXl());
+            holder.xl_tv.setTextColor(context.getResources().getColor(R.color.rygqj_text));
+            holder.glb_tv.setText(mData.get(position).getGlb());
+            holder.glb_tv.setTextColor(context.getResources().getColor(R.color.rygqj_text));
+            holder.yw_tv.setText(mData.get(position).getYw());
+            holder.yw_tv.setTextColor(context.getResources().getColor(R.color.rygqj_text));
+            holder.sb_tv.setText(mData.get(position).getSb());
+            holder.sb_tv.setTextColor(context.getResources().getColor(R.color.rygqj_text));
+            holder.sj_tv.setText(mData.get(position).getSj());
+            holder.sj_tv.setTextColor(context.getResources().getColor(R.color.rygqj_text));
         }
+
     }
 
 
@@ -76,9 +122,8 @@ public class GjAdapter extends RecyclerView.Adapter<GjAdapter.ViewHolder> {
         TextView glb_tv;
         TextView yw_tv;
         TextView sb_tv;
-        TextView dqz_tv;
+        ImageView sb_img_iv;
         TextView sj_tv;
-        RelativeLayout wd_rl;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -86,9 +131,8 @@ public class GjAdapter extends RecyclerView.Adapter<GjAdapter.ViewHolder> {
             glb_tv = (TextView) itemView.findViewById(R.id.glb_value);
             yw_tv = (TextView) itemView.findViewById(R.id.sb_value);
             sb_tv = (TextView) itemView.findViewById(R.id.sbbh_value);
-            dqz_tv = (TextView) itemView.findViewById(R.id.wd_value_tv);
+            sb_img_iv =  itemView.findViewById(R.id.sb_img_iv);
             sj_tv = (TextView) itemView.findViewById(R.id.sj_value);
-            wd_rl = (RelativeLayout) itemView.findViewById(R.id.wd_rl);
         }
     }
 

@@ -221,8 +221,6 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
     }
 
 
-
-
     @Override
     public void onPrepare() {
         mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);

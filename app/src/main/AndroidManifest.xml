@@ -35,19 +35,13 @@
         </activity>
         <activity android:name=".activitys.MapPageActivity"/>
         <activity android:name=".activitys.ComprehensiveperceptionAvtivity"/>
-        <activity android:name=".activitys.XJManageActivity"
-            android:screenOrientation="portrait"/>
         <activity android:name=".activitys.ZTManagerActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".activitys.XjjcLiveActivity"
-            />
         <activity android:name=".activitys.BridgeActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".activitys.GDBActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".activitys.SPZActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activitys.XJActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".activitys.ZTActivity"
             android:screenOrientation="portrait"/>
