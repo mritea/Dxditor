@@ -56,7 +56,7 @@ public class BridgePresenter extends BasePresenter<BridgeActivity> implements IB
         bridgeModel.getTrendData(new ValueCallBack<String>() {
             @Override
             public void onSuccess(String bridgeTrends) {
-                er.refresh(bridgeTrends);
+                er.refresh("1",bridgeTrends);
             }
 
             @Override

@@ -7,5 +7,5 @@ package itor.topnetwork.com.dxditor.view.zt;
  */
 
 public interface EchartsrefreshInterface {
-     void refresh(String  s);
+     void refresh(String ResponseCode, String  s);
 }

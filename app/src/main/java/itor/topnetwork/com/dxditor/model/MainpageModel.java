@@ -13,6 +13,8 @@ import itor.topnetwork.com.dxditor.bean.Gjlb;
 import itor.topnetwork.com.dxditor.bean.GjxxBean;
 import itor.topnetwork.com.dxditor.bean.QjxxBean;
 import itor.topnetwork.com.dxditor.bean.SbxxBean;
+import itor.topnetwork.com.dxditor.hybrid.bean.pie.Apie;
+import itor.topnetwork.com.dxditor.hybrid.bean.pie.MainPieBean;
 import itor.topnetwork.com.dxditor.hybrid.bean.total.Bar;
 import itor.topnetwork.com.dxditor.hybrid.bean.total.Line;
 import itor.topnetwork.com.dxditor.hybrid.bean.total.TotalBean;
@@ -65,7 +67,7 @@ public class MainpageModel implements IMainpageModel {
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     String res = response.body().string();
-                   System.out.println("getAppDeviceStausCount:" + res);
+                    System.out.println("getAppDeviceStausCount:" + res);
 
                     try {
                         JSONObject js = new JSONObject(res);
@@ -88,13 +90,22 @@ public class MainpageModel implements IMainpageModel {
     }
 
     @Override
-    public void getGjxxData(final ValueCallBack<List<GjxxBean>> callBack) {
+    public void getGjxxData(final ValueCallBack<String> callBack) {
         gjxxList = new ArrayList<GjxxBean>();
         if (Constants.testData) {
-            gjxxList.add(new GjxxBean(1, "已恢复", 11, 0.27f));
-            gjxxList.add(new GjxxBean(2, "已处理", 19, 0.46f));
-            gjxxList.add(new GjxxBean(0, "告警中", 11, 0.27f));
-            callBack.onSuccess(gjxxList);
+            gjxxList.add(new GjxxBean(1, "已恢复", 11, 27));
+            gjxxList.add(new GjxxBean(2, "已处理", 19, 46));
+            gjxxList.add(new GjxxBean(0, "告警中", 11, 27));
+            MainPieBean mainPieBean = new MainPieBean();
+            ArrayList<Apie> apies = new ArrayList<>();
+            for (int i = 0; i < gjxxList.size(); i++) {
+                Apie apie = new Apie();
+                apie.setValue(gjxxList.get(i).getTypeProportion());
+                apie.setName(gjxxList.get(i).getTypeName());
+                apies.add(apie);
+            }
+            mainPieBean.setPieData(apies);
+            callBack.onSuccess(gson.toJson(mainPieBean));
         } else {
             Request request = new Request
                     .Builder()
@@ -117,7 +128,16 @@ public class MainpageModel implements IMainpageModel {
                         if (js.getBoolean("success")) {
                             gjxxList = gson.fromJson(js.getString("data"), new TypeToken<ArrayList<GjxxBean>>() {
                             }.getType());
-                            callBack.onSuccess(gjxxList);
+                            MainPieBean mainPieBean = new MainPieBean();
+                            ArrayList<Apie> apies = new ArrayList<>();
+                            for (int i = 0; i < gjxxList.size(); i++) {
+                                Apie apie = new Apie();
+                                apie.setValue(gjxxList.get(i).getTypeProportion());
+                                apie.setName(gjxxList.get(i).getTypeName());
+                                apies.add(apie);
+                            }
+                            mainPieBean.setPieData(apies);
+                            callBack.onSuccess(gson.toJson(mainPieBean));
                         } else {
                             callBack.onFail("01");
                         }
@@ -151,7 +171,7 @@ public class MainpageModel implements IMainpageModel {
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     String res = response.body().string();
-                    System.out.println("getAppDeviceCount:" + res);
+                    //System.out.println("getAppDeviceCount:" + res);
 
                     try {
                         JSONObject js = new JSONObject(res);
@@ -159,7 +179,7 @@ public class MainpageModel implements IMainpageModel {
 
                            /* QjxxBean qjxxbean = gson.fromJson(js.getString("data"), new TypeToken<QjxxBean>() {
                             }.getType());*/
-                            QjxxBean qjxxbean = gson.fromJson(js.getString("data"),QjxxBean.class);
+                            QjxxBean qjxxbean = gson.fromJson(js.getString("data"), QjxxBean.class);
                             TotalBean totalBean = new TotalBean();
                             ArrayList<String> legendList = new ArrayList<String>();
                             for (int i = 0; i < qjxxbean.getIotrappdeviceList().size(); i++) {
@@ -168,7 +188,7 @@ public class MainpageModel implements IMainpageModel {
                                 }
                             }
                             legendList.add("告警数");
-                            String[] arrayt =new String[legendList.size()];
+                            String[] arrayt = new String[legendList.size()];
                             totalBean.legendData = legendList.toArray(arrayt);
 
                             ArrayList<String> xData = new ArrayList<String>();
@@ -177,8 +197,8 @@ public class MainpageModel implements IMainpageModel {
                                     xData.add(qjxxbean.getIotrappdeviceList().get(i).getLineName());
                                 }
                             }
-                            String[] arrayp =new String[xData.size()];
-                            totalBean.xData =  xData.toArray(arrayp);
+                            String[] arrayp = new String[xData.size()];
+                            totalBean.xData = xData.toArray(arrayp);
 
                             totalBean.series = new ArrayList<>();
 
@@ -205,14 +225,14 @@ public class MainpageModel implements IMainpageModel {
                             line.type = "line";
                             line.yAxisIndex = 1;
                             int[] gjs = new int[totalBean.xData.length];
-                            for(int j = 0; j < totalBean.xData.length; j++){
+                            for (int j = 0; j < totalBean.xData.length; j++) {
                                 for (QjxxBean.GjCountBean g : qjxxbean.getLineAlarmConutList()) {
-                                    if(g.getLineName().equals(totalBean.xData[j])){
-                                        gjs[j]=g.getAlarmCount();
+                                    if (g.getLineName().equals(totalBean.xData[j])) {
+                                        gjs[j] = g.getAlarmCount();
                                     }
                                 }
                             }
-                            line.data =gjs;
+                            line.data = gjs;
                             totalBean.series.add(line);
 
 

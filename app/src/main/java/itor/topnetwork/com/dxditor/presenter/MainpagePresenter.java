@@ -34,6 +34,21 @@ public class MainpagePresenter extends BasePresenter<MainActivity> implements IM
     }
 
     @Override
+    public void getGjData() {
+        mainpageModel.getGjxxData(new ValueCallBack<String>() {
+            @Override
+            public void onSuccess(String s) {
+               er.refresh("2",s);
+            }
+
+            @Override
+            public void onFail(String code) {
+
+            }
+        });
+    }
+
+    @Override
     public List<SbxxBean> getData() {
         return null;
     }
@@ -51,21 +66,11 @@ public class MainpagePresenter extends BasePresenter<MainActivity> implements IM
 
             }
         });
-        mainpageModel.getGjxxData(new ValueCallBack<List<GjxxBean>>() {
-            @Override
-            public void onSuccess(List<GjxxBean> gjxxBeans) {
-                iMainpageView.setGjxxData(gjxxBeans);
-            }
 
-            @Override
-            public void onFail(String code) {
-
-            }
-        });
         mainpageModel.getQjxxData(new ValueCallBack<String>() {
             @Override
             public void onSuccess(String s) {
-                er.refresh(s);
+                er.refresh("1",s);
             }
 
             @Override

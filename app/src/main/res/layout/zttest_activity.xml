@@ -8,9 +8,9 @@
         layout="@layout/main_title" />
 
     <ScrollView
-        android:layout_below="@id/title_include"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@id/title_include">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -136,6 +136,7 @@
                         android:text="B值"
                         android:textColor="@color/spz_but_text" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/time_select_ll"
                     android:layout_width="200dp"
@@ -144,27 +145,30 @@
                     android:layout_marginRight="1dp"
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
-<Button
-    android:id="@+id/start_time_bt"
-    android:text="@string/start_time"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" />
-<Button
-    android:id="@+id/end_time_bt"
-    android:text="@string/end_time"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/start_time_bt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/start_time" />
+
+                    <Button
+                        android:id="@+id/end_time_bt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/end_time" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/date_select_ll"
                     android:layout_width="200dp"
                     android:layout_height="25dp"
-                    android:visibility="gone"
                     android:layout_gravity="right"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:visibility="gone">
 
                     <Button
                         android:id="@+id/oneday_but"
@@ -185,6 +189,7 @@
                         android:background="@color/abvalue_but_back_normal"
                         android:text="三日"
                         android:textColor="@color/spz_but_text" />
+
                     <Button
                         android:id="@+id/oneweek_but"
                         android:layout_width="0dp"
@@ -194,6 +199,7 @@
                         android:background="@color/abvalue_but_back_normal"
                         android:text="一周"
                         android:textColor="@color/spz_but_text" />
+
                     <Button
                         android:id="@+id/onemonth_but"
                         android:layout_width="0dp"

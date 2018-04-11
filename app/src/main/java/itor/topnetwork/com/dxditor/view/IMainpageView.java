@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import itor.topnetwork.com.dxditor.bean.Gjlb;
-import itor.topnetwork.com.dxditor.bean.GjxxBean;
 import itor.topnetwork.com.dxditor.bean.SbxxBean;
 
 /**
@@ -25,10 +24,7 @@ public interface IMainpageView {
      * 设置基础数据
      */
     void setBaseData(List<SbxxBean> t);
-    /**
-     * 设置基础数据
-     */
-    void setGjxxData(List<GjxxBean> t);
+
 
     void onEmpty();
 

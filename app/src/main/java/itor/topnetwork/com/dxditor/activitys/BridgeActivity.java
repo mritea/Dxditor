@@ -179,7 +179,7 @@ public class BridgeActivity extends BaseActivity<BridgePresenter> implements IBr
     }
 
     @Override
-    public void refresh(final String s) {
+    public void refresh(final String responseCode,final String s) {
         if (!BridgeActivity.this.isFinishing()) {
             runOnUiThread(new Runnable() {
                 @Override

@@ -54,7 +54,7 @@ public class SpzPresenter extends BasePresenter<SPZActivity> implements ISpzPres
         spzModel.getTrendData(new ValueCallBack<String>() {
             @Override
             public void onSuccess(String s) {
-                er.refresh(s);
+                er.refresh("1",s);
             }
 
             @Override

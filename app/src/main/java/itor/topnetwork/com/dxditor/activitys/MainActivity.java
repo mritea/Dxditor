@@ -25,16 +25,6 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.github.mikephil.charting.animation.Easing;
-import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.components.Legend;
-import com.github.mikephil.charting.data.PieData;
-import com.github.mikephil.charting.data.PieDataSet;
-import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.formatter.PercentFormatter;
-import com.github.mikephil.charting.utils.ColorTemplate;
-import com.github.mikephil.charting.utils.MPPointF;
-
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +32,6 @@ import java.util.List;
 import itor.topnetwork.com.dxditor.R;
 import itor.topnetwork.com.dxditor.adapter.GjAdapter;
 import itor.topnetwork.com.dxditor.bean.Gjlb;
-import itor.topnetwork.com.dxditor.bean.GjxxBean;
 import itor.topnetwork.com.dxditor.bean.SbxxBean;
 import itor.topnetwork.com.dxditor.hybrid.bean.EchartsDataBean;
 import itor.topnetwork.com.dxditor.myview.CircleView;
@@ -55,9 +44,8 @@ import itor.topnetwork.com.dxditor.view.zt.EchartsrefreshInterface;
 /**
  * 物联网Android
  */
-public class MainActivity extends BaseActivity<MainpagePresenter> implements IMainpageView,EchartsrefreshInterface {
+public class MainActivity extends BaseActivity<MainpagePresenter> implements IMainpageView, EchartsrefreshInterface {
     private TextView gj, zc, lx;
-    private PieChart gjpiechart;
     private NavigationView navigationView;
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -65,10 +53,12 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
     private GjAdapter gjAdapter;
     private ProgressDialog dialog;
     private WebView line_echarts;
-    private CircleView gj_circleview,zc_circleview,lx_circleview;
+    private CircleView gj_circleview, zc_circleview, lx_circleview;
+    private WebView gj_pie;
+
     @Override
     public MainpagePresenter initPresent() {
-        return new MainpagePresenter(this,this);
+        return new MainpagePresenter(this, this);
     }
 
     @Override
@@ -81,15 +71,16 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
         back_iv.setVisibility(View.GONE);
 
 
-       // gj = (TextView) findViewById(R.id.gj);
-        gj_circleview=(CircleView)findViewById(R.id.gj_circleview);
-        zc_circleview=(CircleView)findViewById(R.id.zc_circleview);
-        lx_circleview=(CircleView)findViewById(R.id.lx_circleview);
-       // zc = (TextView) findViewById(R.id.zc);
+        // gj = (TextView) findViewById(R.id.gj);
+        gj_circleview = (CircleView) findViewById(R.id.gj_circleview);
+        zc_circleview = (CircleView) findViewById(R.id.zc_circleview);
+        lx_circleview = (CircleView) findViewById(R.id.lx_circleview);
+        // zc = (TextView) findViewById(R.id.zc);
         //lx = (TextView) findViewById(R.id.lx);
         //告警信息
-        gjpiechart = (PieChart) findViewById(R.id.gjxx);
-        initGjxxView();
+        //gjpiechart = (PieChart) findViewById(R.id.gjxx);
+        gj_pie = findViewById(R.id.gj_pie);
+
 
         main_drawerlayout = findViewById(R.id.main_drawerlayout);
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
@@ -144,6 +135,34 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
             }
         });
 
+        WebSettings webSettings1 = gj_pie.getSettings();
+        webSettings1.setJavaScriptEnabled(true);
+        webSettings1.setJavaScriptCanOpenWindowsAutomatically(true);
+        webSettings1.setSupportZoom(true);
+        webSettings1.setDisplayZoomControls(true);
+
+        gj_pie.loadUrl("file:///android_asset/echarts/gj_pie.html");
+        gj_pie.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                return super.shouldOverrideUrlLoading(view, url);
+            }
+
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+
+                super.onPageStarted(view, url, favicon);
+                dialog.show();
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                //最好在这里调用js代码 以免网页未加载完成
+                basepresenter.getGjData();
+
+            }
+        });
     }
 
     private void initnavigation() {
@@ -202,69 +221,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
     }
 
 
-    /**
-     * 设置告警信息的数据
-     *
-     * @param gjxxlist
-     */
-    @Override
-    public void setGjxxData(List<GjxxBean> gjxxlist) {
-        ArrayList<PieEntry> entries = new ArrayList<PieEntry>();
 
-        // NOTE: The order of the entries when being added to the entries array determines their position around the center of
-        // the chart.
-        for (int i = 0; i < gjxxlist.size(); i++) {
-            entries.add(new PieEntry(gjxxlist.get(i).getTypeProportion() * 100,
-                    gjxxlist.get(i).getTypeName()));
-        }
-
-        PieDataSet dataSet = new PieDataSet(entries, "");
-
-        dataSet.setDrawIcons(false);
-
-        dataSet.setSliceSpace(3f);
-        dataSet.setIconsOffset(new MPPointF(0, 40));
-        dataSet.setSelectionShift(5f);
-
-        // add a lot of colors
-
-        ArrayList<Integer> colors = new ArrayList<Integer>();
-
-        for (int c : ColorTemplate.VORDIPLOM_COLORS)
-            colors.add(c);
-
-        for (int c : ColorTemplate.JOYFUL_COLORS)
-            colors.add(c);
-
-        for (int c : ColorTemplate.COLORFUL_COLORS)
-            colors.add(c);
-
-        for (int c : ColorTemplate.LIBERTY_COLORS)
-            colors.add(c);
-
-        for (int c : ColorTemplate.PASTEL_COLORS)
-            colors.add(c);
-
-        colors.add(ColorTemplate.getHoloBlue());
-        //26个颜色
-        dataSet.setColors(colors);
-        //dataSet.setSelectionShift(0f);
-        dataSet.setValueLinePart1OffsetPercentage(80.f);
-        dataSet.setValueLinePart1Length(0.2f);
-        dataSet.setValueLinePart2Length(0.4f);
-        //dataSet.setXValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
-        dataSet.setYValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
-        PieData data = new PieData(dataSet);
-        data.setValueFormatter(new PercentFormatter());
-        data.setValueTextSize(11f);
-        data.setValueTextColor(Color.BLACK);
-        gjpiechart.setData(data);
-
-        // undo all highlights
-        gjpiechart.highlightValues(null);
-
-        gjpiechart.invalidate();
-    }
 
     @Override
     public void onPrepare() {
@@ -275,8 +232,6 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
         mRecyclerView.setAdapter(gjAdapter);
 
     }
-
-
 
 
     /**
@@ -290,12 +245,12 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
                 public void run() {
                     for (int i = 0; i < sbxxBeans.size(); i++) {
                         if (sbxxBeans.get(i).getTypeCode() == 0) {
-                            zc_circleview.setData(80,sbxxBeans.get(i).getTypeCount()+"","#0ABB6D");
+                            zc_circleview.setData(80, sbxxBeans.get(i).getTypeCount() + "", "#0ABB6D");
                         } else if (sbxxBeans.get(i).getTypeCode() == 1) {
-                           // gj.setText(sbxxBeans.get(i).getTypeCount());
-                            gj_circleview.setData(10,sbxxBeans.get(i).getTypeCount()+"","#F5B400");
+                            // gj.setText(sbxxBeans.get(i).getTypeCount());
+                            gj_circleview.setData(10, sbxxBeans.get(i).getTypeCount() + "", "#F5B400");
                         } else if (sbxxBeans.get(i).getTypeCode() == 2) {
-                            lx_circleview.setData(10,sbxxBeans.get(i).getTypeCount()+"","#00AFDC");
+                            lx_circleview.setData(10, sbxxBeans.get(i).getTypeCount() + "", "#00AFDC");
                         }
                     }
                 }
@@ -327,54 +282,6 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
 
     }
 
-    private void initGjxxView() {
-
-        gjpiechart.setUsePercentValues(true);
-        gjpiechart.getDescription().setEnabled(false);
-        gjpiechart.setExtraOffsets(5, 10, 5, 5);
-
-        gjpiechart.setDragDecelerationFrictionCoef(0.95f);
-
-        gjpiechart.setCenterText("告警信息");
-        gjpiechart.setExtraOffsets(20.f, 0.f, 20.f, 0.f);
-        gjpiechart.setDrawHoleEnabled(true);
-        gjpiechart.setHoleColor(Color.WHITE);
-
-        gjpiechart.setTransparentCircleColor(Color.WHITE);
-        gjpiechart.setTransparentCircleAlpha(110);
-
-        gjpiechart.setHoleRadius(58f);
-        gjpiechart.setTransparentCircleRadius(61f);
-
-        gjpiechart.setDrawCenterText(true);
-
-        gjpiechart.setRotationAngle(0);
-        // enable rotation of the chart by touch
-        gjpiechart.setRotationEnabled(true);
-        gjpiechart.setHighlightPerTapEnabled(true);
-
-        // gjpiechart.setUnit(" €");
-        // gjpiechart.setDrawUnitsInChart(true);
-
-        // add a selection listener点击事件
-        //gjpiechart.setOnChartValueSelectedListener(this);
-
-
-        gjpiechart.animateY(1400, Easing.EasingOption.EaseInOutQuad);
-
-        Legend l = gjpiechart.getLegend();
-        l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
-        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
-        l.setOrientation(Legend.LegendOrientation.VERTICAL);
-        l.setDrawInside(false);
-        l.setXEntrySpace(7f);
-        l.setYEntrySpace(0f);
-        l.setYOffset(0f);
-
-        // entry label styling
-        gjpiechart.setEntryLabelColor(Color.BLUE);
-        gjpiechart.setEntryLabelTextSize(12f);
-    }
 
     /**
      * 给 NavigationView 的Menu的分割线 设置高度和颜色
@@ -417,7 +324,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
     }
 
     @Override
-    public void refresh(final String s) {
+    public void refresh(final String responseCode, final String s) {
         if (!MainActivity.this.isFinishing()) {
             runOnUiThread(new Runnable() {
                 @Override
@@ -425,7 +332,11 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
                     if (dialog.isShowing()) {
                         dialog.dismiss();
                     }
-                    line_echarts.loadUrl("javascript:createChart('createbarlineChart'," + s + ");");
+                    if (responseCode.equals("1")) {
+                        line_echarts.loadUrl("javascript:createChart('createbarlineChart'," + s + ");");
+                    } else if (responseCode.equals("2")) {
+                        gj_pie.loadUrl("javascript:createChart('pie'," + s + ");");
+                    }
 
                 }
             });

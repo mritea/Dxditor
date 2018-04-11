@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8"/>
+
+</head>
+<body >
+<!--onload="createChart('ylline',{'seriesData':[11,38,91,16,37,7,52,96,85,78,43,47],'xData':['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']})"-->
+<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+<div id="main"
+     style="float: center;height:300px;"></div>
+<!-- ECharts单文件引入 -->
+<script src="js/echarts.min.js"></script>
+<script type="text/javascript">
+ //声明Echarts实例
+   var myChart;
+ //声明图表配置项和数据
+ var options;
+//显示图表
+   function createChart(type,json){
+
+        if(type=='pie'){
+          createPieChart(json);
+        }
+
+
+        // 基于准备好的dom，初始化echarts实例
+        myChart = echarts.init(document.getElementById('main'));
+        //使用指定的配置项和数据显示图表。
+        myChart.setOption(options);
+    }
+    function createPieChart(obj){
+options = {
+
+
+    legend: {
+        orient: 'vertical',
+        left: 'right',
+        bottom:250,
+        data: ['告警中','已处理','已恢复']
+    },
+    series : [
+        {
+            name: '访问来源',
+            type: 'pie',
+            radius : '30%',
+            center: ['50%', '60%'],
+            color:['#F55000','#0aBB6C','#FEA502'],
+            labelLine:{
+
+            },
+            label: {
+            normal: {
+                    show: true,
+                    position: 'outside',
+                    formatter:"{c}%"
+                },
+            },
+            data:obj.pieData
+        }
+    ]
+};}
+
+
+
+</script>

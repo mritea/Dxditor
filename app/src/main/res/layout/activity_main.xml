@@ -40,8 +40,13 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#0C1439"
+
                         android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="5dp"
+                            android:layout_height="fill_parent"
+                            android:background="@color/erji_title_back" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -51,9 +56,14 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="8dp"
                             android:text="设备信息"
-                            android:textColor="@android:color/white"
+                            android:textColor="@color/erji_title_back"
                             android:textSize="15sp" />
                     </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/erji_title_back" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -63,6 +73,7 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
                         android:paddingBottom="5dp">
+
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -70,20 +81,22 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:orientation="vertical">
-                        <itor.topnetwork.com.dxditor.myview.CircleView
-                            android:id="@+id/gj_circleview"
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:layout_marginLeft="3dp">
-                        </itor.topnetwork.com.dxditor.myview.CircleView>
+
+                            <itor.topnetwork.com.dxditor.myview.CircleView
+                                android:id="@+id/gj_circleview"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_marginLeft="3dp"></itor.topnetwork.com.dxditor.myview.CircleView>
+
                             <TextView
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
-                                android:textColor="@android:color/black"
                                 android:gravity="center"
-                                android:text="报警设备" />
+                                android:text="报警设备"
+                                android:textColor="@android:color/black" />
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -97,16 +110,15 @@
                                 android:id="@+id/zc_circleview"
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
-                                android:layout_marginLeft="3dp">
-                            </itor.topnetwork.com.dxditor.myview.CircleView>
+                                android:layout_marginLeft="3dp"></itor.topnetwork.com.dxditor.myview.CircleView>
 
                             <TextView
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
                                 android:gravity="center"
-                                android:textColor="@android:color/black"
-                                android:text="正常设备" />
+                                android:text="正常设备"
+                                android:textColor="@android:color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -121,23 +133,22 @@
                                 android:id="@+id/lx_circleview"
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
-                                android:layout_marginLeft="3dp">
-                            </itor.topnetwork.com.dxditor.myview.CircleView>
+                                android:layout_marginLeft="3dp"></itor.topnetwork.com.dxditor.myview.CircleView>
 
                             <TextView
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
-                                android:textColor="@android:color/black"
                                 android:gravity="center"
-                                android:text="离线设备" />
+                                android:text="离线设备"
+                                android:textColor="@android:color/black" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginTop="10dp"
@@ -147,8 +158,13 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#4A78CE"
+
                         android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="5dp"
+                            android:layout_height="fill_parent"
+                            android:background="@color/erji_title_back" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -158,14 +174,20 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="8dp"
                             android:text="告警信息"
-                            android:textColor="@android:color/white"
+                            android:textColor="@color/erji_title_back"
                             android:textSize="15sp" />
                     </LinearLayout>
 
-                    <com.github.mikephil.charting.charts.PieChart
-                        android:id="@+id/gjxx"
+                    <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="160dp" />
+                        android:layout_height="1dp"
+                        android:background="@color/erji_title_back" />
+
+                    <WebView
+                        android:id="@+id/gj_pie"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="5dp"></WebView>
                 </LinearLayout>
 
                 <LinearLayout
@@ -180,8 +202,13 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#4A78CE"
+
                         android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="5dp"
+                            android:layout_height="fill_parent"
+                            android:background="@color/erji_title_back" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -191,9 +218,14 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="8dp"
                             android:text="全局信息"
-                            android:textColor="@android:color/white"
+                            android:textColor="@color/erji_title_back"
                             android:textSize="15sp" />
                     </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/erji_title_back" />
 
                     <WebView
                         android:id="@+id/line_echarts"

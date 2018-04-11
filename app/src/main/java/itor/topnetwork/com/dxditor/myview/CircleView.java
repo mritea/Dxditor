@@ -189,7 +189,6 @@ public class CircleView extends View {
         this.percent = percent;
         this.count = count;
         this.color = color;
-        System.out.println("this.color ："+this.color );
         invalidate();
     }
 }

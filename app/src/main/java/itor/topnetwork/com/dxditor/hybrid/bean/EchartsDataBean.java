@@ -241,7 +241,7 @@ public class EchartsDataBean {
                         ztLiveEchartsBean.endValue=ZtLiveBeans.size();
                     } else {
                     }
-                    ei.refresh(gson.toJson(ztLiveEchartsBean));
+                    ei.refresh("1",gson.toJson(ztLiveEchartsBean));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

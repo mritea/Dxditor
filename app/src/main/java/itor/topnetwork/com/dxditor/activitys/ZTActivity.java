@@ -112,7 +112,7 @@ public class ZTActivity extends BaseActivity implements View.OnClickListener,Ech
 
 
     @Override
-    public void refresh(final String s) {
+    public void refresh(final  String Responsecode,final String s) {
 
 
     }

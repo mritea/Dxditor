@@ -159,7 +159,7 @@ public class SPZActivity extends BaseActivity<SpzPresenter> implements View.OnCl
     }
 
     @Override
-    public void refresh(final String s) {
+    public void refresh(final String responseCode,final String s) {
         if (!SPZActivity.this.isFinishing()) {
             runOnUiThread(new Runnable() {
                 @Override

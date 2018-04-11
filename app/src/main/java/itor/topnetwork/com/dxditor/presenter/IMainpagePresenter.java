@@ -13,4 +13,5 @@ import itor.topnetwork.com.dxditor.bean.SbxxBean;
 public interface IMainpagePresenter {
         List<SbxxBean> getData();
         ArrayList<Gjlb> getGjadapterData();
+       void getGjData();
 }

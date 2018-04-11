@@ -296,7 +296,7 @@ public class ZtTest extends Activity implements View.OnClickListener, Echartsref
     }
 
     @Override
-    public void refresh(String s) {
+    public void refresh(final String responseCode,String s) {
         // System.out.println("s:" + s);
         datas = s;
         if (!ZtTest.this.isFinishing()) {
