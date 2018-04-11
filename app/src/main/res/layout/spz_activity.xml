@@ -28,8 +28,12 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#4A78CE"
                     android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="5dp"
+                        android:layout_height="fill_parent"
+                        android:background="@color/erji_title_back" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -39,14 +43,45 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="8dp"
                         android:text="示意图"
-                        android:textColor="@android:color/white"
+                        android:textColor="@color/erji_title_back"
                         android:textSize="15sp" />
                 </LinearLayout>
 
                 <ImageView
                     android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/erji_title_back" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    android:background="@color/default_circle_indicator_fill_color" />
+                    android:background="@drawable/spz_syt" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="风向\n风力"
+                        android:layout_marginLeft="350dp"
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/zt_text" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="应力"
+                        android:layout_marginLeft="340dp"
+                        android:layout_marginTop="60dp"
+                        android:textColor="@color/yellow" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="变形"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="100dp"
+                        android:textColor="@android:color/holo_red_light" />
+
+                </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout

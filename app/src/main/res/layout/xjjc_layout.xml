@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#0B155D"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:textSize="20sp" />
+    <lecho.lib.hellocharts.view.LineChartView
+        android:id="@+id/xj_chart"
+        android:padding="20dip"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+</LinearLayout>

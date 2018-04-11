@@ -27,5 +27,13 @@
     <color name="gdb_text">#02AFD9</color>
     <color name="rygqj_text">#5656C9</color>
 
+    <color name="erji_title_green">#4ABF9B</color>
+    <color name="erji_title_gold">#CFA968</color>
+
+    <color name="light_red">#E33C5E</color>
+    <color name="light_green">#EBFBF7</color>
+
+    <color name="yellow">#FEC721</color>
+
 
 </resources>

@@ -3,7 +3,7 @@
     <meta charset="utf-8"/>
 
 </head>
-<body onload="createChart('pie','')">
+<body >
 <!--onload="createChart('ylline',{'seriesData':[11,38,91,16,37,7,52,96,85,78,43,47],'xData':['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']})"-->
 <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
 <div id="main"
@@ -48,7 +48,7 @@ options = {
             labelLine:{
 
             },
-             center: [100,70],
+             center: [100,60],
             label: {
             normal: {
                     show: true,
@@ -56,9 +56,7 @@ options = {
                     formatter:"{c}%"
                 },
             },
-            data:[ {value:22.4, name:'告警中'},
-                {value:46, name:'已处理'},
-                {value:26, name:'已恢复'}]
+            data:obj.pieData
         }
     ]
 };}

@@ -29,8 +29,13 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#4A78CE"
+
                     android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="5dp"
+                        android:layout_height="fill_parent"
+                        android:background="@color/erji_title_back" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -40,9 +45,14 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="8dp"
                         android:text="示意图"
-                        android:textColor="@android:color/white"
+                        android:textColor="@color/erji_title_back"
                         android:textSize="15sp" />
                 </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/erji_title_back" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -165,12 +175,16 @@
                 android:layout_marginTop="10dp"
                 android:background="@android:color/white"
                 android:orientation="vertical">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#4A78CE"
+
                     android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="5dp"
+                        android:layout_height="fill_parent"
+                        android:background="@color/erji_title_green" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -179,10 +193,15 @@
                         android:layout_marginBottom="8dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="8dp"
-                        android:text="桥梁检测指标"
-                        android:textColor="@android:color/white"
+                        android:text="桥梁监测指标"
+                        android:textColor="@color/erji_title_green"
                         android:textSize="15sp" />
                 </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/erji_title_green" />
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/warning_rv"
@@ -206,8 +225,13 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#4A78CE"
+
                     android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="5dp"
+                        android:layout_height="fill_parent"
+                        android:background="@color/erji_title_gold" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -217,9 +241,14 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="8dp"
                         android:text="趋势图"
-                        android:textColor="@android:color/white"
+                        android:textColor="@color/erji_title_gold"
                         android:textSize="15sp" />
                 </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/erji_title_gold" />
 
                 <WebView
                     android:id="@+id/bridge_echarts"
