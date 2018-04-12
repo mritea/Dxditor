@@ -38,6 +38,7 @@ options = {
 
     },
     xAxis: {
+    splitLine:{show: true},
         type: 'category',
         data:obj.xData,
 axisLabel: {
@@ -45,11 +46,12 @@ axisLabel: {
         }
     },
     yAxis: {
+    splitLine:{show: true},
         type: 'value'
     },
     series: [{
     name:'变化值',
-
+ color:['#CFA968'],
         data:obj.seriesData,
         type: 'line',
         markLine: {

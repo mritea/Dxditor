@@ -39,7 +39,8 @@ public class ZtTest extends Activity implements View.OnClickListener, Echartsref
     private ProgressDialog dialog;
     private EchartsDataBean echartsDataBean;
     private String datas;
-    private LinearLayout one_title, zt_select_ll, ab_select_ll, ztsyt_ll;
+    private LinearLayout  zt_select_ll, ab_select_ll, ztsyt_ll;
+    private RelativeLayout one_title;
     private RelativeLayout title_include;
     public ImageView back_iv;
     private Calendar calendar;

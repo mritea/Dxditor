@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="main_item_textsize">14sp</dimen>
-    <dimen name="main_item_margin_top">2dp</dimen>
-
     <dimen name="item_textsize">15sp</dimen>
     <dimen name="item_littletextsize">10sp</dimen>
-
     <dimen name="title_height">35dp</dimen>
+
     <dimen name="flag_weith">20dp</dimen>
     <dimen name="flag_height">20dp</dimen>
+
 
 </resources>

@@ -39,6 +39,7 @@ y2:80
 },
     xAxis: {
         type: 'category',
+        boundaryGap: false,
         data:obj.xData,
 axisLabel: {
             rotate:70,
@@ -50,7 +51,9 @@ axisLabel: {
     },
     series: [{
         data:obj.seriesData,
-        type: 'line'
+        type: 'line',
+         color:['#DABE7A'],
+        areaStyle: {}
     }]
 };
 }
@@ -66,6 +69,7 @@ y2:80
     xAxis: {
         type: 'category',
         data:obj.xData,
+
 axisLabel: {
             rotate:70,
         }
@@ -102,7 +106,9 @@ axisLabel: {
     series: [{
     name:'位移值',
         data:obj.seriesData,
-        type: 'line'
+        type: 'line',
+         color:['#DABE7A'],
+        areaStyle: {}
     }]
 };
 }

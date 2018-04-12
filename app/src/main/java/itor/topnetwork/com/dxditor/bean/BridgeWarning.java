@@ -14,8 +14,9 @@ public class BridgeWarning {
     private String bridgeCode;
     private String monitorObjectCode;
     private String monitorItemCode;
+    private String time;
 
-    public BridgeWarning(String monitorName, String bridgeName, String currentValue, String initValue, String itemName, String bridgeCode, String monitorObjectCode, String monitorItemCode) {
+    public BridgeWarning(String monitorName, String bridgeName, String currentValue, String initValue, String itemName, String bridgeCode, String monitorObjectCode, String monitorItemCode, String time) {
         this.monitorName = monitorName;
         this.bridgeName = bridgeName;
         this.currentValue = currentValue;
@@ -24,6 +25,7 @@ public class BridgeWarning {
         this.bridgeCode = bridgeCode;
         this.monitorObjectCode = monitorObjectCode;
         this.monitorItemCode = monitorItemCode;
+        this.time = time;
     }
 
     public String getMonitorName() {
@@ -88,5 +90,13 @@ public class BridgeWarning {
 
     public void setMonitorItemCode(String monitorItemCode) {
         this.monitorItemCode = monitorItemCode;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

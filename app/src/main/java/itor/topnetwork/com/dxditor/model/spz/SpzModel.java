@@ -47,9 +47,10 @@ public class SpzModel implements ISpzModel {
     public void getWarningData(final ValueCallBack<ArrayList<SpzWarning>> callBack) {
         if (Constants.testData) {
             ArrayList<SpzWarning> temp = new ArrayList<SpzWarning>();
-            temp.add(new SpzWarning("", "京津线03号桥梁声屏障（2米处）声屏障位移", "120", "", "mm"));
-            temp.add(new SpzWarning("", "丰沙线11号桥梁声屏障（0.9米处）声屏障位移", "80", "", "mm"));
-            temp.add(new SpzWarning("", "京包线19号桥梁声屏障（2.4米处）声屏障位移", "74", "", "mm"));
+            temp.add(new SpzWarning("", "京津线03号桥梁声屏障（2米处）声屏障位移", "2018-04-12 09:09:00", "轻风  1.6-3.5 m/s", "北风"));
+            temp.add(new SpzWarning("", "丰沙线11号桥梁声屏障（0.9米处）声屏障位移", "2018-04-11 21:58:00", "强风  10-11.6 m/s", "东北风"));
+            temp.add(new SpzWarning("", "京包线19号桥梁声屏障（2.4米处）声屏障位移", "2018-04-10 19:28:00", "微风  0.6-1.5 m/s", "西北风"));
+            temp.add(new SpzWarning("", "京包线19号桥梁声屏障（2.4米处）声屏障位移", "2018-04-10 19:28:00", "微风  0.6-1.5 m/s", "西北风"));
             spzWarnings = temp;
             callBack.onSuccess(spzWarnings);
         } else {
@@ -111,6 +112,10 @@ public class SpzModel implements ISpzModel {
             } else if (position == 2) {
                 for (int i = 0; i < 9; i++) {
                     spzTrends.add(new SpzTrend(Float.parseFloat("7" + i), "03-2" + i + " 08:00"));
+                }
+            }else if (position == 3) {
+                for (int i = 0; i < 9; i++) {
+                    spzTrends.add(new SpzTrend(Float.parseFloat("8" + i), "03-2" + i + " 08:00"));
                 }
             }
             List<String> time = new ArrayList<>();

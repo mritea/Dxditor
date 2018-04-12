@@ -25,10 +25,9 @@
                 android:background="@android:color/white"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_height="@dimen/title_height">
 
                     <ImageView
                         android:layout_width="5dp"
@@ -38,47 +37,58 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:layout_marginBottom="8dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="8dp"
                         android:text="示意图"
                         android:textColor="@color/erji_title_back"
                         android:textSize="15sp" />
-                </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="@dimen/flag_weith"
+                        android:layout_height="@dimen/flag_height"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/flag" />
+                </RelativeLayout>
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@color/erji_title_back" />
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:background="@drawable/spz_syt" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:background="@drawable/spz_syt" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="风向\n风力"
-                        android:layout_marginLeft="350dp"
+                        android:layout_marginLeft="300dp"
                         android:layout_marginTop="5dp"
+                        android:text="风向\n风力"
                         android:textColor="@color/zt_text" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="应力"
-                        android:layout_marginLeft="340dp"
+                        android:layout_marginLeft="310dp"
                         android:layout_marginTop="60dp"
+                        android:text="应力"
                         android:textColor="@color/yellow" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="变形"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="100dp"
+                        android:text="变形"
                         android:textColor="@android:color/holo_red_light" />
 
                 </RelativeLayout>
@@ -90,34 +100,46 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
-                android:background="@android:color/white"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#4A78CE"
-                    android:orientation="horizontal">
+                    android:layout_height="@dimen/title_height"
+                    android:background="@color/white">
+
+                    <ImageView
+                        android:layout_width="5dp"
+                        android:layout_height="fill_parent"
+                        android:background="@color/erji_title_green" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:layout_marginBottom="8dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="8dp"
                         android:text="声屏障监测指标"
-                        android:textColor="@android:color/white"
+                        android:textColor="@color/erji_title_green"
                         android:textSize="15sp" />
-                </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="@dimen/flag_weith"
+                        android:layout_height="@dimen/flag_height"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/flag" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/erji_title_green" />
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/spz_warning_rv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginTop="10dp"
                     android:scrollbars="vertical" />
             </LinearLayout>
 
@@ -130,29 +152,44 @@
                 android:background="@android:color/white"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#4A78CE"
-                    android:orientation="horizontal">
+                    android:layout_height="@dimen/title_height">
+
+                    <ImageView
+                        android:layout_width="5dp"
+                        android:layout_height="fill_parent"
+                        android:background="@color/erji_title_gold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:layout_marginBottom="8dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="8dp"
                         android:text="趋势图"
-                        android:textColor="@android:color/white"
+                        android:textColor="@color/erji_title_gold"
                         android:textSize="15sp" />
-                </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="@dimen/flag_weith"
+                        android:layout_height="@dimen/flag_height"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/flag" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/erji_title_gold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:visibility="gone"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:visibility="gone">
 
                     <Button
                         android:id="@+id/yl_but"

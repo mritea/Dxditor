@@ -26,11 +26,9 @@
                 android:background="@android:color/white"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:orientation="horizontal">
+                    android:layout_height="@dimen/title_height">
 
                     <ImageView
                         android:layout_width="5dp"
@@ -40,14 +38,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:layout_marginBottom="8dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="8dp"
                         android:text="示意图"
                         android:textColor="@color/erji_title_back"
                         android:textSize="15sp" />
-                </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="@dimen/flag_weith"
+                        android:layout_height="@dimen/flag_height"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/flag" />
+                </RelativeLayout>
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -83,6 +88,7 @@
                             android:text="1"
                             android:textColor="@color/white" />
                     </RelativeLayout>
+
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -103,6 +109,7 @@
                             android:text="2"
                             android:textColor="@color/white" />
                     </RelativeLayout>
+
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -123,6 +130,7 @@
                             android:text="3"
                             android:textColor="@color/white" />
                     </RelativeLayout>
+
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -143,12 +151,13 @@
                             android:text="4"
                             android:textColor="@color/white" />
                     </RelativeLayout>
+
                     <RelativeLayout
-                        android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="250dp"
-                        android:layout_marginTop="100dp">
+                        android:layout_marginTop="100dp"
+                        android:visibility="gone">
 
                         <ImageView
                             android:id="@+id/num5back_iv"
@@ -173,13 +182,12 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
-                android:background="@android:color/white"
                 android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
 
-                    android:orientation="horizontal">
+                <RelativeLayout
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/title_height">
 
                     <ImageView
                         android:layout_width="5dp"
@@ -189,14 +197,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:layout_marginBottom="8dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="8dp"
                         android:text="桥梁监测指标"
                         android:textColor="@color/erji_title_green"
                         android:textSize="15sp" />
-                </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="@dimen/flag_weith"
+                        android:layout_height="@dimen/flag_height"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/flag" />
+                </RelativeLayout>
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -207,9 +222,6 @@
                     android:id="@+id/warning_rv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginTop="10dp"
                     android:scrollbars="vertical" />
             </LinearLayout>
 
@@ -222,11 +234,9 @@
                 android:background="@android:color/white"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:orientation="horizontal">
+                    android:layout_height="@dimen/title_height">
 
                     <ImageView
                         android:layout_width="5dp"
@@ -236,14 +246,22 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:layout_marginBottom="8dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="8dp"
                         android:text="趋势图"
                         android:textColor="@color/erji_title_gold"
                         android:textSize="15sp" />
-                </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="@dimen/flag_weith"
+                        android:layout_height="@dimen/flag_height"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/flag" />
+                </RelativeLayout>
+
 
                 <ImageView
                     android:layout_width="match_parent"

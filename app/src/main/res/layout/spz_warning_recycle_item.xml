@@ -1,52 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_marginTop="5dp"
-    android:layout_height="50dp"
-    android:orientation="vertical">
+    android:layout_height="65dp"
+    android:paddingTop="2dp">
 
-    <TextView
-        android:id="@+id/title_tv"
-        android:textColor="@color/spz_but_back_press"
+    <RelativeLayout
+        android:id="@+id/bg_rl"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-         />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:background="@color/light_green"
+        android:paddingTop="5dp">
+        <TextView
+            android:id="@+id/time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/item_littletextsize" />
 
         <TextView
-            android:id="@+id/type_tv"
-            android:layout_width="0dp"
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center" />
+            android:layout_below="@id/time_tv"
+            android:layout_marginLeft="15dp"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/item_textsize" />
 
         <TextView
-            android:id="@+id/value_tv"
-            android:layout_width="0dp"
+            android:id="@+id/csz_text"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center" />
+            android:layout_below="@id/title_tv"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="4dp"
+            android:text="风向："
+            android:textSize="@dimen/item_littletextsize" />
 
         <TextView
-            android:id="@+id/dw_tv"
-            android:layout_width="0dp"
+            android:id="@+id/fx_tv"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            />
+            android:layout_below="@id/title_tv"
+            android:layout_toRightOf="@id/csz_text"
+            android:textColor="@color/erji_title_green"
+            android:textSize="@dimen/item_textsize" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/dqz_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_tv"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="4dp"
+            android:layout_toRightOf="@id/fx_tv"
+            android:gravity="center"
+            android:text="风力："
+            android:textSize="@dimen/item_littletextsize" />
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@android:color/darker_gray" />
-</LinearLayout>
+        <TextView
+            android:id="@+id/fl_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_tv"
+            android:layout_toRightOf="@id/dqz_text"
+            android:textColor="@color/erji_title_green"
+            android:textSize="@dimen/item_textsize" />
+    </RelativeLayout>
+</RelativeLayout>

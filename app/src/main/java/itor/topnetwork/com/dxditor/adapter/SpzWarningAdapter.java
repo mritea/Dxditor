@@ -5,9 +5,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import itor.topnetwork.com.dxditor.R;
@@ -21,12 +21,9 @@ import itor.topnetwork.com.dxditor.bean.SpzWarning;
 public class SpzWarningAdapter extends RecyclerView.Adapter<SpzWarningAdapter.ViewHolder> implements View.OnClickListener{
     ArrayList<SpzWarning> mData;
     Context context;
-    private final DecimalFormat df;
 
     public SpzWarningAdapter(Context context, ArrayList<SpzWarning> sw) {
         this.context=context;
-        //格式化
-        df = new DecimalFormat("0.00");
         this.mData=sw;
     }
     public void updateData(ArrayList<SpzWarning> data) {
@@ -48,12 +45,14 @@ public class SpzWarningAdapter extends RecyclerView.Adapter<SpzWarningAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+        if (position % 2 == 0) {
+            holder.bg_rl.setBackgroundColor(context.getResources().getColor(R.color.white));
+        }
         // 绑定数据
         holder.title_tv.setText(mData.get(position).getMonitorName());
-        holder.type_tv.setText(mData.get(position).getType());
-        Double cny = Double.parseDouble(mData.get(position).getMonitorValue());
-        holder.value_tv.setText(df.format(cny));
-        holder.dw_tv.setText(mData.get(position).getUnit());
+        holder.time_tv.setText(mData.get(position).getTime());
+        holder.fx_tv.setText(mData.get(position).getFx());
+        holder.fl_tv.setText(mData.get(position).getFl());
 
         //给holder的itemview添加Tag为position
         holder.itemView.setTag(position);
@@ -67,18 +66,19 @@ public class SpzWarningAdapter extends RecyclerView.Adapter<SpzWarningAdapter.Vi
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-
+        RelativeLayout bg_rl;
         TextView title_tv;
-        TextView type_tv;
-        TextView value_tv;
-        TextView dw_tv;
+        TextView time_tv;
+        TextView fx_tv;
+        TextView fl_tv;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            bg_rl = itemView.findViewById(R.id.bg_rl);
             title_tv = (TextView) itemView.findViewById(R.id.title_tv);
-            type_tv = (TextView) itemView.findViewById(R.id.type_tv);
-            value_tv = (TextView) itemView.findViewById(R.id.value_tv);
-            dw_tv = (TextView) itemView.findViewById(R.id.dw_tv);
+            time_tv = (TextView) itemView.findViewById(R.id.time_tv);
+            fx_tv = (TextView) itemView.findViewById(R.id.fx_tv);
+            fl_tv = (TextView) itemView.findViewById(R.id.fl_tv);
         }
     }
     private OnRecyclerViewItemClickListener  mOnItemClickListener = null;

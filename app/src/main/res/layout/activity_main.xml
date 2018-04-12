@@ -37,11 +37,10 @@
                     android:orientation="vertical">
 
 
-                    <LinearLayout
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-
-                        android:orientation="horizontal">
+                        android:layout_height="@dimen/title_height"
+                        >
 
                         <ImageView
                             android:layout_width="5dp"
@@ -51,14 +50,20 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
                             android:layout_marginBottom="8dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="8dp"
                             android:text="设备信息"
                             android:textColor="@color/erji_title_back"
                             android:textSize="15sp" />
-                    </LinearLayout>
+                        <ImageView
+                            android:layout_marginRight="20dp"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/flag"
+                            android:layout_width="@dimen/flag_weith"
+                            android:layout_height="@dimen/flag_height" />
+                    </RelativeLayout>
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -95,6 +100,7 @@
                                 android:gravity="center"
                                 android:text="报警设备"
                                 android:textColor="@android:color/black" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -155,11 +161,10 @@
                     android:background="@android:color/white"
                     android:orientation="vertical">
 
-                    <LinearLayout
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-
-                        android:orientation="horizontal">
+                        android:layout_height="@dimen/title_height"
+                        >
 
                         <ImageView
                             android:layout_width="5dp"
@@ -169,14 +174,20 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
                             android:layout_marginBottom="8dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="8dp"
                             android:text="告警信息"
                             android:textColor="@color/erji_title_back"
                             android:textSize="15sp" />
-                    </LinearLayout>
+                        <ImageView
+                            android:layout_marginRight="20dp"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/flag"
+                            android:layout_width="@dimen/flag_weith"
+                            android:layout_height="@dimen/flag_height" />
+                    </RelativeLayout>
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -199,11 +210,10 @@
                     android:background="@android:color/white"
                     android:orientation="vertical">
 
-                    <LinearLayout
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-
-                        android:orientation="horizontal">
+                        android:layout_height="@dimen/title_height"
+                        >
 
                         <ImageView
                             android:layout_width="5dp"
@@ -213,14 +223,20 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
                             android:layout_marginBottom="8dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="8dp"
                             android:text="全局信息"
                             android:textColor="@color/erji_title_back"
                             android:textSize="15sp" />
-                    </LinearLayout>
+                        <ImageView
+                            android:layout_marginRight="20dp"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/flag"
+                            android:layout_width="@dimen/flag_weith"
+                            android:layout_height="@dimen/flag_height" />
+                    </RelativeLayout>
 
                     <ImageView
                         android:layout_width="match_parent"

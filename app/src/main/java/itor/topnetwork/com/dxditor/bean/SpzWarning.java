@@ -8,16 +8,17 @@ package itor.topnetwork.com.dxditor.bean;
 public class SpzWarning {
     private String bridgeCode;
     private String monitorName;
-    private String monitorValue;
     private String type;
-    private String unit;
+    private String time;
+    private String fl;
+    private String fx;
 
-    public SpzWarning(String bridgeCode, String monitorName, String monitorValue, String type, String unit) {
+    public SpzWarning(String bridgeCode, String monitorName, String time, String fl, String fx) {
         this.bridgeCode = bridgeCode;
         this.monitorName = monitorName;
-        this.monitorValue = monitorValue;
-        this.type = type;
-        this.unit = unit;
+        this.time = time;
+        this.fl = fl;
+        this.fx = fx;
     }
 
     public String getBridgeCode() {
@@ -36,12 +37,28 @@ public class SpzWarning {
         this.monitorName = monitorName;
     }
 
-    public String getMonitorValue() {
-        return monitorValue;
+    public String getTime() {
+        return time;
     }
 
-    public void setMonitorValue(String monitorValue) {
-        this.monitorValue = monitorValue;
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getFl() {
+        return fl;
+    }
+
+    public void setFl(String fl) {
+        this.fl = fl;
+    }
+
+    public String getFx() {
+        return fx;
+    }
+
+    public void setFx(String fx) {
+        this.fx = fx;
     }
 
     public String getType() {
@@ -50,13 +67,5 @@ public class SpzWarning {
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public String getUnit() {
-        return unit;
-    }
-
-    public void setUnit(String unit) {
-        this.unit = unit;
     }
 }

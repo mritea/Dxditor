@@ -47,9 +47,9 @@ public class BridgeModel implements IBridgeModel {
     public void getWarningData(final ValueCallBack<ArrayList<BridgeWarning>> callBack) {
         if (Constants.testData) {
             ArrayList<BridgeWarning> temp= new ArrayList<BridgeWarning>();
-            temp.add(new BridgeWarning("京津线39号桥梁(中间)梁体应力", null, "3.5N", "2.3N", null, "1", null, null));
-            temp.add(new BridgeWarning("京张铁路18号桥梁(中间)梁体裂缝宽度", null, "1.2cm", "1.1cm", null, "2", null, null));
-            temp.add(new BridgeWarning("京沪线75号桥梁梁体横向位移", null, "0.6cm", "0.9cm", null, "3", null, null));
+            temp.add(new BridgeWarning("京津线39号桥梁(中间)梁体应力", null, "3.5N", "2.3N", null, "1", null, null,"2018-04-12 09:08:00"));
+            temp.add(new BridgeWarning("京张铁路18号桥梁(中间)梁体裂缝宽度", null, "1.2cm", "1.1cm", null, "2", null, null,"2018-04-11 17:22:00"));
+            temp.add(new BridgeWarning("京沪线75号桥梁梁体横向位移", null, "0.6cm", "0.9cm", null, "3", null, null,"2018-04-10 12:45:00"));
             bridgeWarnings=temp;
             callBack.onSuccess(bridgeWarnings);
         } else {
